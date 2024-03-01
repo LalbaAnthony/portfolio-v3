@@ -24,7 +24,7 @@
 
 section {
   padding: 1rem 0rem;
-  margin: 1rem 0rem;
+  margin: 0rem 0rem;
 }
 
 .poppins {
@@ -39,14 +39,12 @@ section {
   color: var(--primary);
 }
 
-.outline.light {
-  color: transparent;
-  -webkit-text-stroke: 1px var(--light);
+.light {
+  color: var(--light);
 }
 
-.outline.primary {
-  color: transparent;
-  -webkit-text-stroke: 1px var(--primary);
+.dark {
+  color: var(--dark);
 }
 
 .button {
@@ -80,18 +78,151 @@ section {
 /* ====================== */
 
 .hero {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  font family: Popins !important;
+  text-align: center; */
+  font-family: Kanit !important;
+  margin-bottom: 6rem;
+}
+
+.hero>* {
+  margin: 0.5rem 0;
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+  .hero .hero-name {
+    font-size: 3rem;
+  }
+}
+
+/* TABLET */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero .hero-name {
+    font-size: 2rem;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 767px) {
+  .hero .hero-name {
+    font-size: 1.5rem;
+  }
+}
+
+.hero .hero-name {
+  font-weight: 500;
+  line-height: 0.8;
+  animation: slideFromLeft 0.5s ease-in-out forwards;
+}
+
+.hero .hero-name::before {
+  content: "> ";
+  color: var(--primary);
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+  .hero .hero-job {
+    font-size: 4rem;
+  }
+}
+
+/* TABLET */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero .hero-job {
+    font-size: 3rem;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 767px) {
+  .hero .hero-job {
+    font-size: 2rem;
+  }
+}
+
+.hero .hero-job {
+  z-index: -10;
+  /* position: absolute;
+  top: 50%; */
+  left: 0;
+  font-weight: 500;
+  line-height: 0.8;
+  word-spacing: 0.5rem;
+  text-transform: uppercase;
+  user-select: none;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--gray);
+  animation: slideFromLeft 0.5s ease-in-out 0.2s forwards;
+  opacity: 0;
+  /* initially hidden, then displayed after 0.2s thank to the animation */
+}
+
+.hero .hero-job::after {
+  content: "_";
+  color: transparent;
+  -webkit-text-stroke: 1px var(--primary);
+}
+
+@keyframes slideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 /* ====================== */
 /*         SOCIALS        */
 /* ====================== */
 
+.socials-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+
+.socials-list>* {
+  display: flex;
+  border: var(--gray) 2px solid;
+  border-radius: 50%;
+  padding: 10px;
+  margin: 2px;
+  transition: ease-in-out 0.3s;
+}
+
+.socials-list>*:hover {
+  padding: 12px;
+  margin: 0px;
+}
+
+.socials-list>*>img {
+  color: var(--gray);
+  width: 32px;
+  height: 32px;
+}
+
+svg.mail {
+  color: var(--gray) !important;
+}
+
+svg.linkedin {
+  color: #0A66C2 !important;
+}
+
+svg.github {
+  color: #171515 !important;
+}
 
 /* ====================== */
 /*         CTAS           */

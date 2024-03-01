@@ -1,12 +1,10 @@
 @charset "UTF-8";
 
 :root {
-  --primary: #545454;
+  --primary: #ea580c;
   --light: #ffffff;
-  --dark: #363636;
-  --success: #3caf57;
-  --warning: #cf4a02;
-  --danger: #cf0d0d;
+  --gray: #3C4043;
+  --dark: #28292A;
 }
 
 *,
@@ -47,7 +45,7 @@ body {
   min-height: 100vh;
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
-  font-family: Kanit, "Roboto", sans-serif;
+  font-family: Poppins, "Roboto", sans-serif;
   font-size: 15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
