@@ -1,30 +1,24 @@
-
-h1,
-h2 {
-  font-family: Kanit;
-}
-
 /* DESKTOP */
 @media (min-width: 1024px) {
   main {
-      margin: 1rem 4rem;
-      padding: 1rem 4rem;
+    margin: 1rem 4rem;
+    padding: 1rem 4rem;
   }
 }
 
 /* TABLET */
 @media (min-width: 768px) and (max-width: 1023px) {
   main {
-      margin: 1rem 2rem;
-      padding: 1rem 3rem;
+    margin: 1rem 2rem;
+    padding: 1rem 3rem;
   }
 }
 
 /* MOBILE */
 @media (max-width: 767px) {
   main {
-      margin: 0.5rem 0.5rem;
-      padding: 0.5rem 0.5rem;
+    margin: 0.5rem 0.5rem;
+    padding: 0.5rem 0.5rem;
   }
 }
 
@@ -32,6 +26,7 @@ section {
   padding: 1rem 0rem;
   margin: 1rem 0rem;
 }
+
 .poppins {
   font-family: Poppins !important;
 }
@@ -42,6 +37,16 @@ section {
 
 .primary {
   color: var(--primary);
+}
+
+.outline.light {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--light);
+}
+
+.outline.primary {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--primary);
 }
 
 .button {
@@ -68,4 +73,33 @@ section {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+/* ====================== */
+/*         HERO           */
+/* ====================== */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font family: Popins !important;
+}
+
+/* ====================== */
+/*         SOCIALS        */
+/* ====================== */
+
+
+/* ====================== */
+/*         CTAS           */
+/* ====================== */
+
+.ctas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
