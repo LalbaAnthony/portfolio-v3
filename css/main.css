@@ -1,0 +1,71 @@
+
+h1,
+h2 {
+  font-family: Kanit;
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+  main {
+      margin: 1rem 4rem;
+      padding: 1rem 4rem;
+  }
+}
+
+/* TABLET */
+@media (min-width: 768px) and (max-width: 1023px) {
+  main {
+      margin: 1rem 2rem;
+      padding: 1rem 3rem;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 767px) {
+  main {
+      margin: 0.5rem 0.5rem;
+      padding: 0.5rem 0.5rem;
+  }
+}
+
+section {
+  padding: 1rem 0rem;
+  margin: 1rem 0rem;
+}
+.poppins {
+  font-family: Poppins !important;
+}
+
+.kanit {
+  font-family: Kanit !important;
+}
+
+.primary {
+  color: var(--primary);
+}
+
+.button {
+  color: var(--light);
+  background-color: var(--primary);
+  border: var(--primary) 2px solid;
+  border-radius: 25px;
+  padding: 10px 15px;
+  transition: all 0.2s;
+}
+
+.button:hover {
+  color: var(--primary);
+  background-color: var(--light);
+  border: var(--primary) 2px solid;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
