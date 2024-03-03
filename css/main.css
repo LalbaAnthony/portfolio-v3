@@ -155,7 +155,7 @@ section {
   text-transform: uppercase;
   user-select: none;
   color: transparent;
-  -webkit-text-stroke: 1px var(--gray);
+  -webkit-text-stroke: 2px var(--gray);
   animation: slideFromLeft 0.5s ease-in-out 0.2s forwards;
   opacity: 0;
   /* initially hidden, then displayed after 0.2s thank to the animation */
@@ -164,7 +164,7 @@ section {
 .hero .hero-job::after {
   content: "_";
   color: transparent;
-  -webkit-text-stroke: 1px var(--primary);
+  -webkit-text-stroke: 2px var(--primary);
 }
 
 @keyframes slideFromLeft {
@@ -198,10 +198,11 @@ section {
   border-radius: 50%;
   padding: 10px;
   margin: 2px;
-  transition: ease-in-out 0.3s;
+  transition: all 0.2s;
 }
 
 .socials-list>*:hover {
+  border: var(--primary) 2px solid;
   padding: 12px;
   margin: 0px;
 }
