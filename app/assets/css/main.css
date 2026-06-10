@@ -3,23 +3,21 @@
 *,
 *::before,
 *::after {
-  padding: 0;
-  margin: 0;
-  text-decoration: none;
-  box-sizing: border-box;
-  font-weight: normal;
+    box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: smooth
+    scroll-behavior: smooth
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  min-height: 100vh;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    color: white;
+    background-color: #07070f;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* ======================================================= */
@@ -27,7 +25,7 @@ body {
 /* ======================================================= */
 
 main {
-  min-height: 80vh;
+    min-height: 80vh;
 }
 
 /* ======================================================= */
@@ -35,45 +33,45 @@ main {
 /* ======================================================= */
 
 @media (min-width: 1536px) {
-  .safe-area {
-    margin: 1.5rem 4rem;
-    padding: 1.5rem 4rem;
-  }
+    .safe-area {
+        margin: 1.5rem 4rem;
+        padding: 1.5rem 4rem;
+    }
 }
 
 @media (min-width: 1280px) and (max-width: 1535px) {
-  .safe-area {
-    margin: 1rem 3rem;
-    padding: 1rem 3rem;
-  }
+    .safe-area {
+        margin: 1rem 3rem;
+        padding: 1rem 3rem;
+    }
 }
 
 @media (min-width: 1024px) and (max-width: 1279px) {
-  .safe-area {
-    margin: 1rem 2rem;
-    padding: 1rem 3rem;
-  }
+    .safe-area {
+        margin: 1rem 2rem;
+        padding: 1rem 3rem;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  .safe-area {
-    margin: 0.5rem 1rem;
-    padding: 0.5rem 2rem;
-  }
+    .safe-area {
+        margin: 0.5rem 1rem;
+        padding: 0.5rem 2rem;
+    }
 }
 
 @media (min-width: 640px) and (max-width: 767px) {
-  .safe-area {
-    margin: 0.5rem 1rem;
-    padding: 0.5rem 1rem;
-  }
+    .safe-area {
+        margin: 0.5rem 1rem;
+        padding: 0.5rem 1rem;
+    }
 }
 
 @media (max-width: 639px) {
-  .safe-area {
-    margin: 0.5rem 0.5rem;
-    padding: 0.5rem 0.5rem;
-  }
+    .safe-area {
+        margin: 0.5rem 0.5rem;
+        padding: 0.5rem 0.5rem;
+    }
 }
 
 /* ======================================================= */
@@ -81,26 +79,26 @@ main {
 /* ======================================================= */
 
 hr {
-  border: none;
-  border-top: 1px solid #E5E5E5;
+    border: none;
+    border-top: 1px solid #E5E5E5;
 }
 
 mark {
-  background: transparent;
-  color: inherit;
+    background: transparent;
+    color: inherit;
 }
 
 .required:after {
-  content: "*";
-  color: var(--color-danger);
-  margin-left: 0.2rem;
+    content: "*";
+    color: var(--color-danger);
+    margin-left: 0.2rem;
 }
 
 .list>*::before {
-  content: "•";
-  color: var(--color-primary);
-  display: inline-block;
-  width: 1em;
+    content: "•";
+    color: var(--color-primary);
+    display: inline-block;
+    width: 1em;
 }
 
 /* ======================================================= */
@@ -108,17 +106,17 @@ mark {
 /* ======================================================= */
 
 .glass-ripple {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, .42);
-  transform: scale(0);
-  animation: glass-ripple-anim .6s ease-out forwards;
-  pointer-events: none;
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .42);
+    transform: scale(0);
+    animation: glass-ripple-anim .6s ease-out forwards;
+    pointer-events: none;
 }
 
 @keyframes glass-ripple-anim {
-  to {
-    transform: scale(4);
-    opacity: 0;
-  }
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
 }

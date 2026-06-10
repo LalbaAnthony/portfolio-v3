@@ -1,5 +1,5 @@
 <template>
-  <div class="glass-card">
+  <div class="glass-card p-6 rounded-2xl">
     <slot />
   </div>
 </template>
@@ -11,8 +11,5 @@
   -webkit-backdrop-filter: blur(30px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, .32);
   border-bottom-color: rgba(255, 255, 255, .1);
-  border-radius: 1rem;
-  padding: 1.5rem;
-  color: #fff;
 }
 </style>

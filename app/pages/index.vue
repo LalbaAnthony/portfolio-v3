@@ -1,10 +1,8 @@
 <template>
-    <div class="glass-page">
+    <div>
         <div class="glass-page__overlay" aria-hidden="true" />
-
         <div class="glass-page__inner">
-            <main class="glass-main">
-
+            <main class="safe-area">
                 <div>
                     <select :value="locale"
                         @change="switchLocale(($event.target as HTMLSelectElement).value as Language)">
@@ -18,19 +16,19 @@
                 </div>
 
                 <!-- -- Hero --------------------------------------------- -->
-                <section class="sec text-center pt-8">
+                <section class="mb-12 text-center pt-8">
                     <h1>Liquid <b>Glass</b> UI</h1>
                     <p class="sub">Glassmorphism components that blur and refract the world behind them.</p>
-                    <div class="hero-actions">
+                    <div class="flex flex-wrap gap-4 justify-center">
                         <Button size="xxl">Get started</Button>
                         <Button variant="ghost" size="xl">View docs</Button>
                     </div>
                 </section>
 
                 <!-- -- Size scale --------------------------------------- -->
-                <section class="sec">
+                <section class="mb-12">
                     <span class="slbl">Size scale</span>
-                    <div class="row">
+                    <div class="flex flex-wrap gap-3 items-center">
                         <Button size="xs">XS</Button>
                         <Button size="sm">Small</Button>
                         <Button size="md">Medium</Button>
@@ -41,9 +39,9 @@
                 </section>
 
                 <!-- -- Color variants ----------------------------------- -->
-                <section class="sec">
+                <section class="mb-12">
                     <span class="slbl">Color variants</span>
-                    <div class="row">
+                    <div class="flex flex-wrap gap-3 items-center">
                         <Button variant="primary">Primary</Button>
                         <Button variant="secondary">Secondary</Button>
                         <Button variant="ghost">Ghost</Button>
@@ -51,9 +49,9 @@
                 </section>
 
                 <!-- -- Pills -------------------------------------------- -->
-                <section class="sec">
+                <section class="mb-12">
                     <span class="slbl">Pills (border-radius full)</span>
-                    <div class="row">
+                    <div class="flex flex-wrap gap-3 items-center">
                         <Button variant="primary" pill>Primary</Button>
                         <Button variant="secondary" pill>Secondary</Button>
                         <Button variant="ghost" pill>Ghost</Button>
@@ -61,9 +59,9 @@
                 </section>
 
                 <!-- -- With icons ---------------------------------------- -->
-                <section class="sec">
+                <section class="mb-12">
                     <span class="slbl">With icons</span>
-                    <div class="row">
+                    <div class="flex flex-wrap gap-3 items-center">
                         <Button variant="primary">
                             <Icon name="ic:baseline-download" size="15" aria-hidden="true" />
                             Download
@@ -76,9 +74,9 @@
                 </section>
 
                 <!-- -- States ------------------------------------------- -->
-                <section class="sec">
+                <section class="mb-12">
                     <span class="slbl">States</span>
-                    <div class="row">
+                    <div class="flex flex-wrap gap-3 items-center">
                         <Button>Normal</Button>
                         <Button disabled>Disabled</Button>
                         <Button variant="secondary" loading>Loading…</Button>
@@ -90,9 +88,9 @@
                 </section>
 
                 <!-- -- Icon-only ----------------------------------------- -->
-                <section class="sec">
+                <section class="mb-12">
                     <span class="slbl">Icon-only buttons</span>
-                    <div class="row flex-wrap">
+                    <div class="flex flex-wrap gap-3 items-center">
                         <Button variant="secondary" icon-only aria-label="Home">
                             <Icon name="ic:baseline-home" size="20" aria-hidden="true" />
                         </Button>
@@ -103,27 +101,13 @@
                 </section>
 
                 <!-- -- Glass cards --------------------------------------- -->
-                <section class="sec">
+                <section class="mb-12">
                     <span class="slbl">Glass cards with actions</span>
-                    <div class="card-grid">
-
-                        <GlassCard>
-                            <div class="card-header">
-                                <Button variant="secondary" size="sm" icon-only aria-label="Notification">
-                                    <Icon name="ic:baseline-notifications" size="17" aria-hidden="true" />
-                                </Button>
-                                <div>
-                                    <p class="card-title">New message</p>
-                                    <p class="card-meta">Just now</p>
-                                </div>
-                            </div>
-                            <p class="card-body">Your export is ready to download from the dashboard.</p>
-                            <div class="row">
-                                <Button size="sm" style="flex: 1; justify-content: center">Open</Button>
-                                <Button variant="ghost" size="sm">Dismiss</Button>
-                            </div>
-                        </GlassCard>
-                    </div>
+                    <Grid :layouts="{ default: 1, xl: 2 }">
+                        <Card />
+                        <Card />
+                        <Card />
+                    </Grid>
                 </section>
             </main>
         </div>
@@ -132,7 +116,8 @@
 
 <script setup lang="ts">
 import Button from '~/components/atoms/Button.vue';
-import GlassCard from '~/components/atoms/GlassCard.vue';
+import Card from '~/components/molecules/Card.vue';
+import Grid from '~/components/molecules/Grid.vue';
 import type { Language } from '~/types/i18n';
 
 const { t, locale, locales } = useI18n()
@@ -142,17 +127,15 @@ function switchLocale(code: Language) {
     navigateTo(switchLocalePath(code))
 }
 
+definePageMeta({
+    title: 'Anthony Lalba - Portfolio',
+    description: 'A collection of my work, experience, and projects.',
+})
+
 </script>
 
 <style scoped>
 /* -- Page background --------------------------------------- */
-.glass-page {
-    position: relative;
-    min-height: 100vh;
-    color: white;
-    background-color: #07070f;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-}
 
 .glass-page__overlay {
     position: fixed;
@@ -175,17 +158,6 @@ function switchLocale(code: Language) {
     z-index: 1;
 }
 
-/* -- Layout ------------------------------------------------- */
-.glass-main {
-    padding: 2rem 1.5rem;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.sec {
-    margin-bottom: 3rem
-}
-
 .slbl {
     display: block;
     font-size: 10px;
@@ -196,12 +168,6 @@ function switchLocale(code: Language) {
     margin-bottom: 1.1rem;
 }
 
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: .75rem;
-    align-items: center;
-}
 
 /* -- Hero --------------------------------------------------- */
 h1 {
@@ -223,61 +189,5 @@ h1 b {
     max-width: 420px;
     margin: 0 auto 2rem;
     line-height: 1.65;
-}
-
-.hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-}
-
-/* -- Cards -------------------------------------------------- */
-.card-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-}
-
-@media (max-width: 560px) {
-    .card-grid {
-        grid-template-columns: 1fr
-    }
-}
-
-.col-span {
-    grid-column: 1 / -1
-}
-
-.card-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: .875rem;
-}
-
-.card-spread {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.card-title {
-    font-weight: 600;
-    font-size: .875rem;
-}
-
-.card-meta {
-    font-size: .72rem;
-    color: rgba(255, 255, 255, .48);
-}
-
-.card-body {
-    font-size: .82rem;
-    color: rgba(255, 255, 255, .68);
-    line-height: 1.6;
-    margin-bottom: 1rem;
 }
 </style>
