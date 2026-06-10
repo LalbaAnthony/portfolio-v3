@@ -17,7 +17,7 @@
                     <p>{{ t('home.description') }}</p>
                 </div>
 
-                <!-- ── Hero ───────────────────────────────────────────── -->
+                <!-- -- Hero --------------------------------------------- -->
                 <section class="sec text-center pt-8">
                     <h1>Liquid <b>Glass</b> UI</h1>
                     <p class="sub">Glassmorphism components that blur and refract the world behind them.</p>
@@ -27,7 +27,7 @@
                     </div>
                 </section>
 
-                <!-- ── Size scale ─────────────────────────────────────── -->
+                <!-- -- Size scale --------------------------------------- -->
                 <section class="sec">
                     <span class="slbl">Size scale</span>
                     <div class="row">
@@ -40,7 +40,7 @@
                     </div>
                 </section>
 
-                <!-- ── Color variants ─────────────────────────────────── -->
+                <!-- -- Color variants ----------------------------------- -->
                 <section class="sec">
                     <span class="slbl">Color variants</span>
                     <div class="row">
@@ -50,7 +50,7 @@
                     </div>
                 </section>
 
-                <!-- ── Pills ──────────────────────────────────────────── -->
+                <!-- -- Pills -------------------------------------------- -->
                 <section class="sec">
                     <span class="slbl">Pills (border-radius full)</span>
                     <div class="row">
@@ -60,7 +60,7 @@
                     </div>
                 </section>
 
-                <!-- ── With icons ──────────────────────────────────────── -->
+                <!-- -- With icons ---------------------------------------- -->
                 <section class="sec">
                     <span class="slbl">With icons</span>
                     <div class="row">
@@ -75,7 +75,7 @@
                     </div>
                 </section>
 
-                <!-- ── States ─────────────────────────────────────────── -->
+                <!-- -- States ------------------------------------------- -->
                 <section class="sec">
                     <span class="slbl">States</span>
                     <div class="row">
@@ -89,7 +89,7 @@
                     </div>
                 </section>
 
-                <!-- ── Icon-only ───────────────────────────────────────── -->
+                <!-- -- Icon-only ----------------------------------------- -->
                 <section class="sec">
                     <span class="slbl">Icon-only buttons</span>
                     <div class="row flex-wrap">
@@ -102,7 +102,7 @@
                     </div>
                 </section>
 
-                <!-- ── Glass cards ─────────────────────────────────────── -->
+                <!-- -- Glass cards --------------------------------------- -->
                 <section class="sec">
                     <span class="slbl">Glass cards with actions</span>
                     <div class="card-grid">
@@ -145,19 +145,27 @@ function switchLocale(code: Language) {
 </script>
 
 <style scoped>
-/* ── Page background ─────────────────────────────────────── */
+/* -- Page background --------------------------------------- */
 .glass-page {
     position: relative;
     min-height: 100vh;
     color: white;
-    background-color: #1e0f3c;
+    background-color: #07070f;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 .glass-page__overlay {
     position: fixed;
     inset: 0;
-    background: linear-gradient(135deg, rgba(40, 10, 100, .58) 0%, rgba(10, 40, 100, .42) 50%, rgba(70, 10, 70, .48) 100%);
+    background:
+        /* teal-500 */
+        radial-gradient(ellipse 680px 560px at 12% 18%, rgba(20, 184, 166, 0.38) 0%, transparent 70%),
+        /* blue-500 */
+        radial-gradient(ellipse 720px 620px at 88% 8%, rgba(59, 130, 246, 0.38) 0%, transparent 70%),
+        /* amber-500 */
+        radial-gradient(ellipse 580px 700px at 75% 82%, rgba(245, 158, 11, 0.32) 0%, transparent 70%),
+        /* violet-500 */
+        radial-gradient(ellipse 640px 540px at 18% 88%, rgba(139, 92, 246, 0.38) 0%, transparent 70%);
     pointer-events: none;
     z-index: 0;
 }
@@ -167,7 +175,7 @@ function switchLocale(code: Language) {
     z-index: 1;
 }
 
-/* ── Layout ───────────────────────────────────────────────── */
+/* -- Layout ------------------------------------------------- */
 .glass-main {
     padding: 2rem 1.5rem;
     max-width: 700px;
@@ -195,7 +203,7 @@ function switchLocale(code: Language) {
     align-items: center;
 }
 
-/* ── Hero ─────────────────────────────────────────────────── */
+/* -- Hero --------------------------------------------------- */
 h1 {
     font-size: 2.75rem;
     font-weight: 300;
@@ -224,7 +232,7 @@ h1 b {
     justify-content: center;
 }
 
-/* ── Cards ────────────────────────────────────────────────── */
+/* -- Cards -------------------------------------------------- */
 .card-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;

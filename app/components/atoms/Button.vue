@@ -19,7 +19,7 @@
 <script setup lang="ts">
 import Spinner from './Spinner.vue';
 
-type Variant = 'primary' | 'secondary' | 'ghost' | 'danger' | 'success' | 'info' | 'warning'
+type Variant = 'primary' | 'secondary' | 'ghost'
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
 
 const props = withDefaults(defineProps<{
@@ -53,7 +53,7 @@ function handleClick(e: MouseEvent) {
 </script>
 
 <style scoped>
-/* ── Base ─────────────────────────────────────────────────── */
+/* -- Base --------------------------------------------------- */
 .glass-btn {
     position: relative;
     overflow: hidden;
@@ -88,7 +88,7 @@ function handleClick(e: MouseEvent) {
     gap: 7px;
 }
 
-/* ── Primary ──────────────────────────────────────────────── */
+/* -- Primary ------------------------------------------------ */
 .glass-btn--primary {
     background: linear-gradient(148deg, rgba(255, 255, 255, .27) 0%, rgba(255, 255, 255, .07) 55%, rgba(255, 255, 255, .02) 100%);
     backdrop-filter: blur(24px) saturate(180%);
@@ -108,7 +108,7 @@ function handleClick(e: MouseEvent) {
     background: linear-gradient(148deg, rgba(255, 255, 255, .13) 0%, rgba(255, 255, 255, .02) 100%);
 }
 
-/* ── Secondary ────────────────────────────────────────────── */
+/* -- Secondary ---------------------------------------------- */
 .glass-btn--secondary {
     font-weight: 500;
     letter-spacing: .04em;
@@ -134,7 +134,7 @@ function handleClick(e: MouseEvent) {
     transform: scale(.96)
 }
 
-/* ── Ghost ────────────────────────────────────────────────── */
+/* -- Ghost -------------------------------------------------- */
 .glass-btn--ghost {
     font-weight: 500;
     color: rgba(255, 255, 255, .78);
@@ -159,7 +159,7 @@ function handleClick(e: MouseEvent) {
     transform: scale(.96)
 }
 
-/* ── Sizes ────────────────────────────────────────────────── */
+/* -- Sizes -------------------------------------------------- */
 .glass-btn--xs {
     padding: .3rem .8rem;
     font-size: .72rem;
@@ -196,12 +196,12 @@ function handleClick(e: MouseEvent) {
     border-radius: 1.1rem
 }
 
-/* ── Pill ─────────────────────────────────────────────────── */
+/* -- Pill --------------------------------------------------- */
 .glass-btn--pill {
     border-radius: 9999px !important
 }
 
-/* ── Disabled ─────────────────────────────────────────────── */
+/* -- Disabled ----------------------------------------------- */
 .glass-btn:disabled,
 .glass-btn[aria-disabled="true"] {
     cursor: not-allowed;
@@ -209,7 +209,7 @@ function handleClick(e: MouseEvent) {
     pointer-events: none;
 }
 
-/* ── Icon-only ────────────────────────────────────────────── */
+/* -- Icon-only ---------------------------------------------- */
 .glass-btn--icon-only {
     padding: 0;
     letter-spacing: 0;
