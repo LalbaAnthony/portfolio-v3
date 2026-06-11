@@ -1,6 +1,7 @@
 {
   "home": {
-    "title": "Welcome",
-    "description": "This is my portfolio."
+    "hero": {
+      "description": "This is my portfolio"
+    }
   }
 }
