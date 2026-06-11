@@ -32,7 +32,7 @@
 import Button from '~/components/atoms/Button.vue';
 import type { Language } from '~/types/i18n';
 
-const { t, locale, locales } = useI18n()
+const { locale, locales } = useI18n()
 const switchLocalePath = useSwitchLocalePath()
 
 function switchLocale(code: Language) {

@@ -20,7 +20,7 @@ npm run build      # production build
 npm run generate   # static generation
 npm run preview    # preview production build
 npx nuxt prepare   # regenerate .nuxt/ types (also runs on postinstall)
-npx eslint .       # lint (no npm script defined)
+npx eslint .       # lint
 ```
 
 There is no `test` script and no test suite.
