@@ -3,7 +3,7 @@
         <header class="glass-card p-2 sticky top-0 z-30 m-1 md:m-2 lg:m-4">
             <div class="flex items-center justify-between">
                 <div>
-                    <span>Anthony Lalba</span>
+                    <span>{{ GENERAL_FULL_NAME }}</span>
                 </div>
 
                 <nav class="max-w-xl flex items-center justify-end gap-2 md:gap-4">
@@ -30,6 +30,7 @@
 
 <script setup lang="ts">
 import Button from '~/components/atoms/Button.vue';
+import { GENERAL_FULL_NAME } from '~/constants/general';
 import type { Language } from '~/types/i18n';
 
 const { locale, locales } = useI18n()

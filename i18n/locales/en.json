@@ -2,6 +2,12 @@
   "home": {
     "hero": {
       "description": "This is my portfolio"
+    },
+    "head": {
+      "description": "A collection of my work, experience, and projects."
+    },
+    "meta": {
+      "description": "A collection of my work, experience, and projects."
     }
   }
 }

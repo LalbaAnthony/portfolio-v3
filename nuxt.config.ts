@@ -4,6 +4,16 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
+  runtimeConfig: {
+    public: {
+      project: {
+        name: 'Anthony Lalba - Portfolio',
+        description: 'A collection of my work, experience, and projects.',
+      },
+      url: '', // Override this in production with env NUXT_PUBLIC_URL
+      noindex: false, // Override this in production with env NUXT_PUBLIC_NOINDEX
+    },
+  },
   vite: {
     plugins: [tailwindcss()],
   },

@@ -1,10 +1,10 @@
 <template>
     <div class="safe-area">
         <section class="mb-12 text-center pt-8">
-            <h1 class="title-main">Anthony <b>Lalba</b></h1>
+            <h1 class="title-main">{{ GENERAL_ME_FIRST_NAME }} <b>{{ GENERAL_ME_LAST_NAME }}</b></h1>
             <p class="title-submain">{{ t('home.hero.description') }}</p>
             <div class="flex flex-wrap gap-4 justify-center">
-                <Button size="xxl">Get started</Button>
+                <Button size="2xl">Get started</Button>
                 <Button variant="ghost" size="xl">View docs</Button>
             </div>
         </section>
@@ -17,7 +17,7 @@
                 <Button size="md">Medium</Button>
                 <Button size="lg">Large</Button>
                 <Button size="xl">X-Large</Button>
-                <Button size="xxl">XX-Large</Button>
+                <Button size="2xl">XX-Large</Button>
             </div>
         </section>
 
@@ -93,12 +93,20 @@
 import Button from '~/components/atoms/Button.vue';
 import Card from '~/components/molecules/Card.vue';
 import Grid from '~/components/molecules/Grid.vue';
+import { GENERAL_ME_FIRST_NAME, GENERAL_ME_LAST_NAME } from '~/constants/general';
 
 const { t } = useI18n()
 
 definePageMeta({
-    title: 'Anthony Lalba - Portfolio',
-    description: 'A collection of my work, experience, and projects.',
+    title: `${GENERAL_ME_FIRST_NAME} ${GENERAL_ME_LAST_NAME} - Portfolio`,
+    description: t('home.meta.description'),
+})
+
+useAppHead({
+    title: t('home.head.title'),
+    description: t('home.head.description'),
+    url: '/',
+    noindex: false,
 })
 
 </script>

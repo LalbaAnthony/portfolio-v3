@@ -20,7 +20,7 @@
 import Spinner from './Spinner.vue';
 
 type Variant = 'primary' | 'secondary' | 'ghost'
-type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
+type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 
 const props = withDefaults(defineProps<{
     variant?: Variant
@@ -190,7 +190,7 @@ function handleClick(e: MouseEvent) {
     border-radius: 1rem
 }
 
-.glass-btn--xxl {
+.glass-btn--2xl {
     padding: 1.25rem 3.6rem;
     font-size: 1.25rem;
     border-radius: 1.1rem
