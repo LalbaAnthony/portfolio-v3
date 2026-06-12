@@ -10,7 +10,7 @@ Personal portfolio of Anthony Lalba. Single-page-first Nuxt site with a custom "
 - **@nuxt/icon** — icons referenced as `ic:baseline-*`, client-bundled at build (see `icon.clientBundle` in `nuxt.config.ts`)
 - **@nuxtjs/robots** + **@nuxtjs/sitemap** for SEO
 - **@nuxt/eslint** — config in `eslint.config.mjs` (extends generated `.nuxt/eslint.config.mjs`)
-- No backend, no database, no test framework, no CI configured.
+- Backend via Nuxt's built-in **Nitro** server (`server/api/...`), static JSON as data source — no database, no test framework, no CI configured.
 
 ## Commands
 
@@ -37,7 +37,12 @@ app/
     organisms/
   layouts/default.vue      # header (locale switcher, nav) + glass overlay + <main><slot/>
   pages/index.vue          # home
-  types/i18n.ts            # `Language = 'en' | 'fr'`
+server/
+  api/projects/            # controllers (Nitro event handlers): index.get.ts, [slug].get.ts
+  services/project.ts      # business logic, reads static JSON
+  data/projects.json       # static project data (localized en/fr fields)
+shared/
+  types/                   # types shared between app and server (import via `#shared/types/...`)
 i18n/locales/{en,fr}.json  # translation files (nested keys, e.g. home.hero.description)
 public/                    # favicon, _robots.txt
 ```

@@ -1,0 +1,33 @@
+[
+  {
+    "slug": "portfolio-v3",
+    "title": "Portfolio v3",
+    "description": {
+      "en": "Personal portfolio built with Nuxt 4 and a custom glassmorphism UI, fully bilingual (EN/FR).",
+      "fr": "Portfolio personnel construit avec Nuxt 4 et une interface glassmorphism sur mesure, entièrement bilingue (EN/FR)."
+    },
+    "technologies": [
+      "Nuxt 4",
+      "Vue 3",
+      "TypeScript",
+      "Tailwind CSS 4"
+    ],
+    "year": 2026,
+    "featured": true,
+    "repository": "https://github.com/LalbaAnthony/portfolio-v3"
+  },
+  {
+    "slug": "sample-api",
+    "title": "Sample API",
+    "description": {
+      "en": "Placeholder project — replace with real content.",
+      "fr": "Projet d'exemple — à remplacer par du contenu réel."
+    },
+    "technologies": [
+      "Node.js",
+      "TypeScript"
+    ],
+    "year": 2025,
+    "featured": false
+  }
+]

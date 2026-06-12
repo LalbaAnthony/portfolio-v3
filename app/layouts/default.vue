@@ -33,7 +33,7 @@
 <script setup lang="ts">
 import Button from '~/components/atoms/Button.vue';
 import { GENERAL_ME_FIRST_NAME, GENERAL_ME_LAST_NAME } from '~/constants/general';
-import type { Language } from '~/types/i18n';
+import type { Language } from '#shared/types/i18n';
 
 const { locale, locales } = useI18n()
 const switchLocalePath = useSwitchLocalePath()

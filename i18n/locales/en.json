@@ -8,6 +8,17 @@
       "description": "A collection of my work, experience, and projects."
     }
   },
+  "projects": {
+    "title": "Projects",
+    "empty": "No projects yet.",
+    "error": "Failed to load projects.",
+    "visit": "Visit",
+    "repository": "Source code",
+    "head": {
+      "title": "Projects",
+      "description": "A list of my projects."
+    }
+  },
   "routing": {
     "goHome": "Go Home",
     "goAbout": "Go Back"
