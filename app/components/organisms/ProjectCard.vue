@@ -14,11 +14,13 @@
             {{ props.project.description[locale] }}
         </p>
         <div class="flex flex-wrap gap-3 items-center">
-            <Button as="link" :href="`/projects/${props.project.slug}`" variant="white" size="sm" class="flex-1">{{
-                t('pages.projects.details') }}</Button>
-            <Button as="link" :href="props.project.repository" variant="ghost" size="sm">{{
-                t('pages.projects.repository')
-                }}</Button>
+            <Button variant="white" size="sm" class="flex-1"
+                @click.stop="navigateTo(`/projects/${props.project.slug}`)">
+                {{ t('pages.projects.details') }}
+            </Button>
+            <Button variant="ghost" size="sm" @click.stop="openRepo">
+                {{ t('pages.projects.repository') }}
+            </Button>
         </div>
     </NuxtLink>
 </template>
@@ -33,4 +35,8 @@ const props = defineProps<{
 
 const { t, locale } = useI18n()
 
+function openRepo() {
+    // TODO: replace by routings.ts function
+    window.open(props.project.repository, '_blank', 'noopener,noreferrer')
+}
 </script>
