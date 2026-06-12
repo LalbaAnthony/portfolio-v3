@@ -6,8 +6,6 @@
 }
 
 :root {
-    --hr-color: #E5E5E5;
-
     --focus-offset: 2px;
     --focus-color: #fff;
 
@@ -102,11 +100,6 @@ main {
 ::-moz-focus-inner {
     border: 0;
     padding: 0
-}
-
-hr {
-    border: none;
-    border-top: 1px solid var(--hr-color);
 }
 
 mark {
