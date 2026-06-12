@@ -7,8 +7,9 @@ export default defineEventHandler((event) => {
   const search = typeof query.search === 'string' ? query.search : undefined
   const featured = query.featured === 'true' ? true : query.featured === 'false' ? false : null
   const technologies = parseArrayParam(query.technologies as string | string[] | undefined)
+  const limit = typeof query.limit === 'string' ? parseInt(query.limit, 10) : undefined
 
   const order = parseOrder(query.order as string | string[] | undefined)
 
-  return getProjects({ search, featured, technologies }, order)
+  return getProjects({ search, featured, technologies }, order, limit)
 })

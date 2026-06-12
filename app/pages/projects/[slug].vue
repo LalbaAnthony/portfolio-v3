@@ -1,6 +1,6 @@
 <template>
     <div class="safe-area">
-        <h1 class="text-3xl font-bold pt-2 pb-4">{{ project?.title ?? '' }}</h1>
+        <h1 class="title-page pt-2 pb-4">{{ project?.title ?? '' }}</h1>
 
         <Breadcrumb :items="[
             { name: t('pages.projects.title'), url: '/projects' },

@@ -46,7 +46,7 @@
     },
     "technologies": ["Go", "Docker", "Prometheus", "SQLite"],
     "year": 2024,
-    "featured": false,
+    "featured": true,
     "repository": "https://github.com/LalbaAnthony/infra-pulse"
   },
   {

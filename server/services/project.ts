@@ -5,7 +5,7 @@ import projectsData from '../data/projects.json'
 
 const projects = projectsData as Project[]
 
-export function getProjects(options?: { search?: string, featured?: boolean | null, technologies?: string[] | null }, order: Order[] = []): Project[] {
+export function getProjects(options?: { search?: string, featured?: boolean | null, technologies?: string[] | null }, order: Order[] = [], limit?: number): Project[] {
   const { search, featured, technologies } = options || {}
 
   let result = [...projects]
@@ -31,6 +31,10 @@ export function getProjects(options?: { search?: string, featured?: boolean | nu
   }
 
   result = applySorting(result, order)
+
+  if (limit != null) {
+    result = result.slice(0, limit)
+  }
 
   return result
 }

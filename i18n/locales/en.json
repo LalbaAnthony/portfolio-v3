@@ -4,6 +4,11 @@
       "hero": {
         "description": "This is my portfolio"
       },
+      "projects": {
+        "title": "Featured projects",
+        "description": "A selection of my most recent and relevant projects.",
+        "all": "See all projects"
+      },
       "head": {
         "title": "Portfolio",
         "description": "A collection of my work, experience, and projects."

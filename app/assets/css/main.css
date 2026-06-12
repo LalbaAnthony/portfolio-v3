@@ -15,7 +15,7 @@
     --glass-filter-blur-md: blur(24px);
     --glass-filter-saturate-md: saturate(180%);
     --glass-filter-md: var(--glass-filter-blur-md) var(--glass-filter-saturate-md);
-    
+
     --glass-filter-blur-lg: blur(30px);
     --glass-filter-saturate-lg: saturate(180%);
     --glass-filter-lg: var(--glass-filter-blur-lg) var(--glass-filter-saturate-lg);
@@ -153,6 +153,22 @@ mark {
         margin: 0.5rem 0.5rem;
         padding: 0.5rem 0.5rem;
     }
+}
+
+/* ======================================================= */
+/* Glass theme */
+/* ======================================================= */
+
+.title-page {
+    font-size: 2.25rem;
+    line-height: 4rem;
+    font-weight: 600;
+}
+
+.title-section {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    font-weight: 700;
 }
 
 /* ======================================================= */
