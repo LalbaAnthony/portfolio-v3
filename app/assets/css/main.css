@@ -12,41 +12,31 @@
     --selection-bg: #fff;
     --selection-color: #2c2c2c;
 
-    /* Glass theme: white surfaces by opacity step (--glass-white-XX = alpha .XX) */
     --glass-white: 255 255 255;
     --glass-white-02: rgb(var(--glass-white) / 2%);
     --glass-white-04: rgb(var(--glass-white) / 4%);
     --glass-white-06: rgb(var(--glass-white) / 6%);
-    --glass-white-07: rgb(var(--glass-white) / 7%);
     --glass-white-08: rgb(var(--glass-white) / 8%);
-    --glass-white-09: rgb(var(--glass-white) / 9%);
     --glass-white-10: rgb(var(--glass-white) / 10%);
-    --glass-white-13: rgb(var(--glass-white) / 13%);
-    --glass-white-17: rgb(var(--glass-white) / 17%);
-    --glass-white-18: rgb(var(--glass-white) / 18%);
-    --glass-white-19: rgb(var(--glass-white) / 19%);
-    --glass-white-27: rgb(var(--glass-white) / 27%);
-    --glass-white-28: rgb(var(--glass-white) / 28%);
+    --glass-white-20: rgb(var(--glass-white) / 20%);
     --glass-white-30: rgb(var(--glass-white) / 30%);
-    --glass-white-32: rgb(var(--glass-white) / 32%);
-    --glass-white-33: rgb(var(--glass-white) / 33%);
-    --glass-white-35: rgb(var(--glass-white) / 35%);
-    --glass-white-37: rgb(var(--glass-white) / 37%);
-    --glass-white-42: rgb(var(--glass-white) / 42%);
-    --glass-white-44: rgb(var(--glass-white) / 44%);
-    --glass-white-48: rgb(var(--glass-white) / 48%);
-    --glass-white-52: rgb(var(--glass-white) / 52%);
-    --glass-white-58: rgb(var(--glass-white) / 58%);
-    --glass-white-78: rgb(var(--glass-white) / 78%);
+    --glass-white-40: rgb(var(--glass-white) / 40%);
+    --glass-white-50: rgb(var(--glass-white) / 50%);
+    --glass-white-60: rgb(var(--glass-white) / 60%);
+    --glass-white-80: rgb(var(--glass-white) / 80%);
     --glass-white-90: rgb(var(--glass-white) / 90%);
     --glass-teal: 20 184 166;
     --glass-teal-40: rgb(var(--glass-teal) / 40%);
+    --glass-teal-80: rgb(var(--glass-teal) / 80%);
     --glass-blue: 59 130 246;
     --glass-blue-40: rgb(var(--glass-blue) / 40%);
+    --glass-blue-80: rgb(var(--glass-blue) / 80%);
     --glass-amber: 245 158 11;
     --glass-amber-40: rgb(var(--glass-amber) / 40%);
+    --glass-amber-80: rgb(var(--glass-amber) / 80%);
     --glass-violet: 139 92 246;
     --glass-violet-40: rgb(var(--glass-violet) / 40%);
+    --glass-violet-80: rgb(var(--glass-violet) / 80%);
 }
 
 @font-face {
@@ -175,10 +165,10 @@ mark {
 }
 
 .glass-card {
-    background: linear-gradient(135deg, var(--glass-white-17) 0%, var(--glass-white-06) 100%);
+    background: linear-gradient(135deg, var(--glass-white-20) 0%, var(--glass-white-06) 100%);
     backdrop-filter: blur(30px) saturate(180%);
     -webkit-backdrop-filter: blur(30px) saturate(180%);
-    border: 1px solid var(--glass-white-32);
+    border: 1px solid var(--glass-white-30);
     border-bottom-color: var(--glass-white-10);
     border-radius: 1rem;
 }
@@ -186,7 +176,7 @@ mark {
 .glass-ripple {
     position: absolute;
     border-radius: 50%;
-    background: var(--glass-white-42);
+    background: var(--glass-white-40);
     transform: scale(0);
     animation: glass-ripple-anim .6s ease-out forwards;
     pointer-events: none;

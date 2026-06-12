@@ -119,7 +119,7 @@ useAppHead({
 
 .title-submain {
     text-align: center;
-    color: var(--glass-white-58);
+    color: var(--glass-white-60);
     font-size: 1rem;
     max-width: 420px;
     margin: 0 auto 2rem;
@@ -131,7 +131,7 @@ useAppHead({
     font-size: 10px;
     letter-spacing: .3em;
     text-transform: uppercase;
-    color: var(--glass-white-48);
+    color: var(--glass-white-50);
     font-weight: 500;
     margin-bottom: 1.1rem;
 }
