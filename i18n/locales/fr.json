@@ -1,13 +1,1 @@
-{
-  "projects": {
-    "title": "Projets",
-    "empty": "Aucun projet pour le moment.",
-    "error": "Impossible de charger les projets.",
-    "visit": "Visiter",
-    "repository": "Code source",
-    "head": {
-      "title": "Projets",
-      "description": "Une liste de mes projets."
-    }
-  }
-}
+{}

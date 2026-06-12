@@ -1,52 +1,56 @@
 {
-  "home": {
-    "hero": {
-      "description": "This is my portfolio"
+  "pages": {
+    "home": {
+      "hero": {
+        "description": "This is my portfolio"
+      },
+      "head": {
+        "title": "Portfolio",
+        "description": "A collection of my work, experience, and projects."
+      }
     },
-    "head": {
-      "title": "Portfolio",
-      "description": "A collection of my work, experience, and projects."
-    }
-  },
-  "projects": {
-    "title": "Projects",
-    "empty": "No projects yet.",
-    "error": "Failed to load projects.",
-    "visit": "Visit",
-    "repository": "Source code",
-    "head": {
+    "projects": {
       "title": "Projects",
-      "description": "A list of my projects."
+      "empty": "No projects yet.",
+      "error": "Failed to load projects.",
+      "visit": "Visit",
+      "back": "Back to projects",
+      "details": "More details",
+      "repository": "View repository",
+      "head": {
+        "title": "Projects",
+        "description": "A list of my projects."
+      }
+    },
+    "error": {
+      "400": {
+        "title": "Bad Request",
+        "description": "The syntax of your request or URL is invalid, or the provided data is incorrect."
+      },
+      "401": {
+        "title": "Unauthorized",
+        "description": "You must be logged in to access this resource."
+      },
+      "403": {
+        "title": "Forbidden",
+        "description": "You do not have permission to access this page."
+      },
+      "404": {
+        "title": "Not Found",
+        "description": "The resource you are looking for does not exist or has been moved."
+      },
+      "500": {
+        "title": "Internal Server Error",
+        "description": "An internal error occurred. Please try again later."
+      },
+      "unknown": {
+        "title": "Unknown Error",
+        "description": "An unknown error occurred. If this error persists, please contact the site owner."
+      }
     }
   },
   "routing": {
-    "goHome": "Go Home",
-    "goAbout": "Go Back"
-  },
-  "error": {
-    "400": {
-      "title": "Bad Request",
-      "description": "The syntax of your request or URL is invalid, or the provided data is incorrect."
-    },
-    "401": {
-      "title": "Unauthorized",
-      "description": "You must be logged in to access this resource."
-    },
-    "403": {
-      "title": "Forbidden",
-      "description": "You do not have permission to access this page."
-    },
-    "404": {
-      "title": "Not Found",
-      "description": "The resource you are looking for does not exist or has been moved."
-    },
-    "500": {
-      "title": "Internal Server Error",
-      "description": "An internal error occurred. Please try again later."
-    },
-    "unknown": {
-      "title": "Unknown Error",
-      "description": "An unknown error occurred. If this error persists, please contact the site owner."
-    }
+    "home": "Go Home",
+    "back": "Go Back"
   }
 }

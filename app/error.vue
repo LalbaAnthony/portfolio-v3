@@ -15,8 +15,8 @@
             </p>
           </div>
           <div class="mt-10 space-y-4">
-            <Button class="w-full" variant="primary" size="lg" @click="goToHome()">{{ t('routing.goHome') }}</Button>
-            <Button class="w-full" variant="ghost" size="lg" @click="goBack()">{{ t('routing.goAbout') }}</Button>
+            <Button class="w-full" variant="primary" size="lg" @click="goToHome()">{{ t('routing.home') }}</Button>
+            <Button class="w-full" variant="ghost" size="lg" @click="goBack()">{{ t('routing.back') }}</Button>
           </div>
         </div>
       </div>
@@ -51,17 +51,17 @@ const title = computed(() => {
   } else {
     switch (props.error.statusCode) {
       case 400:
-        return t('error.400.title');
+        return t('pages.error.400.title');
       case 401:
-        return t('error.401.title');
+        return t('pages.error.401.title');
       case 403:
-        return t('error.403.title');
+        return t('pages.error.403.title');
       case 404:
-        return t('error.404.title');
+        return t('pages.error.404.title');
       case 500:
-        return t('error.500.title');
+        return t('pages.error.500.title');
       default:
-        return t('error.unknown.title');
+        return t('pages.error.unknown.title');
     }
   }
 });
@@ -69,17 +69,17 @@ const title = computed(() => {
 const description = computed(() => {
   switch (props.error.statusCode) {
     case 400:
-      return t('error.400.description');
+      return t('pages.error.400.description');
     case 401:
-      return t('error.401.description');
+      return t('pages.error.401.description');
     case 403:
-      return t('error.403.description');
+      return t('pages.error.403.description');
     case 404:
-      return t('error.404.description');
+      return t('pages.error.404.description');
     case 500:
-      return t('error.500.description');
+      return t('pages.error.500.description');
     default:
-      return t('error.unknown.description');
+      return t('pages.error.unknown.description');
   }
 });
 

@@ -2,7 +2,7 @@
     <div class="safe-area">
         <section class="mb-12 text-center pt-8">
             <h1 class="title-1 align-center text-5xl">{{ GENERAL_ME_FIRST_NAME }} <b>{{ GENERAL_ME_LAST_NAME }}</b></h1>
-            <p class="text-white/60 align-center my-2">{{ t('home.hero.description') }}</p>
+            <p class="text-white/60 align-center my-2">{{ t('pages.home.hero.description') }}</p>
             <div class="flex flex-wrap gap-4 justify-center">
                 <Button size="2xl">Get started</Button>
                 <Button variant="ghost" size="xl">View docs</Button>
@@ -68,27 +68,18 @@
             </div>
         </section>
 
-        <section class="mb-12">
-            <Grid :layouts="{ default: 1, md: 2, lg: 3 }">
-                <Card />
-                <Card />
-                <Card />
-            </Grid>
-        </section>
     </div>
 </template>
 
 <script setup lang="ts">
 import Button from '~/components/atoms/Button.vue';
-import Card from '~/components/molecules/Card.vue';
-import Grid from '~/components/molecules/Grid.vue';
 import { GENERAL_ME_FIRST_NAME, GENERAL_ME_LAST_NAME } from '~/constants/general';
 
 const { t } = useI18n()
 
 useAppHead({
-    title: t('home.head.title'),
-    description: t('home.head.description'),
+    title: t('pages.home.head.title'),
+    description: t('pages.home.head.description'),
     url: '/',
     noindex: false,
 })

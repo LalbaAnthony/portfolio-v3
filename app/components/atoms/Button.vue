@@ -21,7 +21,7 @@
 import { computed, useAttrs } from 'vue'
 import { NuxtLink } from '#components'
 
-type Variant = 'primary' | 'secondary' | 'ghost'
+type Variant = 'primary' | 'secondary' | 'ghost' | 'white'
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 type As = 'button' | 'link'
 type Type = 'button' | 'submit' | 'reset'
@@ -197,6 +197,34 @@ function handleClick(e: MouseEvent) {
 
 .glass-btn--ghost:active {
     transform: scale(.96)
+}
+
+/* White */
+
+.glass-btn--white {
+    font-weight: 600;
+    color: #1a1a2e;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+}
+
+.glass-btn--white::before {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, transparent 100%);
+    inset: 0 0 auto 0;
+    height: 50%;
+}
+
+.glass-btn--white:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.25);
+}
+
+.glass-btn--white:active {
+    transform: scale(.97);
+    background: rgba(255, 255, 255, 0.80);
 }
 
 /* Sizes */
