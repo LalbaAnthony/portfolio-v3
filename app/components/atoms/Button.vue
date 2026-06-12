@@ -75,7 +75,7 @@ function handleClick(e: MouseEvent) {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(255, 255, 255, .44) 0%, rgba(255, 255, 255, .07) 26%, transparent 52%);
+    background: linear-gradient(180deg, var(--glass-white-44) 0%, var(--glass-white-07) 26%, transparent 52%);
     border-radius: inherit;
     pointer-events: none;
 }
@@ -90,43 +90,43 @@ function handleClick(e: MouseEvent) {
 
 /* -- Primary ------------------------------------------------ */
 .glass-btn--primary {
-    background: linear-gradient(148deg, rgba(255, 255, 255, .27) 0%, rgba(255, 255, 255, .07) 55%, rgba(255, 255, 255, .02) 100%);
+    background: linear-gradient(148deg, var(--glass-white-27) 0%, var(--glass-white-07) 55%, var(--glass-white-02) 100%);
     backdrop-filter: blur(24px) saturate(180%);
     -webkit-backdrop-filter: blur(24px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, .42);
-    border-bottom-color: rgba(255, 255, 255, .13);
+    border: 1px solid var(--glass-white-42);
+    border-bottom-color: var(--glass-white-13);
 }
 
 .glass-btn--primary:hover {
-    background: linear-gradient(148deg, rgba(255, 255, 255, .37) 0%, rgba(255, 255, 255, .13) 55%, rgba(255, 255, 255, .04) 100%);
+    background: linear-gradient(148deg, var(--glass-white-37) 0%, var(--glass-white-13) 55%, var(--glass-white-04) 100%);
     transform: translateY(-3px) scale(1.03);
-    border-color: rgba(255, 255, 255, .58);
+    border-color: var(--glass-white-58);
 }
 
 .glass-btn--primary:active {
     transform: scale(.97);
-    background: linear-gradient(148deg, rgba(255, 255, 255, .13) 0%, rgba(255, 255, 255, .02) 100%);
+    background: linear-gradient(148deg, var(--glass-white-13) 0%, var(--glass-white-02) 100%);
 }
 
 /* -- Secondary ---------------------------------------------- */
 .glass-btn--secondary {
     font-weight: 500;
     letter-spacing: .04em;
-    color: rgba(255, 255, 255, .9);
-    background: rgba(255, 255, 255, .10);
+    color: var(--glass-white-90);
+    background: var(--glass-white-10);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, .30);
+    border: 1px solid var(--glass-white-30);
 }
 
 .glass-btn--secondary::before {
-    background: linear-gradient(180deg, rgba(255, 255, 255, .32) 0%, transparent 100%);
+    background: linear-gradient(180deg, var(--glass-white-32) 0%, transparent 100%);
     inset: 0 0 auto 0;
     height: 44%;
 }
 
 .glass-btn--secondary:hover {
-    background: rgba(255, 255, 255, .18);
+    background: var(--glass-white-18);
     transform: translateY(-2px);
 }
 
@@ -137,11 +137,11 @@ function handleClick(e: MouseEvent) {
 /* -- Ghost -------------------------------------------------- */
 .glass-btn--ghost {
     font-weight: 500;
-    color: rgba(255, 255, 255, .78);
+    color: var(--glass-white-78);
     background: transparent;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, .35);
+    border: 1px solid var(--glass-white-35);
 }
 
 .glass-btn--ghost::before {
@@ -149,10 +149,10 @@ function handleClick(e: MouseEvent) {
 }
 
 .glass-btn--ghost:hover {
-    background: rgba(255, 255, 255, .08);
+    background: var(--glass-white-08);
     color: #fff;
     transform: translateY(-2px);
-    border-color: rgba(255, 255, 255, .52);
+    border-color: var(--glass-white-52);
 }
 
 .glass-btn--ghost:active {
@@ -214,22 +214,22 @@ function handleClick(e: MouseEvent) {
     padding: 0;
     letter-spacing: 0;
     font-weight: normal;
-    background: rgba(255, 255, 255, .09);
+    background: var(--glass-white-09);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, .28);
+    border: 1px solid var(--glass-white-28);
 }
 
 .glass-btn--icon-only::before {
-    background: linear-gradient(180deg, rgba(255, 255, 255, .33) 0%, transparent 100%);
+    background: linear-gradient(180deg, var(--glass-white-33) 0%, transparent 100%);
     inset: 0 0 auto 0;
     height: 45%;
 }
 
 .glass-btn--icon-only:hover {
-    background: rgba(255, 255, 255, .19);
+    background: var(--glass-white-19);
     transform: translateY(-2px) scale(1.09);
-    border-color: rgba(255, 255, 255, .28);
+    border-color: var(--glass-white-28);
 }
 
 .glass-btn--icon-only:active {

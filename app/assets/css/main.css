@@ -7,10 +7,39 @@
 
 :root {
     --hr-color: #E5E5E5;
+    
     --focus-offset: 2px;
     --focus-color: #fff;
+
     --selection-bg: #fff;
     --selection-color: #2c2c2c;
+
+    /* Glass theme: white surfaces by opacity step (--glass-white-XX = alpha .XX) */
+    --glass-white-02: rgba(255, 255, 255, .02);
+    --glass-white-04: rgba(255, 255, 255, .04);
+    --glass-white-06: rgba(255, 255, 255, .06);
+    --glass-white-07: rgba(255, 255, 255, .07);
+    --glass-white-08: rgba(255, 255, 255, .08);
+    --glass-white-09: rgba(255, 255, 255, .09);
+    --glass-white-10: rgba(255, 255, 255, .10);
+    --glass-white-13: rgba(255, 255, 255, .13);
+    --glass-white-17: rgba(255, 255, 255, .17);
+    --glass-white-18: rgba(255, 255, 255, .18);
+    --glass-white-19: rgba(255, 255, 255, .19);
+    --glass-white-27: rgba(255, 255, 255, .27);
+    --glass-white-28: rgba(255, 255, 255, .28);
+    --glass-white-30: rgba(255, 255, 255, .30);
+    --glass-white-32: rgba(255, 255, 255, .32);
+    --glass-white-33: rgba(255, 255, 255, .33);
+    --glass-white-35: rgba(255, 255, 255, .35);
+    --glass-white-37: rgba(255, 255, 255, .37);
+    --glass-white-42: rgba(255, 255, 255, .42);
+    --glass-white-44: rgba(255, 255, 255, .44);
+    --glass-white-48: rgba(255, 255, 255, .48);
+    --glass-white-52: rgba(255, 255, 255, .52);
+    --glass-white-58: rgba(255, 255, 255, .58);
+    --glass-white-78: rgba(255, 255, 255, .78);
+    --glass-white-90: rgba(255, 255, 255, .90);
 }
 
 @font-face {
@@ -148,18 +177,18 @@ mark {
 }
 
 .glass-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, .17) 0%, rgba(255, 255, 255, .06) 100%);
+    background: linear-gradient(135deg, var(--glass-white-17) 0%, var(--glass-white-06) 100%);
     backdrop-filter: blur(30px) saturate(180%);
     -webkit-backdrop-filter: blur(30px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, .32);
-    border-bottom-color: rgba(255, 255, 255, .1);
+    border: 1px solid var(--glass-white-32);
+    border-bottom-color: var(--glass-white-10);
     border-radius: 1rem;
 }
 
 .glass-ripple {
     position: absolute;
     border-radius: 50%;
-    background: rgba(255, 255, 255, .42);
+    background: var(--glass-white-42);
     transform: scale(0);
     animation: glass-ripple-anim .6s ease-out forwards;
     pointer-events: none;
