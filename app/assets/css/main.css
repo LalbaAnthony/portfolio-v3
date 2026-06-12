@@ -7,7 +7,7 @@
 
 :root {
     --hr-color: #E5E5E5;
-    
+
     --focus-offset: 2px;
     --focus-color: #fff;
 
@@ -15,31 +15,40 @@
     --selection-color: #2c2c2c;
 
     /* Glass theme: white surfaces by opacity step (--glass-white-XX = alpha .XX) */
-    --glass-white-02: rgba(255, 255, 255, .02);
-    --glass-white-04: rgba(255, 255, 255, .04);
-    --glass-white-06: rgba(255, 255, 255, .06);
-    --glass-white-07: rgba(255, 255, 255, .07);
-    --glass-white-08: rgba(255, 255, 255, .08);
-    --glass-white-09: rgba(255, 255, 255, .09);
-    --glass-white-10: rgba(255, 255, 255, .10);
-    --glass-white-13: rgba(255, 255, 255, .13);
-    --glass-white-17: rgba(255, 255, 255, .17);
-    --glass-white-18: rgba(255, 255, 255, .18);
-    --glass-white-19: rgba(255, 255, 255, .19);
-    --glass-white-27: rgba(255, 255, 255, .27);
-    --glass-white-28: rgba(255, 255, 255, .28);
-    --glass-white-30: rgba(255, 255, 255, .30);
-    --glass-white-32: rgba(255, 255, 255, .32);
-    --glass-white-33: rgba(255, 255, 255, .33);
-    --glass-white-35: rgba(255, 255, 255, .35);
-    --glass-white-37: rgba(255, 255, 255, .37);
-    --glass-white-42: rgba(255, 255, 255, .42);
-    --glass-white-44: rgba(255, 255, 255, .44);
-    --glass-white-48: rgba(255, 255, 255, .48);
-    --glass-white-52: rgba(255, 255, 255, .52);
-    --glass-white-58: rgba(255, 255, 255, .58);
-    --glass-white-78: rgba(255, 255, 255, .78);
-    --glass-white-90: rgba(255, 255, 255, .90);
+    --glass-white: 255 255 255;
+    --glass-white-02: rgb(var(--glass-white) / 2%);
+    --glass-white-04: rgb(var(--glass-white) / 4%);
+    --glass-white-06: rgb(var(--glass-white) / 6%);
+    --glass-white-07: rgb(var(--glass-white) / 7%);
+    --glass-white-08: rgb(var(--glass-white) / 8%);
+    --glass-white-09: rgb(var(--glass-white) / 9%);
+    --glass-white-10: rgb(var(--glass-white) / 10%);
+    --glass-white-13: rgb(var(--glass-white) / 13%);
+    --glass-white-17: rgb(var(--glass-white) / 17%);
+    --glass-white-18: rgb(var(--glass-white) / 18%);
+    --glass-white-19: rgb(var(--glass-white) / 19%);
+    --glass-white-27: rgb(var(--glass-white) / 27%);
+    --glass-white-28: rgb(var(--glass-white) / 28%);
+    --glass-white-30: rgb(var(--glass-white) / 30%);
+    --glass-white-32: rgb(var(--glass-white) / 32%);
+    --glass-white-33: rgb(var(--glass-white) / 33%);
+    --glass-white-35: rgb(var(--glass-white) / 35%);
+    --glass-white-37: rgb(var(--glass-white) / 37%);
+    --glass-white-42: rgb(var(--glass-white) / 42%);
+    --glass-white-44: rgb(var(--glass-white) / 44%);
+    --glass-white-48: rgb(var(--glass-white) / 48%);
+    --glass-white-52: rgb(var(--glass-white) / 52%);
+    --glass-white-58: rgb(var(--glass-white) / 58%);
+    --glass-white-78: rgb(var(--glass-white) / 78%);
+    --glass-white-90: rgb(var(--glass-white) / 90%);
+    --glass-teal: 20 184 166;
+    --glass-teal-40: rgb(var(--glass-teal) / 40%);
+    --glass-blue: 59 130 246;
+    --glass-blue-40: rgb(var(--glass-blue) / 40%);
+    --glass-amber: 245 158 11;
+    --glass-amber-40: rgb(var(--glass-amber) / 40%);
+    --glass-violet: 139 92 246;
+    --glass-violet-40: rgb(var(--glass-violet) / 40%);
 }
 
 @font-face {
@@ -159,14 +168,10 @@ mark {
     position: fixed;
     inset: 0;
     background:
-        /* Tailwind teal-500 */
-        radial-gradient(ellipse 680px 560px at 12% 18%, rgba(20, 184, 166, 0.38) 0%, transparent 70%),
-        /* Tailwind blue-500 */
-        radial-gradient(ellipse 720px 620px at 88% 8%, rgba(59, 130, 246, 0.38) 0%, transparent 70%),
-        /* Tailwind amber-500 */
-        radial-gradient(ellipse 580px 700px at 75% 82%, rgba(245, 158, 11, 0.32) 0%, transparent 70%),
-        /* Tailwind violet-500 */
-        radial-gradient(ellipse 640px 540px at 18% 88%, rgba(139, 92, 246, 0.38) 0%, transparent 70%);
+        radial-gradient(ellipse 680px 560px at 12% 18%, var(--glass-teal-40) 0%, transparent 70%),
+        radial-gradient(ellipse 720px 620px at 88% 8%, var(--glass-blue-40) 0%, transparent 70%),
+        radial-gradient(ellipse 580px 700px at 75% 82%, var(--glass-amber-40) 0%, transparent 70%),
+        radial-gradient(ellipse 640px 540px at 18% 88%, var(--glass-violet-40) 0%, transparent 70%);
     pointer-events: none;
     z-index: 0;
 }

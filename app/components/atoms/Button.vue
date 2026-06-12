@@ -66,7 +66,6 @@ function handleClick(e: MouseEvent) {
     color: var(--color-light);
     font-weight: 600;
     letter-spacing: .05em;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, .2);
     border: none;
     transition: all .35s cubic-bezier(.23, 1, .32, 1);
 }
