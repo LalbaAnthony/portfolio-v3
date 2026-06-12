@@ -47,7 +47,7 @@ public/                    # favicon, _robots.txt
 - **Atomic design** for components: `atoms/` → `molecules/` → `organisms/`. Place new components in the right tier.
 - **Explicit imports** of components in `<script setup>` (e.g. `import Button from '~/components/atoms/Button.vue'`) even though Nuxt auto-imports would resolve them. Composables (`useI18n`, `navigateTo`, `computed`…) rely on auto-imports.
 - **i18n**: strategy `prefix_except_default` (`/` = en, `/fr/...` = fr), browser-language detection with cookie `i18n_locale`. Always add new strings to **both** `en.json` and `fr.json`. Use `useI18n()` + `t('key')`; switch locale via `useSwitchLocalePath()` (see `layouts/default.vue`).
-- Dark glass aesthetic: body background `#07070f`, white text, translucent white surfaces with `backdrop-filter: blur(...)`. Accent colors come from the fixed radial-gradient overlay (`.glass-page__overlay`).
+- Dark glass aesthetic: white text, translucent white surfaces with `backdrop-filter: blur(...)`. Accent colors come from the fixed radial-gradient overlay (`.glass-page__overlay`).
 
 ## Gotchas
 

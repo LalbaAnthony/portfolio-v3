@@ -1,0 +1,84 @@
+<template>
+  <div class="flex min-h-screen items-center justify-center">
+    <div class="w-full max-w-[90%] sm:max-w-md space-y-8 text-center">
+      <div>
+        <h1 class="text-9xl text-white-300 century-gothic-bold">{{ error.statusCode }}</h1>
+        <h2 class="text-3xl text-white mt-8 century-gothic-bold">
+          {{ title }}
+        </h2>
+        <p class="mt-2 text-sm text-gray-600">
+          {{ description }}
+        </p>
+      </div>
+      <div class="mt-10 space-y-4">
+        <Button class="w-full" variant="primary" size="lg" @click="goToHome()">{{ t('routing.goHome') }}</Button>
+        <Button class="w-full" variant="secondary" size="lg" @click="goBack()">{{ t('routing.goAbout') }}</Button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import Button from '~/components/atoms/Button.vue'
+import { goBack, goToHome } from '~/utils/routing'
+
+const props = defineProps<{
+  error: {
+    statusCode: number;
+    message: string;
+  };
+}>()
+
+const { t } = useI18n()
+
+const isNuxtMessage = computed(() => {
+  return props.error.message && (
+    props.error.message.toLowerCase().includes('error') ||
+    props.error.message.toLowerCase().includes('not') ||
+    props.error.message.toLowerCase().includes('nuxt')
+  );
+});
+
+const title = computed(() => {
+  if (!isNuxtMessage.value) { // Si le message d'erreur ne semble pas être un message générique de Nuxt, on l'affiche tel quel
+    return props.error.message;
+  } else {
+    switch (props.error.statusCode) {
+      case 400:
+        return t('error.400.title');
+      case 401:
+        return t('error.401.title');
+      case 403:
+        return t('error.403.title');
+      case 404:
+        return t('error.404.title');
+      case 500:
+        return t('error.500.title');
+      default:
+        return t('error.unknown.title');
+    }
+  }
+});
+
+const description = computed(() => {
+  switch (props.error.statusCode) {
+    case 400:
+      return t('error.400.description');
+    case 401:
+      return t('error.401.description');
+    case 403:
+      return t('error.403.description');
+    case 404:
+      return t('error.404.description');
+    case 500:
+      return t('error.500.description');
+    default:
+      return t('error.unknown.description');
+  }
+});
+
+useAppHead({
+  title: `${props.error.statusCode} - ${title.value}`,
+})
+
+</script>

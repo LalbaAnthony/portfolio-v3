@@ -97,11 +97,6 @@ import { GENERAL_ME_FIRST_NAME, GENERAL_ME_LAST_NAME } from '~/constants/general
 
 const { t } = useI18n()
 
-definePageMeta({
-    title: `${GENERAL_ME_FIRST_NAME} ${GENERAL_ME_LAST_NAME} - Portfolio`,
-    description: t('home.meta.description'),
-})
-
 useAppHead({
     title: t('home.head.title'),
     description: t('home.head.description'),
