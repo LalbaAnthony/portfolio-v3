@@ -2,8 +2,8 @@
     <div>
         <header class="glass-container p-2 sticky top-2 z-30 m-1 md:m-2 lg:m-4">
             <div class="flex items-center justify-between">
-                <div>
-                    <span>{{ GENERAL_FULL_NAME }}</span>
+                <div class="pl-4 flex items-center">
+                    <span class="text-lg">{{ GENERAL_ME_FIRST_NAME }} <b>{{ GENERAL_ME_LAST_NAME }}</b></span>
                 </div>
 
                 <nav class="max-w-xl flex items-center justify-end gap-2 md:gap-4">
@@ -13,8 +13,10 @@
                             {{ loc.name }}
                         </option>
                     </select>
-                    <Button>Normal</Button>
-                    <Button>Normal</Button>
+                    <Button variant="secondary">
+                        <Icon name="mdi:github" size="15" aria-hidden="true" />
+                        Github
+                    </Button>
                 </nav>
             </div>
         </header>
@@ -30,7 +32,7 @@
 
 <script setup lang="ts">
 import Button from '~/components/atoms/Button.vue';
-import { GENERAL_FULL_NAME } from '~/constants/general';
+import { GENERAL_ME_FIRST_NAME, GENERAL_ME_LAST_NAME } from '~/constants/general';
 import type { Language } from '~/types/i18n';
 
 const { locale, locales } = useI18n()
