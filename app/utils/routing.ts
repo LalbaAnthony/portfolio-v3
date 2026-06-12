@@ -1,49 +1,11 @@
 import type { RouteRecordNormalized } from "vue-router"
 
-export const ROUTING_BO_DEFAULT = '/back-office/dashboard'
-export const ROUTING_FO_DEFAULT = '/'
-export const ROUTING_FO_EMERGENCY_BAR_EXCLUDES = ['/recherche']
-export const ROUTING_FO_AUTH_BAR_EXCLUDES = ['/recherche']
-
-export function isInFO() {
-    const route = useRoute()
-    return !route.path.startsWith('/back-office')
-}
-
-export function isInBO() {
-    const route = useRoute()
-    return route.path.startsWith('/back-office') && !route.path.startsWith('/back-office/authentification')
-}
-
-export function isInAuthentication() {
-    const route = useRoute()
-    return route.path === '/back-office/authentification'
-}
-
-export function isInDashboard() {
-    const route = useRoute()
-    return route.path === '/back-office/dashboard'
-}
-
-export function isInSearch() {
-    const route = useRoute()
-    return route.path === '/recherche'
-}
-
 export function goBack() {
     useRouter().back()
 }
 
-export function goToSearch(query: string) {
-    useRouter().push(`/recherche?q=${encodeURIComponent(query)}`)
-}
-
 export function goToHome() {
-    if (isInBO()) {
-        useRouter().push(ROUTING_BO_DEFAULT)
-    } else {
-        useRouter().push(ROUTING_FO_DEFAULT)
-    }
+    useRouter().push('/')
 }
 
 export function scrollToTop() {
