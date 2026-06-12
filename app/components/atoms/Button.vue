@@ -63,7 +63,7 @@ function handleClick(e: MouseEvent) {
     align-items: center;
     justify-content: center;
     gap: 7px;
-    color: #fff;
+    color: var(--color-light);
     font-weight: 600;
     letter-spacing: .05em;
     text-shadow: 0 1px 4px rgba(0, 0, 0, .2);
@@ -258,24 +258,4 @@ function handleClick(e: MouseEvent) {
     border-radius: 50% !important
 }
 
-/* Colored icon-only overrides retain variant bg/border */
-.glass-btn--icon-only.glass-btn--danger {
-    background: rgba(255, 80, 80, .25);
-    border-color: rgba(255, 120, 120, .4)
-}
-
-.glass-btn--icon-only.glass-btn--success {
-    background: rgba(50, 200, 100, .25);
-    border-color: rgba(80, 220, 120, .4)
-}
-
-.glass-btn--icon-only.glass-btn--info {
-    background: rgba(60, 140, 255, .25);
-    border-color: rgba(100, 170, 255, .4)
-}
-
-.glass-btn--icon-only.glass-btn--warning {
-    background: rgba(255, 160, 40, .25);
-    border-color: rgba(255, 190, 80, .4)
-}
 </style>

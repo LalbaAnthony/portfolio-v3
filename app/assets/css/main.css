@@ -1,8 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-    /* Branding colors */
     --color-dark: #07070f;
+    --color-light: #fff;
+}
+
+:root {
+    --hr-color: #E5E5E5;
+    --focus-offset: 2px;
+    --focus-color: #fff;
+    --selection-bg: #fff;
+    --selection-color: #2c2c2c;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('/fonts/sf-pro-display_regular.woff2') format('woff2');
+    letter-spacing: .007em;
+    line-height: 1.15;
 }
 
 *,
@@ -16,9 +31,9 @@ html {
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     min-height: 100vh;
-    color: white;
+    color: var(--color-light);
     background-color: var(--color-dark);
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -27,6 +42,38 @@ body {
 
 main {
     min-height: 80vh;
+}
+
+::selection {
+    background: var(--selection-bg);
+    color: var(--selection-color);
+    text-shadow: none;
+}
+
+::-moz-selection {
+    background: var(--selection-bg);
+    color: var(--selection-color);
+    text-shadow: none;
+}
+
+:focus-visible {
+    outline: 2px solid var(--focus-color);
+    outline-offset: var(--focus-offset);
+}
+
+::-moz-focus-inner {
+    border: 0;
+    padding: 0
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--hr-color);
+}
+
+mark {
+    background: transparent;
+    color: inherit;
 }
 
 /* ======================================================= */
@@ -73,20 +120,6 @@ main {
         margin: 0.5rem 0.5rem;
         padding: 0.5rem 0.5rem;
     }
-}
-
-/* ======================================================= */
-/* Others */
-/* ======================================================= */
-
-hr {
-    border: none;
-    border-top: 1px solid #E5E5E5;
-}
-
-mark {
-    background: transparent;
-    color: inherit;
 }
 
 /* ======================================================= */

@@ -110,9 +110,7 @@ useAppHead({
 .title-main {
     font-size: 2.75rem;
     font-weight: 300;
-    letter-spacing: -.02em;
     text-align: center;
-    text-shadow: 0 2px 24px rgba(0, 0, 0, .5);
 }
 
 .title-main b {

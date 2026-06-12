@@ -24,6 +24,18 @@ export default defineNuxtConfig({
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
   ],
+  app: {
+    head: {
+      link: [
+        { rel: 'preload', href: '/fonts/sf-pro-display_regular.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous' },
+        { rel: 'preload', href: '/fonts/sf-pro-display_semibold.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous' },
+        { rel: 'preload', href: '/fonts/sf-pro-icons_regular.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous' },
+        { rel: 'preload', href: '/fonts/sf-pro-icons_semibold.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous' },
+        { rel: 'preload', href: '/fonts/sf-pro-text_regular.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous' },
+        { rel: 'preload', href: '/fonts/sf-pro-text_semibold.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous' },
+      ]
+    }
+  },
   i18n: {
     defaultLocale: 'en',
     locales: [
