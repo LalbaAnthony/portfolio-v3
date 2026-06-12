@@ -1,20 +1,26 @@
 <template>
-  <div class="flex min-h-screen items-center justify-center">
-    <div class="w-full max-w-[90%] sm:max-w-md space-y-8 text-center">
-      <div>
-        <h1 class="text-9xl text-white-300 century-gothic-bold">{{ error.statusCode }}</h1>
-        <h2 class="text-3xl text-white mt-8 century-gothic-bold">
-          {{ title }}
-        </h2>
-        <p class="mt-2 text-sm text-gray-600">
-          {{ description }}
-        </p>
+
+  <div class="glass-page__overlay" aria-hidden="true" />
+  <div class="glass-page__inner">
+    <main>
+      <div class="flex min-h-screen items-center justify-center">
+        <div class="w-full max-w-[90%] sm:max-w-md space-y-8 text-center">
+          <div>
+            <h1 class="text-9xl text-white-300 century-gothic-bold">{{ error.statusCode }}</h1>
+            <h2 class="text-3xl text-white mt-8 century-gothic-bold">
+              {{ title }}
+            </h2>
+            <p class="mt-4 text-md text-gray-600">
+              {{ description }}
+            </p>
+          </div>
+          <div class="mt-10 space-y-4">
+            <Button class="w-full" variant="primary" size="lg" @click="goToHome()">{{ t('routing.goHome') }}</Button>
+            <Button class="w-full" variant="ghost" size="lg" @click="goBack()">{{ t('routing.goAbout') }}</Button>
+          </div>
+        </div>
       </div>
-      <div class="mt-10 space-y-4">
-        <Button class="w-full" variant="primary" size="lg" @click="goToHome()">{{ t('routing.goHome') }}</Button>
-        <Button class="w-full" variant="secondary" size="lg" @click="goBack()">{{ t('routing.goAbout') }}</Button>
-      </div>
-    </div>
+    </main>
   </div>
 </template>
 

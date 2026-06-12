@@ -9,7 +9,9 @@
             'glass-btn--loading': loading,
         }
     ]" :disabled="disabled" :aria-disabled="disabled || undefined" :aria-label="ariaLabel" @click="handleClick">
-        <Spinner v-if="loading" />
+        <span v-if="loading"
+            class="inline-block align-middle shrink-0 size-[15px] rounded-full border-2 border-white/30 border-t-white animate-spin [animation-duration:1s]"
+            aria-hidden="true" />
         <span class="glass-btn__content">
             <slot />
         </span>
@@ -17,8 +19,6 @@
 </template>
 
 <script setup lang="ts">
-import Spinner from './Spinner.vue';
-
 type Variant = 'primary' | 'secondary' | 'ghost'
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 
@@ -53,7 +53,8 @@ function handleClick(e: MouseEvent) {
 </script>
 
 <style scoped>
-/* -- Base --------------------------------------------------- */
+/* Base */
+
 .glass-btn {
     position: relative;
     overflow: hidden;
@@ -87,11 +88,12 @@ function handleClick(e: MouseEvent) {
     gap: 7px;
 }
 
-/* -- Primary ------------------------------------------------ */
+/* Primary */
+
 .glass-btn--primary {
     background: linear-gradient(148deg, var(--glass-white-30) 0%, var(--glass-white-08) 55%, var(--glass-white-02) 100%);
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    backdrop-filter: var(--glass-filter-md);
+    -webkit-backdrop-filter: var(--glass-filter-md);
     border: 1px solid var(--glass-white-40);
     border-bottom-color: var(--glass-white-10);
 }
@@ -107,7 +109,8 @@ function handleClick(e: MouseEvent) {
     background: linear-gradient(148deg, var(--glass-white-10) 0%, var(--glass-white-02) 100%);
 }
 
-/* -- Secondary ---------------------------------------------- */
+/* Secondary */
+
 .glass-btn--secondary {
     font-weight: 500;
     letter-spacing: .04em;
@@ -133,7 +136,8 @@ function handleClick(e: MouseEvent) {
     transform: scale(.96)
 }
 
-/* -- Ghost -------------------------------------------------- */
+/* Ghost */
+
 .glass-btn--ghost {
     font-weight: 500;
     color: var(--glass-white-80);
@@ -158,7 +162,8 @@ function handleClick(e: MouseEvent) {
     transform: scale(.96)
 }
 
-/* -- Sizes -------------------------------------------------- */
+/* Sizes */
+
 .glass-btn--xs {
     padding: .3rem .8rem;
     font-size: .72rem;
@@ -195,12 +200,14 @@ function handleClick(e: MouseEvent) {
     border-radius: 1.1rem
 }
 
-/* -- Pill --------------------------------------------------- */
+/* Pill */
+
 .glass-btn--pill {
     border-radius: 9999px !important
 }
 
-/* -- Disabled ----------------------------------------------- */
+/* Disabled */
+
 .glass-btn:disabled,
 .glass-btn[aria-disabled="true"] {
     cursor: not-allowed;
@@ -208,7 +215,8 @@ function handleClick(e: MouseEvent) {
     pointer-events: none;
 }
 
-/* -- Icon-only ---------------------------------------------- */
+/* Icon-only */
+
 .glass-btn--icon-only {
     padding: 0;
     letter-spacing: 0;
@@ -256,5 +264,4 @@ function handleClick(e: MouseEvent) {
 .glass-btn--icon-only.glass-btn--pill {
     border-radius: 50% !important
 }
-
 </style>

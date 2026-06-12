@@ -1,5 +1,5 @@
 <template>
-    <div class="glass-card p-6">
+    <div class="glass-container p-6">
         <div class="flex items-center gap-2.5 mb-3.5">
             <Button variant="secondary" size="sm" icon-only aria-label="Notification">
                 <Icon name="ic:baseline-notifications" size="17" aria-hidden="true" />

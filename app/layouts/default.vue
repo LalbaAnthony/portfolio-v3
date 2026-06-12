@@ -1,6 +1,6 @@
 <template>
     <div>
-        <header class="glass-card p-2 sticky top-0 z-30 m-1 md:m-2 lg:m-4">
+        <header class="glass-container p-2 sticky top-2 z-30 m-1 md:m-2 lg:m-4">
             <div class="flex items-center justify-between">
                 <div>
                     <span>{{ GENERAL_FULL_NAME }}</span>

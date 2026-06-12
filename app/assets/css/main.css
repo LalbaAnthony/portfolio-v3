@@ -12,6 +12,14 @@
     --selection-bg: #fff;
     --selection-color: #2c2c2c;
 
+    --glass-filter-blur-md: blur(24px);
+    --glass-filter-saturate-md: saturate(180%);
+    --glass-filter-md: var(--glass-filter-blur-md) var(--glass-filter-saturate-md);
+    
+    --glass-filter-blur-lg: blur(30px);
+    --glass-filter-saturate-lg: saturate(180%);
+    --glass-filter-lg: var(--glass-filter-blur-lg) var(--glass-filter-saturate-lg);
+
     --glass-white: 255 255 255;
     --glass-white-02: rgb(var(--glass-white) / 2%);
     --glass-white-04: rgb(var(--glass-white) / 4%);
@@ -25,15 +33,19 @@
     --glass-white-60: rgb(var(--glass-white) / 60%);
     --glass-white-80: rgb(var(--glass-white) / 80%);
     --glass-white-90: rgb(var(--glass-white) / 90%);
+
     --glass-teal: 20 184 166;
     --glass-teal-40: rgb(var(--glass-teal) / 40%);
     --glass-teal-80: rgb(var(--glass-teal) / 80%);
+
     --glass-blue: 59 130 246;
     --glass-blue-40: rgb(var(--glass-blue) / 40%);
     --glass-blue-80: rgb(var(--glass-blue) / 80%);
+
     --glass-amber: 245 158 11;
     --glass-amber-40: rgb(var(--glass-amber) / 40%);
     --glass-amber-80: rgb(var(--glass-amber) / 80%);
+
     --glass-violet: 139 92 246;
     --glass-violet-40: rgb(var(--glass-violet) / 40%);
     --glass-violet-80: rgb(var(--glass-violet) / 80%);
@@ -42,8 +54,7 @@
 @font-face {
     font-family: 'SF Pro Display';
     src: url('/fonts/sf-pro-display_regular.woff2') format('woff2');
-    letter-spacing: .007em;
-    line-height: 1.15;
+
 }
 
 *,
@@ -58,6 +69,7 @@ html {
 
 body {
     font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.15;
     min-height: 100vh;
     color: var(--color-light);
     background-color: var(--color-dark);
@@ -164,10 +176,10 @@ mark {
     z-index: 1;
 }
 
-.glass-card {
+.glass-container {
     background: linear-gradient(135deg, var(--glass-white-20) 0%, var(--glass-white-06) 100%);
-    backdrop-filter: blur(30px) saturate(180%);
-    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    backdrop-filter: var(--glass-filter-lg);
+    -webkit-backdrop-filter: var(--glass-filter-lg);
     border: 1px solid var(--glass-white-30);
     border-bottom-color: var(--glass-white-10);
     border-radius: 1rem;

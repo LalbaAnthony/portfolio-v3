@@ -1,8 +1,8 @@
 <template>
     <div class="safe-area">
         <section class="mb-12 text-center pt-8">
-            <h1 class="title-main">{{ GENERAL_ME_FIRST_NAME }} <b>{{ GENERAL_ME_LAST_NAME }}</b></h1>
-            <p class="title-submain">{{ t('home.hero.description') }}</p>
+            <h1 class="title-1 align-center text-5xl">{{ GENERAL_ME_FIRST_NAME }} <b>{{ GENERAL_ME_LAST_NAME }}</b></h1>
+            <p class="text-white/60 align-center my-2">{{ t('home.hero.description') }}</p>
             <div class="flex flex-wrap gap-4 justify-center">
                 <Button size="2xl">Get started</Button>
                 <Button variant="ghost" size="xl">View docs</Button>
@@ -10,7 +10,6 @@
         </section>
 
         <section class="mb-12">
-            <span class="title-sub">Size scale</span>
             <div class="flex flex-wrap gap-3 items-center">
                 <Button size="xs">XS</Button>
                 <Button size="sm">Small</Button>
@@ -22,7 +21,6 @@
         </section>
 
         <section class="mb-12">
-            <span class="title-sub">Color variants</span>
             <div class="flex flex-wrap gap-3 items-center">
                 <Button variant="primary">Primary</Button>
                 <Button variant="secondary">Secondary</Button>
@@ -31,7 +29,6 @@
         </section>
 
         <section class="mb-12">
-            <span class="title-sub">Pills (border-radius full)</span>
             <div class="flex flex-wrap gap-3 items-center">
                 <Button variant="primary" pill>Primary</Button>
                 <Button variant="secondary" pill>Secondary</Button>
@@ -40,7 +37,6 @@
         </section>
 
         <section class="mb-12">
-            <span class="title-sub">With icons</span>
             <div class="flex flex-wrap gap-3 items-center">
                 <Button variant="primary">
                     <Icon name="ic:baseline-download" size="15" aria-hidden="true" />
@@ -54,20 +50,14 @@
         </section>
 
         <section class="mb-12">
-            <span class="title-sub">States</span>
             <div class="flex flex-wrap gap-3 items-center">
                 <Button>Normal</Button>
                 <Button disabled>Disabled</Button>
                 <Button variant="secondary" loading>Loading…</Button>
-                <Button variant="ghost">
-                    <Icon name="ic:baseline-lock" size="15" aria-hidden="true" />
-                    Locked
-                </Button>
             </div>
         </section>
 
         <section class="mb-12">
-            <span class="title-sub">Icon-only buttons</span>
             <div class="flex flex-wrap gap-3 items-center">
                 <Button variant="secondary" icon-only aria-label="Home">
                     <Icon name="ic:baseline-home" size="20" aria-hidden="true" />
@@ -79,8 +69,7 @@
         </section>
 
         <section class="mb-12">
-            <span class="title-sub">Glass cards with actions</span>
-            <Grid :layouts="{ default: 1, xl: 2 }">
+            <Grid :layouts="{ default: 1, md: 2, lg: 3 }">
                 <Card />
                 <Card />
                 <Card />
@@ -105,34 +94,3 @@ useAppHead({
 })
 
 </script>
-
-<style scoped>
-.title-main {
-    font-size: 2.75rem;
-    font-weight: 300;
-    text-align: center;
-}
-
-.title-main b {
-    font-weight: 700
-}
-
-.title-submain {
-    text-align: center;
-    color: var(--glass-white-60);
-    font-size: 1rem;
-    max-width: 420px;
-    margin: 0 auto 2rem;
-    line-height: 1.65;
-}
-
-.title-sub {
-    display: block;
-    font-size: 10px;
-    letter-spacing: .3em;
-    text-transform: uppercase;
-    color: var(--glass-white-50);
-    font-weight: 500;
-    margin-bottom: 1.1rem;
-}
-</style>
