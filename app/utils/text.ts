@@ -47,3 +47,96 @@ export function hello(): string {
         return "Bonne nuit";
     }
 }
+
+
+export const normalize = (text: string | null | undefined, keepNonWord: boolean = false): string => {
+    if (!text) return ''
+
+    let result = text
+        .toString()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .trim()
+        .replace(/['’]/g, '-')
+        .replace(/\s+/g, '-')
+
+    if (!keepNonWord) {
+        result = result.replace(/[^\w-]+/g, '')
+    }
+
+    return result
+        .replace(/--+/g, '-')
+        .replace(/^-+/, '')
+        .replace(/-+$/, '')
+}
+
+export const isNormalized = (text: string | null | undefined, keepNonWord: boolean = false): boolean => {
+    if (!text) return true
+
+    const normalized = normalize(text, keepNonWord)
+    return normalized === text
+}
+
+export function isVoyelle(char: string): boolean {
+    return ['a', 'e', 'i', 'o', 'u', 'y'].includes(char.toLowerCase())
+}
+
+export function buildUrl(template: string | null, data: Record<string, unknown>): string {
+    // Take a URL template like '/pages/<slug>' and replace placeholders with actual values from the data object
+
+    if (!template) return '#'
+    if (!template.includes('<') || !template.includes('>')) return template
+
+    return template.replace(/<(\w+)>/g, (_, key) => {
+        const value = data[key]
+        if (value === undefined || value === null) {
+            return ''
+        }
+        return encodeURIComponent(String(value))
+    })
+}
+
+export function isEmail(email: string): boolean {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && email.length <= 255 && email.length >= 5 && !email.includes("&") && !email.includes(" ");
+}
+
+export function isPhone(phone: string): boolean {
+    return /^\+?[0-9\s\-()]+$/.test(phone) && phone.length <= 25 && phone.length >= 4;
+}
+
+export function isURLRelative(url: string | null | undefined): boolean {
+    if (!url) return false
+
+    return url.startsWith("/") &&
+        !url.includes("://") &&
+        !url.startsWith("http") &&
+        !/\s/.test(url) &&
+        !url.includes("..") &&
+        !/[<>"'`|\\^{}[\]();:@&=+$,?[\]~]/.test(url);
+}
+
+export function isURL(url: string | null | undefined): boolean {
+    if (!url) return false
+
+    try {
+        new URL(url);
+        return true;
+    } catch {
+        return false;
+    }
+}
+
+export function isURLAny(url: string | null | undefined): boolean {
+    return isURL(url) || isURLRelative(url)
+}
+
+export function isURLExternal(url: string | null | undefined): boolean {
+    if (!url) return false
+
+    if (isURLRelative(url)) return false
+
+    if (isURL(url) || url.startsWith("http") || url.startsWith("//")) return true
+
+    return false
+}

@@ -11,12 +11,12 @@
 
         <section class="mb-12">
             <div class="flex flex-wrap gap-3 items-center">
-                <Button size="xs">XS</Button>
-                <Button size="sm">Small</Button>
-                <Button size="md">Medium</Button>
-                <Button size="lg">Large</Button>
-                <Button size="xl">X-Large</Button>
-                <Button size="2xl">XX-Large</Button>
+                <Button icon="ic:baseline-download" size="xs">XS</Button>
+                <Button icon="ic:baseline-download" size="sm">Small</Button>
+                <Button icon="ic:baseline-download" size="md">Medium</Button>
+                <Button icon="ic:baseline-download" size="lg">Large</Button>
+                <Button icon="ic:baseline-download" size="xl">X-Large</Button>
+                <Button icon="ic:baseline-download" size="2xl">XX-Large</Button>
             </div>
         </section>
 

@@ -1,5 +1,5 @@
 <template>
-    <button :class="[
+    <component :is="componentType" v-bind="componentAttrs" :class="[
         'glass-btn',
         `glass-btn--${variant}`,
         `glass-btn--${size}`,
@@ -9,18 +9,24 @@
             'glass-btn--loading': loading,
         }
     ]" :disabled="disabled" :aria-disabled="disabled || undefined" :aria-label="ariaLabel" @click="handleClick">
-        <span v-if="loading"
-            class="inline-block align-middle shrink-0 size-[15px] rounded-full border-2 border-white/30 border-t-white animate-spin [animation-duration:1s]"
-            aria-hidden="true" />
         <span class="glass-btn__content">
+            <Icon v-if="loading" name="eos-icons:loading" class="animate-spin" />
+            <Icon v-else-if="icon" :name="icon" />
             <slot />
         </span>
-    </button>
+    </component>
 </template>
 
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue'
+import { NuxtLink } from '#components'
+
 type Variant = 'primary' | 'secondary' | 'ghost'
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+type As = 'button' | 'link'
+type Type = 'button' | 'submit' | 'reset'
+
+const attrs = useAttrs()
 
 const props = withDefaults(defineProps<{
     variant?: Variant
@@ -30,13 +36,44 @@ const props = withDefaults(defineProps<{
     loading?: boolean
     iconOnly?: boolean
     ariaLabel?: string
+    icon?: string
+    type?: Type
+    as?: As
+    href?: string
 }>(), {
     variant: 'primary',
     size: 'md',
     ariaLabel: undefined,
+    type: 'button',
+    as: 'button',
+    disabled: false,
+    loading: false
 })
 
 const emit = defineEmits<{ click: [e: MouseEvent] }>()
+
+const componentType = computed(() => {
+    return props.as === 'link' ? NuxtLink : 'button'
+})
+
+const componentAttrs = computed(() => {
+    if (props.as === 'link') {
+        const isExternal = isURLExternal(props.href || '')
+
+        return {
+            ...attrs,
+            to: props.href,
+            external: isExternal,
+            target: isExternal ? '_blank' : undefined
+        }
+    }
+
+    return {
+        ...attrs,
+        type: props.type,
+    }
+})
+
 
 function handleClick(e: MouseEvent) {
     if (props.disabled || props.loading) return
@@ -56,6 +93,7 @@ function handleClick(e: MouseEvent) {
 /* Base */
 
 .glass-btn {
+    --glass-btn-gap: 7px;
     position: relative;
     overflow: hidden;
     cursor: pointer;
@@ -63,7 +101,6 @@ function handleClick(e: MouseEvent) {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 7px;
     color: var(--color-light);
     font-weight: 600;
     letter-spacing: .05em;
@@ -85,7 +122,7 @@ function handleClick(e: MouseEvent) {
     z-index: 1;
     display: inline-flex;
     align-items: center;
-    gap: 7px;
+    gap: var(--glass-btn-gap);
 }
 
 /* Primary */
@@ -165,36 +202,42 @@ function handleClick(e: MouseEvent) {
 /* Sizes */
 
 .glass-btn--xs {
+    --glass-btn-gap: 4px;
     padding: .3rem .8rem;
     font-size: .72rem;
     border-radius: .45rem
 }
 
 .glass-btn--sm {
+    --glass-btn-gap: 6px;
     padding: .5rem 1.15rem;
     font-size: .8rem;
     border-radius: .6rem
 }
 
 .glass-btn--md {
+    --glass-btn-gap: 7px;
     padding: .68rem 1.5rem;
     font-size: .875rem;
     border-radius: .72rem
 }
 
 .glass-btn--lg {
+    --glass-btn-gap: 9px;
     padding: .875rem 2.1rem;
     font-size: 1rem;
     border-radius: .875rem
 }
 
 .glass-btn--xl {
+    --glass-btn-gap: 11px;
     padding: 1.05rem 2.8rem;
     font-size: 1.1rem;
     border-radius: 1rem
 }
 
 .glass-btn--2xl {
+    --glass-btn-gap: 13px;
     padding: 1.25rem 3.6rem;
     font-size: 1.25rem;
     border-radius: 1.1rem
