@@ -13,7 +13,7 @@
                             {{ loc.name }}
                         </option>
                     </select>
-                    <Button variant="secondary">
+                    <Button variant="ghost">
                         <Icon name="mdi:github" size="15" aria-hidden="true" />
                         Github
                     </Button>
