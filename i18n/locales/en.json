@@ -21,7 +21,10 @@
   "pages": {
     "home": {
       "hero": {
-        "description": "This is my portfolio"
+        "job": "Full-stack developer",
+        "description": "Welcome to my portfolio!",
+        "resume": "Download my resume",
+        "more": "See more about me"
       },
       "projects": {
         "title": "Featured projects",

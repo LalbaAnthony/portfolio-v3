@@ -10,7 +10,7 @@
 
         <NoContent v-if="error" :message="t('pages.projects.error')" />
         <NoContent v-else-if="!projects?.length" :message="t('pages.projects.empty')" />
-        <Grid v-else :layouts="{ default: 1, md: 2, lg: 3 }">
+        <Grid v-else :layouts="{ default: 1, md: 2, lg: 3, '2xl': 4 }">
             <ProjectCard v-for="project in projects" :key="project.slug" :project="project" />
         </Grid>
     </div>
