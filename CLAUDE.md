@@ -41,7 +41,7 @@ server/
   api/projects/            # controllers (Nitro event handlers): index.get.ts, [slug].get.ts
   middleware/shortcuts.ts  # server-side URL shortcuts — intercepts requests before routing
   services/project.ts      # business logic, reads static JSON
-  services/shortcut.ts     # resolves shortcut key → URL
+  services/shortcut.ts     # resolves shortcut by key
   data/projects.json       # static project data (localized en/fr fields)
   data/shortcuts.json      # shortcut definitions: [{ key, label, url }]
 shared/
@@ -62,12 +62,10 @@ public/                    # favicon, _robots.txt
 Server-side bookmark redirects — no page render, pure 301 from Nitro middleware.
 
 - **Data**: `server/data/shortcuts.json` — array of `{ key, label, url }`. Edit this file to add/change/remove shortcuts.
-- **Service**: `server/services/shortcut.ts` — `resolveShortcut(key)` looks up the URL for a given key.
+- **Service**: `server/services/shortcut.ts` — `resolveShortcut(key)` looks up the shortcut for a given key.
 - **Middleware**: `server/middleware/shortcuts.ts` — intercepts every request, extracts the first path segment, delegates to the service, redirects if matched.
 
 To add a shortcut: append an entry to `shortcuts.json` and rebuild. No code changes needed.
-
-> 301 means browsers cache the redirect. If you change a URL target, users who already visited will need to clear their cache. Use 302 in `shortcuts.ts` if you expect frequent URL changes.
 
 ## Gotchas
 

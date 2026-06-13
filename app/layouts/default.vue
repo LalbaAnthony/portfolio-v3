@@ -31,13 +31,21 @@
             <main>
                 <slot />
             </main>
+
+            <footer class="text-center py-6 mt-8 text-sm text-white/40">
+                <span>{{ GENERAL_FULL_NAME }}</span>
+                <span class="mx-2" aria-hidden="true">·</span>
+                <a :href="`mailto:${GENERAL_ME_EMAIL}`" class="hover:text-white/80 transition-colors">
+                    {{ GENERAL_ME_EMAIL }}
+                </a>
+            </footer>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import Button from '~/components/atoms/Button.vue';
-import { GENERAL_ME_FIRST_NAME, GENERAL_ME_GITHUB, GENERAL_ME_LAST_NAME } from '~/constants/general';
+import { GENERAL_ME_FIRST_NAME, GENERAL_ME_GITHUB, GENERAL_ME_LAST_NAME, GENERAL_FULL_NAME, GENERAL_ME_EMAIL } from '~/constants/general';
 import type { Language } from '#shared/types/i18n';
 
 const { t, locale, locales } = useI18n()
