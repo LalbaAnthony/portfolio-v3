@@ -13,9 +13,12 @@
                             {{ loc.name }}
                         </option>
                     </select>
-                    <Button variant="ghost">
-                        <Icon name="mdi:github" size="15" aria-hidden="true" />
-                        Github
+
+                    <Button as="link" to="/projects" variant="transparent">
+                        {{ t('header.projects') }}
+                    </Button>
+                    <Button as="link" :to="GENERAL_ME_GITHUB" variant="ghost" icon="mdi:github">
+                        {{ t('header.github') }}
                     </Button>
                 </nav>
             </div>
@@ -32,10 +35,10 @@
 
 <script setup lang="ts">
 import Button from '~/components/atoms/Button.vue';
-import { GENERAL_ME_FIRST_NAME, GENERAL_ME_LAST_NAME } from '~/constants/general';
+import { GENERAL_ME_FIRST_NAME, GENERAL_ME_GITHUB, GENERAL_ME_LAST_NAME } from '~/constants/general';
 import type { Language } from '#shared/types/i18n';
 
-const { locale, locales } = useI18n()
+const { t, locale, locales } = useI18n()
 const switchLocalePath = useSwitchLocalePath()
 
 function switchLocale(code: Language) {

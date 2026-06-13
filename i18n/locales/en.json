@@ -1,4 +1,18 @@
 {
+  "header": {
+    "projects": "Projects",
+    "github": "Github"
+  },
+  "routing": {
+    "home": "Go Home",
+    "back": "Go Back"
+  },
+  "project": {
+    "card": {
+      "details": "More details",
+      "repository": "View repository"
+    }
+  },
   "pages": {
     "home": {
       "hero": {
@@ -20,8 +34,6 @@
       "error": "Failed to load projects.",
       "visit": "Visit",
       "back": "Back to projects",
-      "details": "More details",
-      "repository": "View repository",
       "head": {
         "title": "Projects",
         "description": "A list of my projects."
@@ -53,9 +65,5 @@
         "description": "An unknown error occurred. If this error persists, please contact the site owner."
       }
     }
-  },
-  "routing": {
-    "home": "Go Home",
-    "back": "Go Back"
   }
 }

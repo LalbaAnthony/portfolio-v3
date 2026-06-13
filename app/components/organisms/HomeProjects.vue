@@ -13,7 +13,7 @@
                 <NuxtLink to="/projects"
                     class="hidden sm:inline-flex items-center gap-2 font-semibold hover:gap-3 transition-all">
                     <span>{{ t('pages.home.projects.all') }}</span>
-                    <Icon name="ic:baseline-arrow-forward" class="mt-1" />
+                    <Icon name="ic:baseline-arrow-forward" />
                 </NuxtLink>
             </div>
 
@@ -25,7 +25,7 @@
                 <NuxtLink to="/projects"
                     class=" mt-4 inline-flex sm:hidden  items-center gap-2 font-semibold hover:gap-3 transition-all">
                     <span>{{ t('pages.home.projects.all') }}</span>
-                    <Icon name="ic:baseline-arrow-forward" class="mt-1" />
+                    <Icon name="ic:baseline-arrow-forward" />
                 </NuxtLink>
             </div>
         </div>

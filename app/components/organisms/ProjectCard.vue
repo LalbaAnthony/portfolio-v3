@@ -1,5 +1,5 @@
 <template>
-    <NuxtLink :to="`/projects/${props.project.slug}`" class="glass-container p-6">
+    <div class="glass-container p-6 cursor-pointer" @click="navigateTo(`/projects/${props.project.slug}`)">
         <div class="flex items-center mb-3.5">
             <div>
                 <h3 class="font-semibold text-lg">{{ props.project.title }}</h3>
@@ -14,15 +14,15 @@
             {{ props.project.description[locale] }}
         </p>
         <div class="flex flex-wrap gap-3 items-center">
-            <Button variant="white" size="sm" class="flex-1"
-                @click.stop="navigateTo(`/projects/${props.project.slug}`)">
-                {{ t('pages.projects.details') }}
+            <Button as="link" :href="`/projects/${props.project.slug}`" variant="white" size="sm" class="flex-1">
+                {{ t('project.card.details') }}
             </Button>
-            <Button variant="ghost" size="sm" @click.stop="openRepo">
-                {{ t('pages.projects.repository') }}
+            <Button v-if="props.project.repository" variant="ghost" size="sm"
+                @click.stop="openInNewTab(props.project.repository)">
+                {{ t('project.card.repository') }}
             </Button>
         </div>
-    </NuxtLink>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -34,9 +34,4 @@ const props = defineProps<{
 }>()
 
 const { t, locale } = useI18n()
-
-function openRepo() {
-    // TODO: replace by routings.ts function
-    window.open(props.project.repository, '_blank', 'noopener,noreferrer')
-}
 </script>

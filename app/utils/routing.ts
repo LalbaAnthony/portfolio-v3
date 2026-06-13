@@ -44,8 +44,10 @@ export function highlight(selector: string) {
     }
 }
 
-export function openInNewTab(path: string) {
-    const url = new URL(path, window.location.origin).href
+export function openInNewTab(path: string | URL | null | undefined) {
+    if (!path) return
+
+    const url = path instanceof URL ? path.href : new URL(path, window.location.origin).href
     window.open(url, '_blank')
 }
 

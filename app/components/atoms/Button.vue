@@ -21,7 +21,7 @@
 import { computed, useAttrs } from 'vue'
 import { NuxtLink } from '#components'
 
-type Variant = 'primary' | 'secondary' | 'ghost' | 'white'
+type Variant = 'primary' | 'secondary' | 'ghost' | 'white' | 'transparent'
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 type As = 'button' | 'link'
 type Type = 'button' | 'submit' | 'reset'
@@ -39,7 +39,7 @@ const props = withDefaults(defineProps<{
     icon?: string
     type?: Type
     as?: As
-    href?: string
+    to?: string
 }>(), {
     variant: 'primary',
     size: 'md',
@@ -58,11 +58,11 @@ const componentType = computed(() => {
 
 const componentAttrs = computed(() => {
     if (props.as === 'link') {
-        const isExternal = isURLExternal(props.href || '')
+        const isExternal = isURLExternal(props.to || '')
 
         return {
             ...attrs,
-            to: props.href,
+            to: props.to,
             external: isExternal,
             target: isExternal ? '_blank' : undefined
         }
@@ -219,12 +219,33 @@ function handleClick(e: MouseEvent) {
 .glass-btn--white:hover {
     background: rgba(255, 255, 255, 1);
     transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.25);
 }
 
 .glass-btn--white:active {
     transform: scale(.97);
     background: rgba(255, 255, 255, 0.80);
+}
+
+/* Transparent */
+
+.glass-btn--transparent {
+    font-weight: 500;
+    color: var(--glass-white-80);
+    background: transparent;
+    border: none;
+}
+
+.glass-btn--transparent::before {
+    display: none
+}
+
+.glass-btn--transparent:hover {
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.glass-btn--transparent:active {
+    transform: scale(.96)
 }
 
 /* Sizes */

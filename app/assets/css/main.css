@@ -109,6 +109,11 @@ mark {
     color: inherit;
 }
 
+hr {
+    border: none;
+    border-top: 1px solid var(--glass-white-10);
+}
+
 /* ======================================================= */
 /* safe-area layout styles */
 /* ======================================================= */
