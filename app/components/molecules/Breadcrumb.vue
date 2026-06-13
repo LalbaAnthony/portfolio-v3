@@ -1,12 +1,12 @@
 <template>
   <nav aria-label="breadcrumb" class="my-4">
     <ol class="list-none p-0 m-0 text-sm leading-relaxed">
-      <li v-for="(item, index) in breadcrumbs" :key="index"
-        class="inline-flex items-center align-middle">
+      <li v-for="(item, index) in breadcrumbs" :key="index" class="inline-flex items-center align-middle">
         <NuxtLink v-if="index !== breadcrumbs.length - 1" :to="item.url"
           class="group cursor-pointer flex items-center gap-2">
-          <Icon v-if="item.url === '/'" name="ic:baseline-home" size="1.25rem" class="text-white/60" aria-hidden="true" />
-          <span class="group-hover:-translate-y-0.5 transition-transform duration-150 font-medium">
+          <Icon v-if="item.url === '/'" name="ic:baseline-home" size="1.25rem" class="text-white/60"
+            aria-hidden="true" />
+          <span class="group-hover:-translate-y-0.5 transition-transform duration-150 font-extrabold">
             {{ item?.name || 'Page' }}
           </span>
         </NuxtLink>

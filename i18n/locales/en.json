@@ -1,5 +1,9 @@
 {
+  "common": {
+    "reset": "Reset"
+  },
   "header": {
+    "title": "{fullname}'s portfolio",
     "projects": "Projects",
     "github": "Github"
   },

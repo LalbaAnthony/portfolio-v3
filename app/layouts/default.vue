@@ -2,9 +2,11 @@
     <div>
         <header class="glass-container p-2 sticky top-2 z-30 m-1 md:m-2 lg:m-4">
             <div class="flex items-center justify-between">
-                <div class="pl-4 flex items-center">
-                    <span class="text-lg">{{ GENERAL_ME_FIRST_NAME }} <b>{{ GENERAL_ME_LAST_NAME }}</b></span>
-                </div>
+                <NuxtLink to="/" class="pl-4 flex items-center">
+                    <i18n-t keypath="header.title" tag="span" class="text-lg">
+                        <template #fullname>{{ GENERAL_ME_FIRST_NAME }} <b>{{ GENERAL_ME_LAST_NAME }}</b></template>
+                    </i18n-t>
+                </NuxtLink>
 
                 <nav class="max-w-xl flex items-center justify-end gap-2 md:gap-4">
                     <select :value="locale"
