@@ -1,0 +1,17 @@
+[
+  {
+    "label": "GitHub",
+    "key": "gh",
+    "url": "https://github.com/LalbaAnthony"
+  },
+  {
+    "label": "GitHub",
+    "key": "ghr",
+    "url": "https://github.com/LalbaAnthony?tab=repositories"
+  },
+  {
+    "label": "Docker Hub",
+    "key": "dhb",
+    "url": "https://hub.docker.com/u/lalbaanthony"
+  }
+]
