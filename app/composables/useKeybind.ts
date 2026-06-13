@@ -1,11 +1,11 @@
 type Modifier = 'ctrl' | 'alt' | 'shift'
 
-interface ShortcutOptions {
+interface KeybindOptions {
     modifiers?: Modifier[]
     condition?: boolean | (() => boolean) | Ref<boolean>
 }
 
-function resolveCondition(condition: ShortcutOptions['condition']): boolean {
+function resolveCondition(condition: KeybindOptions['condition']): boolean {
     if (condition === undefined) return true
     if (typeof condition === 'boolean') return condition
     if (typeof condition === 'function') return condition()
@@ -20,7 +20,7 @@ function matchesModifiers(e: KeyboardEvent, modifiers: Modifier[] = []): boolean
     return true
 }
 
-export function useShortcut(key: string, handler: () => void, options: ShortcutOptions = {}) {
+export function useKeybind(key: string, handler: () => void, options: KeybindOptions = {}) {
     function onKey(e: KeyboardEvent) {
         if (e.key !== key) return
         if (!matchesModifiers(e, options.modifiers)) return

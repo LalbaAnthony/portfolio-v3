@@ -7,9 +7,6 @@
             </div>
         </div>
 
-        <!-- TODO: Display as pills -->
-        <!-- {{ props.project.technologies.join(', ') }} -->
-
         <p class="text-sm text-white/70 mb-4 line-clamp-1">
             {{ props.project.description[locale] }}
         </p>
