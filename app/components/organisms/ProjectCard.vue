@@ -14,12 +14,12 @@
             {{ props.project.description[locale] }}
         </p>
         <div class="flex flex-wrap gap-3 items-center">
-            <Button as="link" :href="`/projects/${props.project.slug}`" variant="white" size="sm" class="flex-1">
-                {{ t('project.card.details') }}
-            </Button>
-            <Button v-if="props.project.repository" variant="ghost" size="sm"
+            <Button v-if="props.project.repository" variant="white" size="sm" icon="ic:round-remove-red-eye" class="flex-1"
                 @click.stop="openInNewTab(props.project.repository)">
-                {{ t('project.card.repository') }}
+                {{ t('project.card.see') }}
+            </Button>
+            <Button as="link" :href="`/projects/${props.project.slug}`" variant="ghost" size="sm">
+                {{ t('project.card.details') }}
             </Button>
         </div>
     </div>

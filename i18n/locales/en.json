@@ -10,7 +10,8 @@
   "project": {
     "card": {
       "details": "More details",
-      "repository": "View repository"
+      "repository": "View repository",
+      "see": "See project"
     }
   },
   "pages": {
