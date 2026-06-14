@@ -25,6 +25,7 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap',
   ],
   app: {
+    pageTransition: { name: 'page', mode: 'out-in' },
     head: {
       link: [
         { rel: 'preload', href: '/fonts/sf-pro-display_regular.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous' },

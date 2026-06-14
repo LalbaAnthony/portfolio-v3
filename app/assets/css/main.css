@@ -5,6 +5,11 @@
     --color-light: #fff;
 }
 
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('/fonts/sf-pro-display_regular.woff2') format('woff2');
+}
+
 :root {
     --focus-offset: 2px;
     --focus-color: #fff;
@@ -49,12 +54,6 @@
     --glass-violet: 139 92 246;
     --glass-violet-40: rgb(var(--glass-violet) / 40%);
     --glass-violet-80: rgb(var(--glass-violet) / 80%);
-}
-
-@font-face {
-    font-family: 'SF Pro Display';
-    src: url('/fonts/sf-pro-display_regular.woff2') format('woff2');
-
 }
 
 *,
@@ -112,6 +111,35 @@ mark {
 hr {
     border: none;
     border-top: 1px solid var(--glass-white-10);
+}
+
+/* ======================================================= */
+/* Page transition styles */
+/* ======================================================= */
+
+.page-enter-from,
+.page-leave-to {
+    opacity: 0;
+    transform: translateY(12px);
+}
+
+.page-leave-to {
+    transform: translateY(-8px);
+}
+
+.page-enter-active,
+.page-leave-active {
+    transition: none;
+}
+
+@media(prefers-reduced-motion: no-preference) {
+    .page-enter-active {
+        transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    .page-leave-active {
+        transition: opacity 0.2s ease, transform 0.2s ease;
+    }
 }
 
 /* ======================================================= */
