@@ -153,8 +153,8 @@ function handleClick(e: MouseEvent) {
     letter-spacing: .04em;
     color: var(--glass-white-90);
     background: var(--glass-white-10);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: var(--glass-filter-sm);
+    -webkit-backdrop-filter: var(--glass-filter-sm);
     border: 1px solid var(--glass-white-30);
 }
 
@@ -179,8 +179,8 @@ function handleClick(e: MouseEvent) {
     font-weight: 500;
     color: var(--glass-white-80);
     background: transparent;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: var(--glass-filter-xs);
+    -webkit-backdrop-filter: var(--glass-filter-xs);
     border: 1px solid var(--glass-white-40);
 }
 
@@ -205,8 +205,8 @@ function handleClick(e: MouseEvent) {
     font-weight: 600;
     color: #1a1a2e;
     background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: var(--glass-filter-xs);
+    -webkit-backdrop-filter: var(--glass-filter-xs);
     border: 1px solid rgba(255, 255, 255, 0.95);
 }
 
@@ -314,8 +314,8 @@ function handleClick(e: MouseEvent) {
     letter-spacing: 0;
     font-weight: normal;
     background: var(--glass-white-10);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: var(--glass-filter-sm);
+    -webkit-backdrop-filter: var(--glass-filter-sm);
     border: 1px solid var(--glass-white-30);
 }
 

@@ -17,6 +17,12 @@
     --selection-bg: #fff;
     --selection-color: #2c2c2c;
 
+    --glass-filter-blur-xs: blur(12px);
+    --glass-filter-xs: var(--glass-filter-blur-xs);
+
+    --glass-filter-blur-sm: blur(16px);
+    --glass-filter-sm: var(--glass-filter-blur-sm);
+
     --glass-filter-blur-md: blur(24px);
     --glass-filter-saturate-md: saturate(180%);
     --glass-filter-md: var(--glass-filter-blur-md) var(--glass-filter-saturate-md);
