@@ -204,26 +204,26 @@ function handleClick(e: MouseEvent) {
 .glass-btn--white {
     font-weight: 600;
     color: #1a1a2e;
-    background: rgba(255, 255, 255, 0.92);
+    background: var(--glass-white-90);
     backdrop-filter: var(--glass-filter-xs);
     -webkit-backdrop-filter: var(--glass-filter-xs);
-    border: 1px solid rgba(255, 255, 255, 0.95);
+    border: 1px solid var(--glass-white-90);
 }
 
 .glass-btn--white::before {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, transparent 100%);
+    background: linear-gradient(180deg, var(--glass-white-60) 0%, transparent 100%);
     inset: 0 0 auto 0;
     height: 50%;
 }
 
 .glass-btn--white:hover {
-    background: rgba(255, 255, 255, 1);
+    background: var(--glass-white-100);
     transform: translateY(-3px) scale(1.03);
 }
 
 .glass-btn--white:active {
     transform: scale(.97);
-    background: rgba(255, 255, 255, 0.80);
+    background: var(--glass-white-80);
 }
 
 /* Transparent */
