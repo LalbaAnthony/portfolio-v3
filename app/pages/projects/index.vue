@@ -33,7 +33,7 @@ const [
     { projects, error: projectsError }
 ] = await Promise.all([
     useProjectTechnologies(),
-    useProjects(),
+    useProjects({ technologies: technologiesSelected }),
 ])
 
 useAppHead({

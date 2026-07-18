@@ -14,9 +14,7 @@ export const useProfile = async () => {
             }
         },
         {
-            getCachedData: (key, nuxtApp) => {
-                if (nuxtApp.isHydrating) return nuxtApp.payload.data[key] ?? nuxtApp.static.data[key]
-            }
+            getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key] ?? nuxtApp.static.data[key]
         }
     )
 

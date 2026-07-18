@@ -1,10 +1,11 @@
 import useApi from '~/composables/useApi'
+import type { Ref } from 'vue'
 import type { Pagination, Order } from '~~/shared/types/service'
 
-export const useProjects = async () => {
-    const page = ref(1)
-    const technologies = ref<string[]>([])
-    const order = ref<Order | null>(null)
+export const useProjects = async (params?: { page?: Ref<number>, technologies?: Ref<string[]>, order?: Ref<Order | null>, }) => {
+    const page = params?.page ?? ref(1)
+    const technologies = params?.technologies ?? ref<string[]>([])
+    const order = params?.order ?? ref<Order | null>(null)
 
     const { data, status, error } = await useAsyncData(
         `projects-${page.value}-${technologies.value.join(',')}`,
@@ -26,9 +27,7 @@ export const useProjects = async () => {
             }
         },
         {
-            getCachedData: (key, nuxtApp) => {
-                if (nuxtApp.isHydrating) return nuxtApp.payload.data[key] ?? nuxtApp.static.data[key]
-            },
+            getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key] ?? nuxtApp.static.data[key],
             watch: [page, technologies, order],
         }
     )
@@ -60,9 +59,7 @@ export const useProjectsFeatured = async () => {
             }
         },
         {
-            getCachedData: (key, nuxtApp) => {
-                if (nuxtApp.isHydrating) return nuxtApp.payload.data[key] ?? nuxtApp.static.data[key]
-            }
+            getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key] ?? nuxtApp.static.data[key],
         }
     )
 
@@ -86,9 +83,7 @@ export const useProjectTechnologies = async () => {
             }
         },
         {
-            getCachedData: (key, nuxtApp) => {
-                if (nuxtApp.isHydrating) return nuxtApp.payload.data[key] ?? nuxtApp.static.data[key]
-            },
+            getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key] ?? nuxtApp.static.data[key],
         }
     )
 
@@ -113,9 +108,7 @@ export const useProject = async (slug: string) => {
             }
         },
         {
-            getCachedData: (key, nuxtApp) => {
-                if (nuxtApp.isHydrating) return nuxtApp.payload.data[key] ?? nuxtApp.static.data[key]
-            },
+            getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key] ?? nuxtApp.static.data[key],
             watch: []
         }
     )
