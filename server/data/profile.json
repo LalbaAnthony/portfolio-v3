@@ -4,10 +4,6 @@
     "jobTitle": "Full Stack Developer",
     "birthday": "2003-04-19",
     "email": "anthony.lalba@proton.me",
-    "presentation": {
-        "en": "Hello, I'm Anthony Lalba.",
-        "fr": "Bonjour, je suis Anthony Lalba."
-    },
     "socials": [
         {
             "slug": "github",

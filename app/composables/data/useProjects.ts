@@ -27,7 +27,7 @@ export const useProjects = async (params?: { page?: Ref<number>, technologies?: 
             }
         },
         {
-            getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key] ?? nuxtApp.static.data[key],
+            getCachedData: (key, nuxtApp, ctx) => ctx.cause === 'initial' ? (nuxtApp.payload.data[key] ?? nuxtApp.static.data[key]) : undefined,
             watch: [page, technologies, order],
         }
     )
@@ -59,7 +59,7 @@ export const useProjectsFeatured = async () => {
             }
         },
         {
-            getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key] ?? nuxtApp.static.data[key],
+            getCachedData: (key, nuxtApp, ctx) => ctx.cause === 'initial' ? (nuxtApp.payload.data[key] ?? nuxtApp.static.data[key]) : undefined,
         }
     )
 
@@ -83,7 +83,7 @@ export const useProjectTechnologies = async () => {
             }
         },
         {
-            getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key] ?? nuxtApp.static.data[key],
+            getCachedData: (key, nuxtApp, ctx) => ctx.cause === 'initial' ? (nuxtApp.payload.data[key] ?? nuxtApp.static.data[key]) : undefined,
         }
     )
 
@@ -108,7 +108,7 @@ export const useProject = async (slug: string) => {
             }
         },
         {
-            getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key] ?? nuxtApp.static.data[key],
+            getCachedData: (key, nuxtApp, ctx) => ctx.cause === 'initial' ? (nuxtApp.payload.data[key] ?? nuxtApp.static.data[key]) : undefined,
             watch: []
         }
     )
