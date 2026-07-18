@@ -1,4 +1,4 @@
-import type { Order } from '#shared/types/service'
+import type { Order } from '~~/shared/types/service'
 
 export function isValideSearch(query: unknown): boolean {
     if (typeof query !== 'string') return false

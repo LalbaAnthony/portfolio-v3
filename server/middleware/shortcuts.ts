@@ -1,4 +1,4 @@
-import { resolveShortcut } from '../services/shortcut'
+import { resolveShortcut } from '~~/server/services/shortcut'
 
 export default defineEventHandler((event) => {
   const key = event.path.replace(/^\//, '').split('?')[0]

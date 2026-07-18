@@ -1,5 +1,5 @@
+import { getTechnologies } from '~~/server/services/project'
 import { parseQueryNumber } from '~~/shared/utils/request'
-import { getTechnologies } from '../../services/project'
 
 export default defineEventHandler((event) => {
   const query = getQuery(event)

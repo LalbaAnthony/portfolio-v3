@@ -1,7 +1,7 @@
-import type { Project } from '#shared/types/project'
-import { PAGINATION_LIMIT_DEFAULT, type Order } from '#shared/types/service'
-import { applySearch, applySorting, isValideSearch } from '#shared/utils/service'
-import projectsData from '../data/projects.json'
+import type { Project } from '~~/shared/types/project'
+import { PAGINATION_LIMIT_DEFAULT, type Order } from '~~/shared/types/service'
+import { applySearch, applySorting, isValideSearch } from '~~/shared/utils/service'
+import projectsData from '~~/server/data/projects.json'
 
 const projects = projectsData as Project[]
 

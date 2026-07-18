@@ -1,5 +1,5 @@
-import { parseQueryArray, parseQueryString, parseQueryBoolean, parseOrder, parseQueryNumber } from '#shared/utils/request'
-import { getProjects } from '../../services/project'
+import { parseQueryArray, parseQueryString, parseQueryBoolean, parseOrder, parseQueryNumber } from '~~/shared/utils/request'
+import { getProjects } from '~~/server/services/project'
 
 export default defineEventHandler((event) => {
   const query = getQuery(event)

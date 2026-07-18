@@ -1,4 +1,4 @@
-import type { Order } from '#shared/types/service'
+import type { Order } from '~~/shared/types/service'
 
 export function parseQueryString(value: unknown): string | null {
     if (Array.isArray(value)) return value[0] ?? null

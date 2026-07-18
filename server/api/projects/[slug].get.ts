@@ -1,4 +1,4 @@
-import { getProject } from '../../services/project'
+import { getProject } from '~~/server/services/project'
 
 export default defineEventHandler((event) => {
   const slug = getRouterParam(event, 'slug')
