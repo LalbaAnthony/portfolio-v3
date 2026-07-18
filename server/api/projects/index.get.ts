@@ -12,5 +12,5 @@ export default defineEventHandler((event) => {
   const order = parseOrder(query.order as string | string[] | undefined)
 
   const projects = getProjects({ search, featured, technologies }, order, limit)
-  return projects
+  return { data: projects }
 })

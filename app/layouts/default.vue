@@ -4,7 +4,7 @@
             <div class="flex items-center justify-between">
                 <NuxtLink to="/" class="pl-4 flex items-center">
                     <i18n-t keypath="header.title" tag="span" class="text-lg">
-                        <template #fullname>{{ GENERAL_ME_FIRST_NAME }} <b>{{ GENERAL_ME_LAST_NAME }}</b></template>
+                        <template #fullname>{{ profile?.firstName }} <b>{{ profile?.lastName }}</b></template>
                     </i18n-t>
                 </NuxtLink>
 
@@ -19,7 +19,8 @@
                     <Button as="link" to="/projects" variant="transparent">
                         {{ t('header.projects') }}
                     </Button>
-                    <Button as="link" :to="GENERAL_ME_GITHUB" variant="ghost" icon="mdi:github">
+                    <Button as="link" :to="githubUrl(profile?.socials ?? [])" variant="ghost"
+                        icon="mdi:github">
                         {{ t('header.github') }}
                     </Button>
                 </nav>
@@ -33,10 +34,10 @@
             </main>
 
             <footer class="text-center py-6 mt-8 text-sm text-white/40">
-                <span>{{ GENERAL_FULL_NAME }}</span>
+                <span>{{ profile?.firstName }} {{ profile?.lastName }}</span>
                 <span class="mx-2" aria-hidden="true">·</span>
-                <a :href="`mailto:${GENERAL_ME_EMAIL}`" class="hover:text-white/80 transition-colors">
-                    {{ GENERAL_ME_EMAIL }}
+                <a :href="`mailto:${profile?.email}`" class="hover:text-white/80 transition-colors">
+                    {{ profile?.email }}
                 </a>
             </footer>
         </div>
@@ -45,11 +46,18 @@
 
 <script setup lang="ts">
 import Button from '~/components/atoms/Button.vue';
-import { GENERAL_ME_FIRST_NAME, GENERAL_ME_GITHUB, GENERAL_ME_LAST_NAME, GENERAL_FULL_NAME, GENERAL_ME_EMAIL } from '~/constants/general';
 import type { Language } from '#shared/types/i18n';
+import { useProfile } from '~/composables/data/useProfile';
 
 const { t, locale, locales } = useI18n()
 const switchLocalePath = useSwitchLocalePath()
+
+const [
+    { profile }
+] = await Promise.all([
+    useProfile(),
+])
+
 
 function switchLocale(code: Language) {
     navigateTo(switchLocalePath(code))

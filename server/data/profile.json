@@ -1,0 +1,23 @@
+{
+    "firstName": "Anthony",
+    "lastName": "Lalba",
+    "jobTitle": "Full Stack Developer",
+    "birthday": "2003-04-19",
+    "email": "anthony.lalba@proton.me",
+    "presentation": {
+        "en": "Hello, I'm Anthony Lalba.",
+        "fr": "Bonjour, je suis Anthony Lalba."
+    },
+    "socials": [
+        {
+            "slug": "github",
+            "label": "GitHub",
+            "url": "https://github.com/LalbaAnthony/"
+        },
+        {
+            "slug": "linkedin",
+            "label": "LinkedIn",
+            "url": "https://www.linkedin.com/in/anthony-lalba-abb686230/"
+        }
+    ]
+}

@@ -38,7 +38,7 @@ export function getProject(slug: string): Project | undefined {
   return projects.find(project => project.slug === slug)
 }
 
-export function getTechnologies(limit: number | null = PAGINATION_LIMIT_DEFAULT): string[] {
+export function getProjectTechnologies(): string[] {
   const counts = new Map<string, number>()
 
   for (const tech of projects.flatMap(p => p.technologies)) {
@@ -46,10 +46,6 @@ export function getTechnologies(limit: number | null = PAGINATION_LIMIT_DEFAULT)
   }
 
   const sorted = [...counts.keys()].sort((a, b) => counts.get(b)! - counts.get(a)!)
-
-  if (limit != null) {
-    return sorted.slice(0, limit)
-  }
 
   return sorted
 }

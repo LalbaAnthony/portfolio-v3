@@ -7,8 +7,8 @@
             ...(project ? [{ name: project.title, url: `/projects/${project.slug}` }] : [])
         ]" />
 
-        <div v-if="error">
-            <p>{{ t('pages.projects.error') }}</p>
+        <div v-if="loading">
+            <!-- TODO: Loading state with skeleton -->
         </div>
         <div v-else-if="project">
             <h1></h1>
@@ -22,14 +22,14 @@
 </template>
 
 <script setup lang="ts">
-import type { Project } from '#shared/types/project';
 import Breadcrumb from '~/components/molecules/Breadcrumb.vue';
+import { useProject } from '~/composables/data/useProjects';
 import { tString } from '~/utils/i18n';
 
 const { t } = useI18n()
 const route = useRoute()
 
-const { data: project, error } = await useFetch<Project>(`/api/projects/${route.params.slug}`)
+const { project, loading } = await useProject(route.params.slug as string)
 
 if (!project.value) {
     throw createError({ statusCode: 404 })

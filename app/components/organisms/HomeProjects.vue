@@ -18,7 +18,7 @@
             </div>
 
             <Grid :layouts="{ default: 1, sm: 2, md: 3 }">
-                <ProjectCard v-for="project in projects" :key="project.slug" :project="project" />
+                <ProjectCard v-for="project in props.projects" :key="project.slug" :project="project" />
             </Grid>
 
             <div class="mt-8 flex justify-center">
@@ -36,14 +36,10 @@
 import Grid from '~/components/molecules/Grid.vue';
 import ProjectCard from './ProjectCard.vue';
 
+const props = defineProps<{
+    projects: Project[] | null;
+}>()
+
 const { t } = useI18n()
-
-const { data: projects } = await useFetch<Project[]>('/api/projects', {
-    params: {
-        featured: true,
-        limit: 3,
-    }
-})
-
 
 </script>

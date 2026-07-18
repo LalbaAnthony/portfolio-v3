@@ -7,5 +7,5 @@ export default defineEventHandler((event) => {
   const project = getProject(slug)
   if (!project) throw createError({ statusCode: 404 })
 
-  return project
+  return { data: project }
 })

@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       project: {
-        name: 'Anthony Lalba - Portfolio',
+        name: 'Portfolio',
         description: 'A collection of my work, experience, and projects.',
       },
       url: '', // Override this in production with env NUXT_PUBLIC_URL

@@ -1,5 +1,4 @@
 import { useHead, useRuntimeConfig, useRoute } from '#imports'
-import { GENERAL_FULL_NAME } from '~/constants/general'
 
 type HeadOptionType = 'website' | 'article' | 'product' | string  // e.g., 'website', 'article', 'product'
 
@@ -95,7 +94,7 @@ export function useAppHead(options: HeadOptions = {}) {
     // Apply to head
     useHead({
         htmlAttrs: { lang: 'fr' },
-        title: options.title ? `${options.title} - ${GENERAL_FULL_NAME}` : project.name,
+        title: options.title ? options.title : project.name,
         meta: metaTags.filter(tag => Boolean(tag.content)), // remove empty tags
         link: linkTags,
     })

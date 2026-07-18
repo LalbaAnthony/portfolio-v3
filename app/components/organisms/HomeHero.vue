@@ -2,10 +2,10 @@
     <section class="mb-12 text-center pt-8">
         <div class="flex flex-col items-center justify-center gap-2 mb-8">
             <h1 class="text-5xl">
-                {{ GENERAL_ME_FIRST_NAME }} <span class="font-extrabold">{{ GENERAL_ME_LAST_NAME }}</span>
+                {{ props.profile?.firstName }} <span class="font-extrabold">{{ props.profile?.lastName }}</span>
             </h1>
             <h2 class="text-3xl font-bold title-rainbow">
-                {{ t('pages.home.hero.job') }}
+                {{ props.profile?.jobTitle }}
             </h2>
         </div>
 
@@ -19,8 +19,11 @@
 </template>
 
 <script setup lang="ts">
-import { GENERAL_ME_FIRST_NAME, GENERAL_ME_LAST_NAME } from '~/constants/general';
 import Button from '../atoms/Button.vue';
+
+const props = defineProps<{
+    profile: Profile | null;
+}>()
 
 const { t } = useI18n()
 
