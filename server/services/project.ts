@@ -1,20 +1,20 @@
 import type { Project } from '#shared/types/project'
-import type { Order } from '#shared/types/service'
-import { applySearch, applySorting } from '#shared/utils/service'
+import { PAGINATION_LIMIT_DEFAULT, type Order } from '#shared/types/service'
+import { applySearch, applySorting, isValideSearch } from '#shared/utils/service'
 import projectsData from '../data/projects.json'
 
 const projects = projectsData as Project[]
 
-export function getProjects(options?: { search?: string, featured?: boolean | null, technologies?: string[] | null }, order: Order[] = [], limit?: number): Project[] {
+export function getProjects(options?: { search: string | null, featured: boolean, technologies: string[] | null }, order: Order[] = [], limit: number | null = PAGINATION_LIMIT_DEFAULT): Project[] {
   const { search, featured, technologies } = options || {}
 
   let result = [...projects]
 
-  if (search) {
+  if (search && isValideSearch(search)) {
     result = applySearch(result, search, p => [p.title, p.description.en, p.description.fr, p.abstract.en, p.abstract.fr])
   }
 
-  if (featured != null) {
+  if (featured) {
     result = result.filter(p => p.featured === featured)
   }
 
@@ -27,19 +27,18 @@ export function getProjects(options?: { search?: string, featured?: boolean | nu
 
   result = applySorting(result, order)
 
-  if (limit != null) {
+  if (limit) {
     result = result.slice(0, limit)
   }
 
   return result
 }
 
-
 export function getProject(slug: string): Project | undefined {
   return projects.find(project => project.slug === slug)
 }
 
-export function getTechnologies(limit?: number): string[] {
+export function getTechnologies(limit: number | null = PAGINATION_LIMIT_DEFAULT): string[] {
   const counts = new Map<string, number>()
 
   for (const tech of projects.flatMap(p => p.technologies)) {
