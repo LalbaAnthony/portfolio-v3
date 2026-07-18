@@ -1,6 +1,6 @@
 import type { Project } from '#shared/types/project'
 import type { Order } from '#shared/types/service'
-import { applySorting, sanitizeSearch } from '#shared/utils/service'
+import { applySearch, applySorting } from '#shared/utils/service'
 import projectsData from '../data/projects.json'
 
 const projects = projectsData as Project[]
@@ -11,12 +11,7 @@ export function getProjects(options?: { search?: string, featured?: boolean | nu
   let result = [...projects]
 
   if (search) {
-    const needle = sanitizeSearch(search)
-    result = result.filter(p =>
-      sanitizeSearch(p.title).includes(needle)
-      || sanitizeSearch(p.description.en || '').includes(needle)
-      || sanitizeSearch(p.description.fr || '').includes(needle),
-    )
+    result = applySearch(result, search, p => [p.title, p.description.en, p.description.fr, p.abstract.en, p.abstract.fr])
   }
 
   if (featured != null) {
@@ -24,9 +19,9 @@ export function getProjects(options?: { search?: string, featured?: boolean | nu
   }
 
   if (technologies?.length) {
-    const techs = technologies.map(t => sanitizeSearch(t))
+    const techs = technologies.map(t => normalize(t))
     result = result.filter(p =>
-      p.technologies.some(t => techs.includes(sanitizeSearch(t))),
+      p.technologies.some(t => techs.includes(normalize(t))),
     )
   }
 

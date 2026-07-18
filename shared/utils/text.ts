@@ -14,13 +14,6 @@ export function ucfirst(text: string): string {
     return text.charAt(0).toUpperCase() + text.slice(1);
 }
 
-export function isCommaSeparatedList(val: string | null | undefined): boolean {
-    if (!val) return false
-
-    const items = val.split(',').map(item => item.trim())
-    return items.every(item => item.length > 0)
-}
-
 export function limitString(text: string, max: number = 100, suffix: string = " ..."): string {
     if (!text) return "";
     if (text.length <= max) return text;
@@ -33,26 +26,10 @@ export function isMultiline(val: string | null | undefined): boolean {
     return val.includes('\n') || val.includes('\r')
 }
 
-export function hello(): string {
-    const now = new Date();
-    const hour = now.getHours();
-
-    if (hour >= 5 && hour < 14) {
-        return "Bonjour";
-    } else if (hour >= 14 && hour < 18) {
-        return "Bon après-midi";
-    } else if (hour >= 18 && hour < 21) {
-        return "Bonsoir";
-    } else {
-        return "Bonne nuit";
-    }
-}
-
-
-export const normalize = (text: string | null | undefined, keepNonWord: boolean = false): string => {
+export const normalize = (text: string | null | undefined): string => {
     if (!text) return ''
 
-    let result = text
+    const result = text
         .toString()
         .normalize('NFD')
         .replace(/[\u0300-\u036f]/g, '')
@@ -60,41 +37,16 @@ export const normalize = (text: string | null | undefined, keepNonWord: boolean 
         .trim()
         .replace(/['’]/g, '-')
         .replace(/\s+/g, '-')
-
-    if (!keepNonWord) {
-        result = result.replace(/[^\w-]+/g, '')
-    }
-
-    return result
         .replace(/--+/g, '-')
         .replace(/^-+/, '')
         .replace(/-+$/, '')
+
+    return result
 }
 
-export const isNormalized = (text: string | null | undefined, keepNonWord: boolean = false): boolean => {
+export const isNormalized = (text: string | null | undefined): boolean => {
     if (!text) return true
-
-    const normalized = normalize(text, keepNonWord)
-    return normalized === text
-}
-
-export function isVoyelle(char: string): boolean {
-    return ['a', 'e', 'i', 'o', 'u', 'y'].includes(char.toLowerCase())
-}
-
-export function buildUrl(template: string | null, data: Record<string, unknown>): string {
-    // Take a URL template like '/pages/<slug>' and replace placeholders with actual values from the data object
-
-    if (!template) return '#'
-    if (!template.includes('<') || !template.includes('>')) return template
-
-    return template.replace(/<(\w+)>/g, (_, key) => {
-        const value = data[key]
-        if (value === undefined || value === null) {
-            return ''
-        }
-        return encodeURIComponent(String(value))
-    })
+    return normalize(text) === text
 }
 
 export function isEmail(email: string): boolean {

@@ -2,11 +2,21 @@
   {
     "slug": "nova-dashboard",
     "title": "Nova Dashboard",
+    "abstract": {
+      "en": "Analytics dashboard for SaaS metrics with real-time charts, cohort analysis, and role-based access control.",
+      "fr": "Tableau de bord analytique pour métriques SaaS avec graphiques en temps réel, analyse de cohorte et contrôle d'accès par rôle."
+    },
     "description": {
       "en": "Analytics dashboard for SaaS metrics with real-time charts, cohort analysis, and role-based access control.",
       "fr": "Tableau de bord analytique pour métriques SaaS avec graphiques en temps réel, analyse de cohorte et contrôle d'accès par rôle."
     },
-    "technologies": ["Nuxt", "TypeScript", "Tailwind CSS", "Chart.js", "PostgreSQL"],
+    "technologies": [
+      "Nuxt",
+      "TypeScript",
+      "Tailwind CSS",
+      "Chart.js",
+      "PostgreSQL"
+    ],
     "year": 2025,
     "featured": true,
     "url": "https://nova-dashboard.dev",
@@ -15,11 +25,22 @@
   {
     "slug": "cartflow",
     "title": "CartFlow",
+    "abstract": {
+      "en": "Headless e-commerce engine with a composable checkout pipeline, Stripe integration, and inventory webhooks.",
+      "fr": "Moteur e-commerce headless avec pipeline de paiement composable, intégration Stripe et webhooks d'inventaire."
+    },
     "description": {
       "en": "Headless e-commerce engine with a composable checkout pipeline, Stripe integration, and inventory webhooks.",
       "fr": "Moteur e-commerce headless avec pipeline de paiement composable, intégration Stripe et webhooks d'inventaire."
     },
-    "technologies": ["Node.js", "TypeScript", "Fastify", "Stripe", "Redis", "MySQL"],
+    "technologies": [
+      "Node.js",
+      "TypeScript",
+      "Fastify",
+      "Stripe",
+      "Redis",
+      "MySQL"
+    ],
     "year": 2024,
     "featured": true,
     "repository": "https://github.com/LalbaAnthony/cartflow"
@@ -27,11 +48,20 @@
   {
     "slug": "lexify",
     "title": "Lexify",
+    "abstract": {
+      "en": "Vocabulary learning app with spaced-repetition scheduling, progress tracking, and a PWA-first offline mode.",
+      "fr": "Application d'apprentissage du vocabulaire avec répétition espacée, suivi des progrès et mode hors-ligne PWA."
+    },
     "description": {
       "en": "Vocabulary learning app with spaced-repetition scheduling, progress tracking, and a PWA-first offline mode.",
       "fr": "Application d'apprentissage du vocabulaire avec répétition espacée, suivi des progrès et mode hors-ligne PWA."
     },
-    "technologies": ["Vue 3", "TypeScript", "IndexedDB", "Workbox"],
+    "technologies": [
+      "Vue 3",
+      "TypeScript",
+      "IndexedDB",
+      "Workbox"
+    ],
     "year": 2024,
     "featured": false,
     "url": "https://lexify.app",
@@ -40,11 +70,20 @@
   {
     "slug": "infra-pulse",
     "title": "InfraPulse",
+    "abstract": {
+      "en": "Self-hosted server monitoring tool that collects CPU, memory, and disk metrics via agents and exposes a REST API.",
+      "fr": "Outil de surveillance de serveurs auto-hébergé collectant métriques CPU, mémoire et disque via des agents avec API REST."
+    },
     "description": {
       "en": "Self-hosted server monitoring tool that collects CPU, memory, and disk metrics via agents and exposes a REST API.",
       "fr": "Outil de surveillance de serveurs auto-hébergé collectant métriques CPU, mémoire et disque via des agents avec API REST."
     },
-    "technologies": ["Go", "Docker", "Prometheus", "SQLite"],
+    "technologies": [
+      "Go",
+      "Docker",
+      "Prometheus",
+      "SQLite"
+    ],
     "year": 2024,
     "featured": true,
     "repository": "https://github.com/LalbaAnthony/infra-pulse"
@@ -52,11 +91,21 @@
   {
     "slug": "collab-board",
     "title": "CollabBoard",
+    "abstract": {
+      "en": "Real-time collaborative whiteboard with infinite canvas, shape primitives, and multi-cursor presence via WebSockets.",
+      "fr": "Tableau blanc collaboratif en temps réel avec canvas infini, primitives de formes et présence multi-curseurs via WebSockets."
+    },
     "description": {
       "en": "Real-time collaborative whiteboard with infinite canvas, shape primitives, and multi-cursor presence via WebSockets.",
       "fr": "Tableau blanc collaboratif en temps réel avec canvas infini, primitives de formes et présence multi-curseurs via WebSockets."
     },
-    "technologies": ["React", "TypeScript", "Konva.js", "Socket.io", "Node.js"],
+    "technologies": [
+      "React",
+      "TypeScript",
+      "Konva.js",
+      "Socket.io",
+      "Node.js"
+    ],
     "year": 2023,
     "featured": true,
     "url": "https://collab-board.io"
@@ -64,11 +113,20 @@
   {
     "slug": "docship",
     "title": "DocShip",
+    "abstract": {
+      "en": "CLI tool that generates API documentation from OpenAPI specs and deploys static sites to Cloudflare Pages.",
+      "fr": "Outil CLI qui génère la documentation API depuis des specs OpenAPI et déploie des sites statiques sur Cloudflare Pages."
+    },
     "description": {
       "en": "CLI tool that generates API documentation from OpenAPI specs and deploys static sites to Cloudflare Pages.",
       "fr": "Outil CLI qui génère la documentation API depuis des specs OpenAPI et déploie des sites statiques sur Cloudflare Pages."
     },
-    "technologies": ["Node.js", "TypeScript", "Commander.js", "Cloudflare Workers"],
+    "technologies": [
+      "Node.js",
+      "TypeScript",
+      "Commander.js",
+      "Cloudflare Workers"
+    ],
     "year": 2023,
     "featured": false,
     "repository": "https://github.com/LalbaAnthony/docship"
@@ -76,11 +134,20 @@
   {
     "slug": "menu-planner",
     "title": "Menu Planner",
+    "abstract": {
+      "en": "Weekly meal planning app with automated shopping list generation, nutritional breakdown, and recipe import via URL.",
+      "fr": "Application de planification hebdomadaire des repas avec génération automatique de liste de courses et import de recettes par URL."
+    },
     "description": {
       "en": "Weekly meal planning app with automated shopping list generation, nutritional breakdown, and recipe import via URL.",
       "fr": "Application de planification hebdomadaire des repas avec génération automatique de liste de courses et import de recettes par URL."
     },
-    "technologies": ["Nuxt", "TypeScript", "Tailwind CSS", "Supabase"],
+    "technologies": [
+      "Nuxt",
+      "TypeScript",
+      "Tailwind CSS",
+      "Supabase"
+    ],
     "year": 2023,
     "featured": false,
     "url": "https://menu-planner.fr"
@@ -88,11 +155,21 @@
   {
     "slug": "ticketops",
     "title": "TicketOps",
+    "abstract": {
+      "en": "Internal helpdesk system with SLA tracking, auto-assignment rules, and a Slack bot for ticket lifecycle notifications.",
+      "fr": "Système de helpdesk interne avec suivi des SLA, règles d'affectation automatique et bot Slack pour les notifications de tickets."
+    },
     "description": {
       "en": "Internal helpdesk system with SLA tracking, auto-assignment rules, and a Slack bot for ticket lifecycle notifications.",
       "fr": "Système de helpdesk interne avec suivi des SLA, règles d'affectation automatique et bot Slack pour les notifications de tickets."
     },
-    "technologies": ["Laravel", "PHP", "Vue 3", "MySQL", "Slack API"],
+    "technologies": [
+      "Laravel",
+      "PHP",
+      "Vue 3",
+      "MySQL",
+      "Slack API"
+    ],
     "year": 2022,
     "featured": false,
     "repository": "https://github.com/LalbaAnthony/ticketops"
@@ -100,11 +177,21 @@
   {
     "slug": "codewatch",
     "title": "CodeWatch",
+    "abstract": {
+      "en": "GitHub Actions dashboard that aggregates workflow runs across repos, highlights flaky tests, and tracks mean time to recovery.",
+      "fr": "Tableau de bord GitHub Actions agrégeant les workflows sur plusieurs dépôts, détectant les tests instables et suivant le temps moyen de rétablissement."
+    },
     "description": {
       "en": "GitHub Actions dashboard that aggregates workflow runs across repos, highlights flaky tests, and tracks mean time to recovery.",
       "fr": "Tableau de bord GitHub Actions agrégeant les workflows sur plusieurs dépôts, détectant les tests instables et suivant le temps moyen de rétablissement."
     },
-    "technologies": ["Next.js", "TypeScript", "GitHub API", "PostgreSQL", "Tailwind CSS"],
+    "technologies": [
+      "Next.js",
+      "TypeScript",
+      "GitHub API",
+      "PostgreSQL",
+      "Tailwind CSS"
+    ],
     "year": 2022,
     "featured": false,
     "repository": "https://github.com/LalbaAnthony/codewatch"
@@ -112,11 +199,21 @@
   {
     "slug": "linkvault",
     "title": "LinkVault",
+    "abstract": {
+      "en": "Self-hosted bookmark manager with full-text search, tag-based organisation, and a browser extension for one-click saving.",
+      "fr": "Gestionnaire de favoris auto-hébergé avec recherche plein texte, organisation par tags et extension navigateur pour sauvegarde en un clic."
+    },
     "description": {
       "en": "Self-hosted bookmark manager with full-text search, tag-based organisation, and a browser extension for one-click saving.",
       "fr": "Gestionnaire de favoris auto-hébergé avec recherche plein texte, organisation par tags et extension navigateur pour sauvegarde en un clic."
     },
-    "technologies": ["Symfony", "PHP", "Vue 3", "TypeScript", "SQLite"],
+    "technologies": [
+      "Symfony",
+      "PHP",
+      "Vue 3",
+      "TypeScript",
+      "SQLite"
+    ],
     "year": 2021,
     "featured": false,
     "repository": "https://github.com/LalbaAnthony/linkvault"

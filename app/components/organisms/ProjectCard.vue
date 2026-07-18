@@ -8,7 +8,7 @@
         </div>
 
         <p class="text-sm text-white/70 mb-4 line-clamp-1">
-            {{ props.project.description[locale] }}
+            {{ tString(props.project.abstract) }}
         </p>
         <div class="flex flex-wrap gap-3 items-center">
             <Button v-if="props.project.repository" variant="white" size="sm" icon="ic:round-remove-red-eye" class="flex-1"
@@ -30,5 +30,5 @@ const props = defineProps<{
     project: Project
 }>()
 
-const { t, locale } = useI18n()
+const { t } = useI18n()
 </script>

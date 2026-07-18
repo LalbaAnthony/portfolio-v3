@@ -1,7 +1,11 @@
 import type { Order } from '#shared/types/service'
 
-export function sanitizeSearch(query: string): string {
-    return query.toLowerCase().trim()
+export function applySearch<T>(items: T[], query: string | undefined, getFields: (item: T) => (string | null | undefined)[]): T[] {
+    const search = normalize(query)
+
+    return items.filter(item =>
+        getFields(item).some(field => field && normalize(field).includes(search)),
+    )
 }
 
 export function applySorting<T>(items: T[], order: Order[]): T[] {
