@@ -8,6 +8,7 @@ export interface Profile {
   firstName: string
   lastName: string
   jobTitle: string
+  location: string
   birthday: string
   email: string
   socials: ProfileSocial[]
