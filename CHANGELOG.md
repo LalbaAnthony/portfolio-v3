@@ -2,6 +2,14 @@
 
 All notable changes to this project are documented in this file. This file is generated automatically from the commit history by [semantic-release](https://github.com/semantic-release/semantic-release).
 
+# [1.1.0](https://github.com/LalbaAnthony/portfolio-v3/compare/v1.0.0...v1.1.0) (2026-07-19)
+
+
+### Features
+
+* add location to profil ([bad4578](https://github.com/LalbaAnthony/portfolio-v3/commit/bad4578b13b498992ebde92b98c5598cbe0a798d))
+* add version to API ([31db3cd](https://github.com/LalbaAnthony/portfolio-v3/commit/31db3cda3b02e860c010c353a11431d1dc030da8))
+
 # 1.0.0 (2026-07-18)
 
 
