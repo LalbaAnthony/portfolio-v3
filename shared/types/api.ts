@@ -11,6 +11,7 @@ export interface ApiOptions {
     body?: Record<string, unknown>
     headers?: Headers
     retry?: number
+    version?: number
 }
 
 export interface ApiResponse<T> {

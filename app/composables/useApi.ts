@@ -12,9 +12,9 @@ export default function useApi() {
         endpoint: string,
         options: ApiOptions = {},
     ): Promise<ApiResponse<T>> => {
-        const { params, body, headers, retry = 1 } = options
+        const { params, body, headers, retry = 1, version = 1 } = options
 
-        const url = `/api${endpoint}`
+        const url = `/api/v${version}${endpoint}`
         let attempt = 0
 
         while (true) {

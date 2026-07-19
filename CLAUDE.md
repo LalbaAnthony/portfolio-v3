@@ -38,7 +38,7 @@ app/
   layouts/default.vue      # header (locale switcher, nav) + glass overlay + <main><slot/>
   pages/index.vue          # home
 server/
-  api/projects/            # controllers (Nitro event handlers): index.get.ts, [slug].get.ts
+  api/v1/projects/          # controllers (Nitro event handlers): index.get.ts, [slug].get.ts
   middleware/shortcuts.ts  # server-side URL shortcuts — intercepts requests before routing
   services/project.ts      # business logic, reads static JSON
   services/shortcut.ts     # resolves shortcut by key
