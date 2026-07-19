@@ -1,0 +1,18 @@
+# syntax=docker/dockerfile:1
+
+FROM node:24-alpine
+
+WORKDIR /app
+
+ENV NUXT_TELEMETRY_DISABLED=1
+
+# --ignore-scripts skips the "nuxt prepare" postinstall, which needs the full
+# source; "nuxt dev" runs prepare itself on startup.
+COPY package.json package-lock.json ./
+RUN npm ci --ignore-scripts
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "3000"]

@@ -8,7 +8,13 @@
     "lint": "eslint .",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "docker:dev": "docker compose --profile dev up --watch",
+    "docker:dev:down": "docker compose --profile dev down",
+    "docker:prod": "docker compose --profile prod up -d --build",
+    "docker:prod:down": "docker compose --profile prod down",
+    "docker:down": "docker compose --profile dev --profile prod down",
+    "docker:logs": "docker compose --profile dev --profile prod logs -f"
   },
   "dependencies": {
     "@nuxt/eslint": "^1.16.0",

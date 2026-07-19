@@ -1,0 +1,62 @@
+services:
+  dev:
+    image: portfolio-v3:dev
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      NUXT_PUBLIC_URL: ${NUXT_PUBLIC_URL}
+      NUXT_PUBLIC_NOINDEX: ${NUXT_PUBLIC_NOINDEX:-true}
+      NUXT_SITE_URL: ${NUXT_PUBLIC_URL}
+    profiles:
+      - dev
+    develop:
+      watch:
+        - action: sync
+          path: ./app
+          target: /app/app
+        - action: sync
+          path: ./server
+          target: /app/server
+        - action: sync
+          path: ./shared
+          target: /app/shared
+        - action: sync
+          path: ./i18n
+          target: /app/i18n
+        - action: sync
+          path: ./public
+          target: /app/public
+        - action: sync+restart
+          path: ./nuxt.config.ts
+          target: /app/nuxt.config.ts
+        - action: sync+restart
+          path: ./tsconfig.json
+          target: /app/tsconfig.json
+        - action: sync
+          path: ./eslint.config.mjs
+          target: /app/eslint.config.mjs
+        - action: rebuild
+          path: ./package.json
+        - action: rebuild
+          path: ./package-lock.json
+
+  prod:
+    image: portfolio-v3:prod
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+      args:
+        NUXT_PUBLIC_URL: ${NUXT_PUBLIC_URL}
+        NUXT_PUBLIC_NOINDEX: ${NUXT_PUBLIC_NOINDEX}
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      NUXT_PUBLIC_URL: ${NUXT_PUBLIC_URL}
+      NUXT_PUBLIC_NOINDEX: ${NUXT_PUBLIC_NOINDEX}
+      NUXT_SITE_URL: ${NUXT_PUBLIC_URL}
+    restart: unless-stopped
+    profiles:
+      - prod

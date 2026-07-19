@@ -1,0 +1,45 @@
+# syntax=docker/dockerfile:1
+
+FROM node:24-alpine AS build
+
+WORKDIR /app
+
+ENV NUXT_TELEMETRY_DISABLED=1
+
+# devDependencies only hold semantic-release; all build tooling lives in
+# dependencies. --ignore-scripts skips the "nuxt prepare" postinstall, which
+# needs the full source; "nuxt build" runs prepare itself.
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev --ignore-scripts
+
+COPY . .
+
+# @nuxtjs/robots + @nuxtjs/sitemap (nuxt-site-config) resolve the site URL and
+# indexability at BUILD time — they ignore these vars at runtime. Changing
+# NUXT_PUBLIC_URL / NUXT_PUBLIC_NOINDEX in .env therefore requires an image
+# rebuild (docker compose --profile prod up -d --build).
+ARG NUXT_PUBLIC_URL=http://localhost:3000
+ARG NUXT_PUBLIC_NOINDEX=false
+
+RUN export NUXT_SITE_URL="$NUXT_PUBLIC_URL"; \
+    if [ "$NUXT_PUBLIC_NOINDEX" = "true" ]; then export NUXT_SITE_INDEXABLE=false; fi; \
+    npm run build
+
+FROM node:24-alpine AS runtime
+
+WORKDIR /app
+
+ENV NODE_ENV=production \
+    HOST=0.0.0.0 \
+    PORT=3000
+
+COPY --from=build --chown=node:node /app/.output ./.output
+
+USER node
+
+EXPOSE 3000
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
+  CMD wget -q --spider "http://127.0.0.1:${PORT}/api/health" || exit 1
+
+CMD ["node", ".output/server/index.mjs"]

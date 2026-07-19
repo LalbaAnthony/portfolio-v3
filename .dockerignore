@@ -1,0 +1,36 @@
+# Dependencies (installed inside the image)
+node_modules
+
+# Nuxt outputs
+.nuxt
+.output
+.nitro
+.cache
+.data
+dist
+
+# Env files (injected at runtime via docker compose)
+.env
+.env.*
+
+# VCS / IDE / tooling
+.git
+.gitignore
+.claude
+.vscode
+.idea
+.fleet
+.DS_Store
+
+# Logs
+logs
+*.log
+
+# Docker files themselves
+Dockerfile.dev
+Dockerfile.prod
+docker-compose.yml
+.dockerignore
+
+# Docs
+*.md

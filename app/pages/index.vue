@@ -25,7 +25,6 @@ useAppHead({
     title: t('pages.home.head.title'),
     description: t('pages.home.head.description'),
     url: '/',
-    noindex: false,
 })
 
 </script>
