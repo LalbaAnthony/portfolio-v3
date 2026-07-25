@@ -1,0 +1,25 @@
+name: Tests
+
+on:
+  pull_request:
+    branches:
+      - develop
+      - preprod
+      - main
+      - dev/**
+      - feat/**
+      - fix/**
+      - ref/**
+      - docs/**
+      - test/**
+
+# Cancel superseded runs (e.g. when Renovate rebases a branch) to save CI time
+concurrency:
+  group: tests-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  use-tests:
+    if: "!contains(github.event.pull_request.title, '[skip tests]')"
+    name: 🧪 Run Tests
+    uses: ./.github/workflows/tests.inc.yml

@@ -1,0 +1,47 @@
+name: Security Audit
+
+on:
+  schedule:
+    - cron: '0 8 * * 1' # Every Monday at 8:00 AM
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/security-audit.flow.yml"
+  workflow_dispatch:
+
+jobs:
+  audit:
+    name: 🔒 NPM audit
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Audit
+        id: audit
+        run: npm audit --audit-level=critical
+
+      - name: Open issue if vulnerabilities found
+        uses: actions/github-script@v9
+        if: failure()
+        with:
+          script: |
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `🔒 NPM vulnerabilities found - ${new Date().toLocaleDateString('fr-FR')}`,
+              body: `
+                An automated security audit detected critical severity vulnerabilities in npm dependencies.
+                Please review the audit reports, and address the issues as soon as possible.
+                **Note**: This issue is automatically generated and may contain false positives. Please verify the findings before taking action.
+              `,
+              labels: ['security', 'automated']
+            })

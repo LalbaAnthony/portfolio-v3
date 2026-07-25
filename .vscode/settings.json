@@ -1,0 +1,23 @@
+{
+    "files.watcherExclude": {
+        "playwright-report/**": true,
+        "test-results/**": true,
+        ".output/**": true,
+        "backend/coverage/**": true,
+        "node_modules": true,
+        "dist": true,
+        ".nuxt": true,
+        "CHANGELOG.md": true,
+    },
+    "search.exclude": {
+        "playwright-report/**": true,
+        "test-results/**": true,
+        ".output/**": true,
+        "backend/coverage/**": true,
+        "node_modules": true,
+        "dist": true,
+        ".nuxt": true,
+        "CHANGELOG.md": true,
+    },
+    "css.lint.unknownAtRules": "ignore" // Ignore TailwindCSS @apply, @screen, etc.
+}
