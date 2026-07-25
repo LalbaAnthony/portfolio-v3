@@ -14,6 +14,6 @@ export interface Project {
   technologies: string[]
   year: number
   featured: boolean
-  url?: string
-  repository?: string
+  productionUrl?: string | null
+  repositoryUrl?: string | null
 }

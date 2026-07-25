@@ -7,7 +7,7 @@ export interface ProfileLanguage {
 
 export interface ProfileCertification {
   label: I18nStrings
-  url: string
+  url?: string | null
 }
 
 export interface ProfileInterest {
@@ -16,6 +16,7 @@ export interface ProfileInterest {
 
 export interface ProfileSocial {
   label: string
+  slug: string
   url: string
 }
 
@@ -32,20 +33,21 @@ export interface ProfileDiploma {
   place: string
   startYear: number
   endYear?: number | null
-  url: string
+  url?: string | null
 }
 
 export interface Profile {
   firstName: string
   lastName: string
-  jobTitle?: I18nStrings
-  location?: string
+  location?: string | null
   birthday: string
   email: string
+  jobTitle?: I18nStrings | null
   socials?: ProfileSocial[] | null
   certifications?: ProfileCertification[] | null
   languages?: ProfileLanguage[] | null
   interests?: ProfileInterest[] | null
   workExperiences?: ProfileWorkExperience[] | null
+  diplomas?: ProfileDiploma[] | null
 }
 

@@ -50,6 +50,7 @@ export const useProjectsFeatured = async () => {
                     {
                         params: {
                             featured: true,
+                            limit: 3,
                         }
                     }
                 )

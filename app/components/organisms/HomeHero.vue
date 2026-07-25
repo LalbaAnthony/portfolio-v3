@@ -5,7 +5,7 @@
                 {{ props.profile?.firstName }} <span class="font-extrabold">{{ props.profile?.lastName }}</span>
             </h1>
             <h2 class="text-3xl font-bold">
-                {{ props.profile?.jobTitle }}
+                {{ tString(props.profile?.jobTitle) }}
             </h2>
         </div>
 

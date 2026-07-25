@@ -14,9 +14,9 @@
             <h1></h1>
             <p>{{ tString(project.description) }}</p>
             <p>{{ project.year }} — {{ project.technologies.join(', ') }}</p>
-            <a v-if="project.url" :href="project.url" target="_blank" rel="noopener">{{ t('pages.projects.visit') }}</a>
-            <a v-if="project.repository" :href="project.repository" target="_blank" rel="noopener">{{
-                t('pages.projects.repository') }}</a>
+            <a v-if="project.productionUrl" :href="project.productionUrl" target="_blank" rel="noopener">{{ t('pages.projects.visit') }}</a>
+            <a v-if="project.repositoryUrl" :href="project.repositoryUrl" target="_blank" rel="noopener">{{
+                t('pages.projects.repositoryUrl') }}</a>
         </div>
     </div>
 </template>

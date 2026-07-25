@@ -18,8 +18,8 @@
         </p>
 
         <div class="flex flex-wrap gap-3 items-center">
-            <Button v-if="props.project.repository" variant="white" size="sm" icon="ic:round-remove-red-eye"
-                class="flex-1" @click.stop="openInNewTab(props.project.repository)">
+            <Button v-if="props.project.repositoryUrl" variant="white" size="sm" icon="ic:round-remove-red-eye"
+                class="flex-1" @click.stop="openInNewTab(props.project.repositoryUrl)">
                 {{ t('project.card.see') }}
             </Button>
             <Button as="link" :href="`/projects/${props.project.slug}`" variant="ghost" size="sm">
