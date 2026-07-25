@@ -2,6 +2,18 @@
 
 All notable changes to this project are documented in this file. This file is generated automatically from the commit history by [semantic-release](https://github.com/semantic-release/semantic-release).
 
+# [1.2.0](https://github.com/LalbaAnthony/portfolio-v3/compare/v1.1.0...v1.2.0) (2026-07-25)
+
+
+### Features
+
+* add pagination to projects ([8771c87](https://github.com/LalbaAnthony/portfolio-v3/commit/8771c87140d5dab0c45010c7a63564ed85a632de))
+* add shortcuts ([ed59df9](https://github.com/LalbaAnthony/portfolio-v3/commit/ed59df9e66e6a560cd7cd41d6531d0eff1743c2d))
+* dynamic shortcuts ([6af5e5e](https://github.com/LalbaAnthony/portfolio-v3/commit/6af5e5e85a8369703a115f0d506382db8ce7a16d))
+* dynamic shortcuts ([b9523aa](https://github.com/LalbaAnthony/portfolio-v3/commit/b9523aa50cc5668e0dbc917bf58ffba19c06f364))
+* fix pagination to projects ([dfa27d9](https://github.com/LalbaAnthony/portfolio-v3/commit/dfa27d97004a47337f4c52717fde902045489071))
+* merge options filter on projetcs ([7133fb2](https://github.com/LalbaAnthony/portfolio-v3/commit/7133fb2bb29bc17486da86f52df49b4dbd861062))
+
 # [1.1.0](https://github.com/LalbaAnthony/portfolio-v3/compare/v1.0.0...v1.1.0) (2026-07-19)
 
 
