@@ -8,7 +8,7 @@ export type ComponentSize = typeof COMPONENT_SIZES[number]
 export const COMPONENT_POSITIONS = ['left', 'center', 'right'] as const
 export type ComponentPosition = typeof COMPONENT_POSITIONS[number]
 
-export const COMPONENT_ROUNDNESS = ['none', 'sm', 'md', 'lg', 'full'] as const
+export const COMPONENT_ROUNDNESS = ['none', 'sm', 'md', 'lg', 'xl', 'full'] as const
 export type ComponentRoundness = typeof COMPONENT_ROUNDNESS[number]
 
 export const COMPONENT_Z_INDEX_LEVELS = [1, 2, 3] as const

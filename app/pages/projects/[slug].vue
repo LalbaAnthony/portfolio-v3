@@ -8,7 +8,7 @@
         ]" />
 
         <div v-if="loading">
-            <!-- TODO: Loading state with skeleton -->
+            <ProjectDetailSkeleton />
         </div>
         <div v-else-if="project">
             <h1></h1>
@@ -23,6 +23,7 @@
 
 <script setup lang="ts">
 import Breadcrumb from '~/components/molecules/Breadcrumb.vue';
+import ProjectDetailSkeleton from '~/components/organisms/ProjectDetailSkeleton.vue';
 import { useProject } from '~/composables/data/useProjects';
 import { tString } from '~/utils/i18n';
 

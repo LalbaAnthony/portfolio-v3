@@ -9,8 +9,11 @@
         <ItemsSelector v-if="!technologiesError" :items="technologies" v-model="technologiesSelected" class="mb-6" />
 
         <NoContent v-if="projectsError" :message="t('pages.projects.error')" />
+        <Grid v-else-if="projectsLoading" :layouts="{ default: 1, md: 2, lg: 3, '2xl': 4 }">
+            <ProjectCardSkeleton v-for="i in 8" :key="i" />
+        </Grid>
         <NoContent v-else-if="!projects?.length" :message="t('pages.projects.empty')" />
-        <Grid v-else :layouts="{ default: 1, md: 2, lg: 3, '2xl': 4 }">
+        <Grid v-else-if="projects.length" :layouts="{ default: 1, md: 2, lg: 3, '2xl': 4 }">
             <ProjectCard v-for="project in projects" :key="project.slug" :project="project" />
         </Grid>
     </div>
@@ -19,6 +22,7 @@
 <script setup lang="ts">
 import { useProjects, useProjectTechnologies } from '~/composables/data/useProjects';
 import ProjectCard from '~/components/organisms/ProjectCard.vue';
+import ProjectCardSkeleton from '~/components/organisms/ProjectCardSkeleton.vue';
 import ItemsSelector from '~/components/organisms/ItemsSelector.vue';
 import Grid from '~/components/molecules/Grid.vue';
 import Breadcrumb from '~/components/molecules/Breadcrumb.vue';
@@ -30,7 +34,7 @@ const technologiesSelected = ref<string[]>([])
 
 const [
     { technologies, error: technologiesError },
-    { projects, error: projectsError }
+    { projects, loading: projectsLoading, error: projectsError }
 ] = await Promise.all([
     useProjectTechnologies(),
     useProjects({ technologies: technologiesSelected }),
