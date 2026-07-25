@@ -1,18 +1,24 @@
 <template>
     <div class="glass-container p-6 cursor-pointer" @click="navigateTo(`/projects/${props.project.slug}`)">
-        <div class="flex items-center mb-3.5">
-            <div>
+        <div class="flex items-center mb-1">
+            <div class="flex-1">
                 <h3 class="font-semibold text-lg">{{ props.project.title }}</h3>
-                <p class="text-xs text-white/50">{{ props.project.year }}</p>
+            </div>
+            <div v-if="props.project.technologies.length" class="flex gap-1.5 ml-3">
+                <span v-for="tech in props.project.technologies.slice(0, 2)" :key="tech"
+                    class="text-xs px-2 pt-1 pb-0.5 rounded-full bg-white/10 text-white/70">{{ tech }}</span>
             </div>
         </div>
+
+        <p class="text-xs text-white/50 mb-3">{{ props.project.year }}</p>
 
         <p class="text-sm text-white/70 mb-4 line-clamp-1">
             {{ tString(props.project.abstract) }}
         </p>
+
         <div class="flex flex-wrap gap-3 items-center">
-            <Button v-if="props.project.repository" variant="white" size="sm" icon="ic:round-remove-red-eye" class="flex-1"
-                @click.stop="openInNewTab(props.project.repository)">
+            <Button v-if="props.project.repository" variant="white" size="sm" icon="ic:round-remove-red-eye"
+                class="flex-1" @click.stop="openInNewTab(props.project.repository)">
                 {{ t('project.card.see') }}
             </Button>
             <Button as="link" :href="`/projects/${props.project.slug}`" variant="ghost" size="sm">

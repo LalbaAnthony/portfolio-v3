@@ -48,6 +48,12 @@ export function applySearch<T>(items: T[], query: string | undefined, getFields:
     )
 }
 
+export function applyPagination<T>(items: T[], pagination?: Pagination | null): T[] {
+    const { offset, limit } = pagination || paginationDefault()
+    if (offset === undefined || limit === undefined) return items
+    return items.slice(offset, offset + limit)
+}
+
 export function applySorting<T>(items: T[], order: Order[]): T[] {
     if (!order.length) return items
 

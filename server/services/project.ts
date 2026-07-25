@@ -1,6 +1,6 @@
 import type { Project, ProjectFilters } from '~~/shared/types/project'
 import type { Order, Pagination } from '~~/shared/types/service'
-import { applySearch, applySorting, isValideSearch, paginationDefault } from '~~/shared/utils/service'
+import { applyPagination, applySearch, applySorting, isValideSearch } from '~~/shared/utils/service'
 import projectsData from '~~/server/data/projects.json'
 
 const projects = projectsData as Project[]
@@ -20,7 +20,7 @@ export class ProjectService {
     if (technologies?.length) {
       const techs = technologies.map(t => normalize(t))
       result = result.filter(p =>
-        p.technologies.some(t => techs.includes(normalize(t))),
+        techs.every(t => p.technologies.map(pt => normalize(pt)).includes(t)),
       )
     }
 
@@ -35,15 +35,10 @@ export class ProjectService {
   }
 
   public getAll(options?: ProjectFilters, order: Order[] = [], pagination?: Pagination | null): Project[] {
-    const { offset, limit } = pagination || paginationDefault()
-
     let result = [...projects]
     result = this.applyFilters(result, options)
     result = applySorting(result, order)
-
-    if (offset !== undefined && limit !== undefined) {
-      result = result.slice(offset, offset + limit)
-    }
+    result = applyPagination(result, pagination)
 
     return result
   }
