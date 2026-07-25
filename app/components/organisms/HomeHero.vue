@@ -4,7 +4,7 @@
             <h1 class="text-5xl">
                 {{ props.profile?.firstName }} <span class="font-extrabold">{{ props.profile?.lastName }}</span>
             </h1>
-            <h2 class="text-3xl font-bold title-rainbow">
+            <h2 class="text-3xl font-bold">
                 {{ props.profile?.jobTitle }}
             </h2>
         </div>
