@@ -217,5 +217,137 @@
     "year": 2021,
     "featured": false,
     "repository": "https://github.com/LalbaAnthony/linkvault"
+  },
+  {
+    "slug": "promptforge",
+    "title": "PromptForge",
+    "abstract": {
+      "en": "Prompt management platform for LLM pipelines with version control, A/B testing, and latency/cost tracking per model.",
+      "fr": "Plateforme de gestion de prompts pour pipelines LLM avec versionnage, tests A/B et suivi de latence et coût par modèle."
+    },
+    "description": {
+      "en": "Prompt management platform for LLM pipelines with version control, A/B testing, and latency/cost tracking per model.",
+      "fr": "Plateforme de gestion de prompts pour pipelines LLM avec versionnage, tests A/B et suivi de latence et coût par modèle."
+    },
+    "technologies": [
+      "Nuxt",
+      "TypeScript",
+      "Tailwind CSS",
+      "Fastify",
+      "PostgreSQL"
+    ],
+    "year": 2025,
+    "featured": true,
+    "repository": "https://github.com/LalbaAnthony/promptforge"
+  },
+  {
+    "slug": "deploykit",
+    "title": "DeployKit",
+    "abstract": {
+      "en": "Zero-config deployment toolkit that bundles multi-stage Docker builds, health checks, and rollback scripts into a single CLI.",
+      "fr": "Boîte à outils de déploiement sans configuration regroupant builds Docker multi-étapes, vérifications de santé et scripts de rollback en une seule CLI."
+    },
+    "description": {
+      "en": "Zero-config deployment toolkit that bundles multi-stage Docker builds, health checks, and rollback scripts into a single CLI.",
+      "fr": "Boîte à outils de déploiement sans configuration regroupant builds Docker multi-étapes, vérifications de santé et scripts de rollback en une seule CLI."
+    },
+    "technologies": [
+      "Node.js",
+      "TypeScript",
+      "Docker",
+      "Commander.js",
+      "Shell"
+    ],
+    "year": 2025,
+    "featured": false,
+    "repository": "https://github.com/LalbaAnthony/deploykit"
+  },
+  {
+    "slug": "formcraft",
+    "title": "FormCraft",
+    "abstract": {
+      "en": "Drag-and-drop form builder with conditional logic, multi-step flows, and a webhook-based submission pipeline.",
+      "fr": "Constructeur de formulaires en glisser-déposer avec logique conditionnelle, flux multi-étapes et pipeline de soumission par webhook."
+    },
+    "description": {
+      "en": "Drag-and-drop form builder with conditional logic, multi-step flows, and a webhook-based submission pipeline.",
+      "fr": "Constructeur de formulaires en glisser-déposer avec logique conditionnelle, flux multi-étapes et pipeline de soumission par webhook."
+    },
+    "technologies": [
+      "Vue 3",
+      "TypeScript",
+      "Tailwind CSS",
+      "Laravel",
+      "MySQL"
+    ],
+    "year": 2024,
+    "featured": false,
+    "url": "https://formcraft.dev",
+    "repository": "https://github.com/LalbaAnthony/formcraft"
+  },
+  {
+    "slug": "auditlog",
+    "title": "AuditLog",
+    "abstract": {
+      "en": "Append-only audit trail service with tamper-evident hashing, structured event schema, and a searchable read API.",
+      "fr": "Service de journal d'audit en ajout seul avec hachage inviolable, schéma d'événements structuré et API de lecture avec recherche."
+    },
+    "description": {
+      "en": "Append-only audit trail service with tamper-evident hashing, structured event schema, and a searchable read API.",
+      "fr": "Service de journal d'audit en ajout seul avec hachage inviolable, schéma d'événements structuré et API de lecture avec recherche."
+    },
+    "technologies": [
+      "Go",
+      "PostgreSQL",
+      "Docker",
+      "gRPC"
+    ],
+    "year": 2023,
+    "featured": false,
+    "repository": "https://github.com/LalbaAnthony/auditlog"
+  },
+  {
+    "slug": "notifhub",
+    "title": "NotifHub",
+    "abstract": {
+      "en": "Multi-channel notification gateway that routes events to email, SMS, and push with per-user preference management.",
+      "fr": "Passerelle de notifications multicanal routant les événements vers email, SMS et push avec gestion des préférences par utilisateur."
+    },
+    "description": {
+      "en": "Multi-channel notification gateway that routes events to email, SMS, and push with per-user preference management.",
+      "fr": "Passerelle de notifications multicanal routant les événements vers email, SMS et push avec gestion des préférences par utilisateur."
+    },
+    "technologies": [
+      "Node.js",
+      "TypeScript",
+      "Redis",
+      "BullMQ",
+      "PostgreSQL"
+    ],
+    "year": 2022,
+    "featured": false,
+    "repository": "https://github.com/LalbaAnthony/notifhub"
+  },
+  {
+    "slug": "pricepilot",
+    "title": "PricePilot",
+    "abstract": {
+      "en": "E-commerce price tracker that monitors competitor listings, detects drops via scraping, and sends configurable alerts.",
+      "fr": "Outil de suivi des prix e-commerce surveillant les annonces concurrentes, détectant les baisses par scraping et envoyant des alertes configurables."
+    },
+    "description": {
+      "en": "E-commerce price tracker that monitors competitor listings, detects drops via scraping, and sends configurable alerts.",
+      "fr": "Outil de suivi des prix e-commerce surveillant les annonces concurrentes, détectant les baisses par scraping et envoyant des alertes configurables."
+    },
+    "technologies": [
+      "Python",
+      "Playwright",
+      "FastAPI",
+      "PostgreSQL",
+      "Docker"
+    ],
+    "year": 2021,
+    "featured": false,
+    "repository": "https://github.com/LalbaAnthony/pricepilot"
   }
 ]

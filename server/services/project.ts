@@ -1,13 +1,37 @@
 import type { Project } from '~~/shared/types/project'
-import { PAGINATION_LIMIT_DEFAULT, type Order } from '~~/shared/types/service'
-import { applySearch, applySorting, isValideSearch } from '~~/shared/utils/service'
+import type { Order, Pagination } from '~~/shared/types/service'
+import { applySearch, applySorting, isValideSearch, paginationDefault } from '~~/shared/utils/service'
 import projectsData from '~~/server/data/projects.json'
 
 const projects = projectsData as Project[]
 
 export class ProjectService {
-  public getAll(options?: { search: string | null, featured: boolean, technologies: string[] | null }, order: Order[] = [], limit: number | null = PAGINATION_LIMIT_DEFAULT): Project[] {
+  public count(options?: { search: string | null, featured: boolean, technologies: string[] | null }): number {
     const { search, featured, technologies } = options || {}
+
+    let result = [...projects]
+
+    if (search && isValideSearch(search)) {
+      result = applySearch(result, search, p => [p.title, p.description.en, p.description.fr, p.abstract.en, p.abstract.fr])
+    }
+
+    if (featured) {
+      result = result.filter(p => p.featured === featured)
+    }
+
+    if (technologies?.length) {
+      const techs = technologies.map(t => normalize(t))
+      result = result.filter(p =>
+        p.technologies.some(t => techs.includes(normalize(t))),
+      )
+    }
+
+    return result.length
+  }
+
+  public getAll(options?: { search: string | null, featured: boolean, technologies: string[] | null }, order: Order[] = [], pagination?: Pagination | null): Project[] {
+    const { search, featured, technologies } = options || {}
+    const { offset, limit } = pagination || paginationDefault()
 
     let result = [...projects]
 
@@ -28,8 +52,8 @@ export class ProjectService {
 
     result = applySorting(result, order)
 
-    if (limit) {
-      result = result.slice(0, limit)
+    if (offset !== undefined && limit !== undefined) {
+      result = result.slice(offset, offset + limit)
     }
 
     return result

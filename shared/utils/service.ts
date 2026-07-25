@@ -1,5 +1,31 @@
 import type { Order } from '~~/shared/types/service'
 
+export function paginationDefault(): Pagination {
+    return { page: 1, limit: PAGINATION_LIMIT_DEFAULT, total: 0, offset: 0 }
+}
+
+export function paginationMax(): Pagination {
+    return { page: 1, limit: PAGINATION_LIMIT_MAX }
+}
+
+export function paginate(page: number | null, limit: number | null, count: number): Pagination {
+    const pagDefault = paginationDefault()
+    if (!page) page = pagDefault.page
+    if (!limit) limit = pagDefault.limit
+    if (!count) count = 0
+
+    if (limit && (limit > PAGINATION_LIMIT_MAX)) limit = PAGINATION_LIMIT_DEFAULT
+    if (limit && limit < 1) limit = PAGINATION_LIMIT_DEFAULT
+    if (page && page < 1) page = 1
+    if (count && limit && page && Math.ceil(count / limit) < page) page = Math.ceil(count / limit)
+
+    const total: number = Math.ceil(count / limit)
+    const offset: number = (page - 1) * limit
+    const pagination: Pagination = { page, limit, total, offset, count }
+
+    return pagination
+}
+
 export function isValideSearch(query: unknown): boolean {
     if (typeof query !== 'string') return false
 
