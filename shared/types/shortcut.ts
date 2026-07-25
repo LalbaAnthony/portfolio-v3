@@ -1,5 +1,8 @@
+export const SHORTCUT_QUERY_TOKEN = '%q'
+
 export interface Shortcut {
-    key: string
     label: string
-    url: string
+    fromPath: string
+    toUrl: string 
 }
+

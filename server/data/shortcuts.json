@@ -1,17 +1,22 @@
 [
   {
     "label": "GitHub",
-    "key": "gh",
-    "url": "https://github.com/LalbaAnthony"
+    "fromPath": "gh",
+    "toUrl": "https://github.com/LalbaAnthony"
   },
   {
-    "label": "GitHub",
-    "key": "ghr",
-    "url": "https://github.com/LalbaAnthony?tab=repositories"
+    "label": "GitHub Repos",
+    "fromPath": "ghr",
+    "toUrl": "https://github.com/LalbaAnthony?tab=repositories"
+  },
+  {
+    "label": "GitHub Repos Search",
+    "fromPath": "ghs/%q",
+    "toUrl": "https://github.com/LalbaAnthony?tab=repositories&q=%q"
   },
   {
     "label": "Docker Hub",
-    "key": "dhb",
-    "url": "https://hub.docker.com/u/lalbaanthony"
+    "fromPath": "dhb",
+    "toUrl": "https://hub.docker.com/u/lalbaanthony"
   }
 ]
