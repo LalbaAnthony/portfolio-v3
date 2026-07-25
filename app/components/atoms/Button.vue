@@ -19,18 +19,17 @@
 
 <script setup lang="ts">
 import { computed, useAttrs } from 'vue'
+import type { ComponentVariant , ComponentSize  } from '#shared/types/component'
 import { NuxtLink } from '#components'
 
-type Variant = 'primary' | 'secondary' | 'ghost' | 'white' | 'transparent'
-type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 type As = 'button' | 'link'
 type Type = 'button' | 'submit' | 'reset'
 
 const attrs = useAttrs()
 
 const props = withDefaults(defineProps<{
-    variant?: Variant
-    size?: Size
+    variant?: ComponentVariant
+    size?: ComponentSize
     pill?: boolean
     disabled?: boolean
     loading?: boolean
@@ -149,7 +148,6 @@ function handleClick(e: MouseEvent) {
 /* Secondary */
 
 .glass-btn--secondary {
-    font-weight: 500;
     letter-spacing: .04em;
     color: var(--glass-white-90);
     background: var(--glass-white-10);
@@ -176,7 +174,6 @@ function handleClick(e: MouseEvent) {
 /* Ghost */
 
 .glass-btn--ghost {
-    font-weight: 500;
     color: var(--glass-white-80);
     background: transparent;
     backdrop-filter: var(--glass-filter-xs);
@@ -202,7 +199,6 @@ function handleClick(e: MouseEvent) {
 /* White */
 
 .glass-btn--white {
-    font-weight: 600;
     color: #1a1a2e;
     background: var(--glass-white-90);
     backdrop-filter: var(--glass-filter-xs);
@@ -218,6 +214,7 @@ function handleClick(e: MouseEvent) {
 
 .glass-btn--white:hover {
     background: var(--glass-white-100);
+    color: #fff;
     transform: translateY(-3px) scale(1.03);
 }
 
@@ -229,7 +226,6 @@ function handleClick(e: MouseEvent) {
 /* Transparent */
 
 .glass-btn--transparent {
-    font-weight: 500;
     color: var(--glass-white-80);
     background: transparent;
     border: none;

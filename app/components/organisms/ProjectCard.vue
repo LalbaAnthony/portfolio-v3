@@ -5,8 +5,9 @@
                 <h3 class="font-semibold text-lg">{{ props.project.title }}</h3>
             </div>
             <div v-if="props.project.technologies.length" class="flex gap-1.5 ml-3">
-                <span v-for="tech in props.project.technologies.slice(0, 2)" :key="tech"
-                    class="text-xs px-2 pt-1 pb-0.5 rounded-full bg-white/10 text-white/70">{{ tech }}</span>
+                <Pill v-for="tech in props.project.technologies.slice(0, 2)" :key="tech">
+                    {{ tech }}
+                </Pill>
             </div>
         </div>
 
@@ -31,6 +32,7 @@
 <script setup lang="ts">
 import Button from '~/components/atoms/Button.vue';
 import type { Project } from '#shared/types/project';
+import Pill from '../atoms/Pill.vue';
 
 const props = defineProps<{
     project: Project
