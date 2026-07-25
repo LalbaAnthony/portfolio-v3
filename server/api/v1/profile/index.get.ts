@@ -1,7 +1,7 @@
-import { getProfile } from '~~/server/services/profile'
+import { profileService } from '~~/server/services/profile'
 
 export default defineEventHandler(() => {
-  const profile = getProfile()
+  const profile = profileService.get()
   if (!profile) throw createError({ statusCode: 404 })
 
   return { data: profile }

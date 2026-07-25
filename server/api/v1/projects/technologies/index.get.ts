@@ -1,6 +1,6 @@
-import { getProjectTechnologies } from '~~/server/services/project'
+import { projectService } from '~~/server/services/project'
 
 export default defineEventHandler(() => {
-  const technologies = getProjectTechnologies()
+  const technologies = projectService.getTechnologies()
   return { data: technologies }
 })

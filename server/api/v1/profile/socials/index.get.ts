@@ -1,6 +1,6 @@
-import { getProfileSocials } from '~~/server/services/profile'
+import { profileService } from '~~/server/services/profile'
 
 export default defineEventHandler(() => {
-  const socials = getProfileSocials()
+  const socials = profileService.getSocials()
   return { data: socials }
 })

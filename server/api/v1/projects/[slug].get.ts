@@ -1,10 +1,10 @@
-import { getProject } from '~~/server/services/project'
+import { projectService } from '~~/server/services/project'
 
 export default defineEventHandler((event) => {
   const slug = getRouterParam(event, 'slug')
   if (!slug) throw createError({ statusCode: 400 })
 
-  const project = getProject(slug)
+  const project = projectService.getOne(slug)
   if (!project) throw createError({ statusCode: 404 })
 
   return { data: project }

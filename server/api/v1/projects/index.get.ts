@@ -1,5 +1,5 @@
 import { parseQueryArray, parseQueryString, parseQueryBoolean, parseOrder, parseQueryNumber } from '~~/shared/utils/request'
-import { getProjects } from '~~/server/services/project'
+import { projectService } from '~~/server/services/project'
 
 export default defineEventHandler((event) => {
   const query = getQuery(event)
@@ -11,6 +11,6 @@ export default defineEventHandler((event) => {
 
   const order = parseOrder(query.order as string | string[] | undefined)
 
-  const projects = getProjects({ search, featured, technologies }, order, limit)
+  const projects = projectService.getAll({ search, featured, technologies }, order, limit)
   return { data: projects }
 })
