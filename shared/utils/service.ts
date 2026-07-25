@@ -10,20 +10,20 @@ export function paginationMax(): Pagination {
 
 export function paginate(page: number | null, limit: number | null, count: number): Pagination {
     const pagDefault = paginationDefault()
-    if (!page) page = pagDefault.page
-    if (!limit) limit = pagDefault.limit
-    if (!count) count = 0
 
-    if (limit && (limit > PAGINATION_LIMIT_MAX)) limit = PAGINATION_LIMIT_DEFAULT
-    if (limit && limit < 1) limit = PAGINATION_LIMIT_DEFAULT
-    if (page && page < 1) page = 1
-    if (count && limit && page && Math.ceil(count / limit) < page) page = Math.ceil(count / limit)
+    page = page ?? pagDefault.page
+    limit = limit ?? pagDefault.limit
+
+    if (limit > PAGINATION_LIMIT_MAX) limit = PAGINATION_LIMIT_MAX
+    if (limit < 1) limit = PAGINATION_LIMIT_DEFAULT
+    if (page < 1) page = 1
 
     const total: number = Math.ceil(count / limit)
-    const offset: number = (page - 1) * limit
-    const pagination: Pagination = { page, limit, total, offset, count }
+    if (total === 0) page = 1
+    else if (page > total) page = total
 
-    return pagination
+    const offset: number = (page - 1) * limit
+    return { page, limit, total, offset, count }
 }
 
 export function isValideSearch(query: unknown): boolean {
