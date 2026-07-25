@@ -1,3 +1,5 @@
+import type { Project } from "~~/shared/types/project"
+
 const projectsData: Project[] = [
   {
     slug: "nova-dashboard",

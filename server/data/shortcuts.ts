@@ -1,3 +1,5 @@
+import type { Shortcut } from "~~/shared/types/shortcut"
+
 const shortcutsData: Shortcut[] = [
   {
     label: "GitLab (AgoraVita) Repos Search",
