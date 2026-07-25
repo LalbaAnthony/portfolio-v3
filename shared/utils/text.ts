@@ -9,6 +9,14 @@ export function loremIpsum(wordCount: number = 100): string {
     return ucfirst(result.trim())
 }
 
+export function safeDecode(value: string): string {
+    try {
+        return decodeURIComponent(value)
+    } catch {
+        return value
+    }
+}
+
 export function ucfirst(text: string): string {
     if (!text) return "";
     return text.charAt(0).toUpperCase() + text.slice(1);

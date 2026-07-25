@@ -1,18 +1,9 @@
-import shortcutsData from '../data/shortcuts.json'
+import shortcutsData from '~~/server/data/shortcuts.json'
 import type { Shortcut } from '#shared/types/shortcut'
 import { SHORTCUT_QUERY_TOKEN } from '#shared/types/shortcut'
+import { safeDecode } from '#shared/utils/text'
 
 const shortcuts = shortcutsData as Shortcut[]
-
-// Placeholder token used in `fromPath` (dynamic segment) and `toUrl` (injection point).
-
-function safeDecode(value: string): string {
-  try {
-    return decodeURIComponent(value)
-  } catch {
-    return value
-  }
-}
 
 function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
@@ -32,15 +23,22 @@ function resolveStatic(path: string): Shortcut | undefined {
   return shortcuts.find(s => isStatic(s) && s.fromPath === path)
 }
 
-function resolveDynamic(path: string): { shortcut: Shortcut, match: RegExpMatchArray } | undefined {
+function resolveDynamicAndQuery(path: string): { shortcut: Shortcut, query: string } | undefined {
   for (const shortcut of shortcuts) {
     if (isStatic(shortcut)) continue
 
     const match = path.match(buildMatcher(shortcut.fromPath))
-    if (match) return { shortcut, match }
+    if (match) {
+      const query = encodeURIComponent(safeDecode(match[1] ?? ''))
+      return { shortcut, query }
+    }
   }
 
   return undefined
+}
+
+function buildDynamicUrl(shortcut: Shortcut, query: string): string {
+  return shortcut.toUrl.replaceAll(SHORTCUT_QUERY_TOKEN, query)
 }
 
 /**
@@ -53,17 +51,16 @@ function resolveDynamic(path: string): { shortcut: Shortcut, match: RegExpMatchA
  *
  * Static matches take precedence over dynamic ones.
  */
-export function shortcutPathToUrl(path: string): string | undefined {
+export function resolveUrl(path: string): string | undefined {
   const staticMatch = resolveStatic(path)
   if (staticMatch) {
     return staticMatch.toUrl
   }
 
-  const dynamicMatch = resolveDynamic(path)
+  const dynamicMatch = resolveDynamicAndQuery(path)
   if (dynamicMatch) {
-    const { shortcut, match } = dynamicMatch
-    const query = encodeURIComponent(safeDecode(match[1] ?? ''))
-    return shortcut.toUrl.split(SHORTCUT_QUERY_TOKEN).join(query)
+    const { shortcut, query } = dynamicMatch
+    return buildDynamicUrl(shortcut, query)
   }
 
   return undefined
