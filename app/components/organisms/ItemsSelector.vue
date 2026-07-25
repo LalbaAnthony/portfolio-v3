@@ -4,7 +4,7 @@
             size="sm" pill @click="toggle(item)">
             {{ item }}
         </Button>
-        <Button v-if="selected.length" variant="secondary" size="sm" pill @click="selected = []">
+        <Button v-if="selected.length" variant="ghost" size="sm" pill @click="selected = []">
             {{ t('common.reset') }}
         </Button>
     </div>

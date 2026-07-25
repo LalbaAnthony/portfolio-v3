@@ -1,15 +1,15 @@
 <template>
     <component :is="componentType" v-bind="componentAttrs" :class="[
-        'glass-btn',
-        `glass-btn--${variant}`,
-        `glass-btn--${size}`,
+        'btn',
+        `btn--${variant}`,
+        `btn--${size}`,
         {
-            'glass-btn--pill': pill,
-            'glass-btn--icon-only': iconOnly,
-            'glass-btn--loading': loading,
+            'btn--pill': pill,
+            'btn--icon-only': iconOnly,
+            'btn--loading': loading,
         }
     ]" :disabled="disabled" :aria-disabled="disabled || undefined" :aria-label="ariaLabel" @click="handleClick">
-        <span class="glass-btn__content">
+        <span class="btn__content">
             <Icon v-if="loading" name="eos-icons:loading" class="animate-spin" />
             <Icon v-else-if="icon" :name="icon" />
             <slot />
@@ -40,7 +40,7 @@ const props = withDefaults(defineProps<{
     as?: As
     to?: string
 }>(), {
-    variant: 'primary',
+    variant: 'glass',
     size: 'md',
     ariaLabel: undefined,
     type: 'button',
@@ -91,8 +91,8 @@ function handleClick(e: MouseEvent) {
 <style scoped>
 /* Base */
 
-.glass-btn {
-    --glass-btn-gap: 7px;
+.btn {
+    --btn-gap: 7px;
     position: relative;
     overflow: hidden;
     cursor: pointer;
@@ -107,7 +107,7 @@ function handleClick(e: MouseEvent) {
     transition: all .35s cubic-bezier(.23, 1, .32, 1);
 }
 
-.glass-btn::before {
+.btn::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -116,17 +116,17 @@ function handleClick(e: MouseEvent) {
     pointer-events: none;
 }
 
-.glass-btn__content {
+.btn__content {
     position: relative;
     z-index: 1;
     display: inline-flex;
     align-items: center;
-    gap: var(--glass-btn-gap);
+    gap: var(--btn-gap);
 }
 
-/* Primary */
+/* Glass */
 
-.glass-btn--primary {
+.btn--glass {
     background: linear-gradient(148deg, var(--glass-white-30) 0%, var(--glass-white-08) 55%, var(--glass-white-02) 100%);
     backdrop-filter: var(--glass-filter-md);
     -webkit-backdrop-filter: var(--glass-filter-md);
@@ -134,46 +134,20 @@ function handleClick(e: MouseEvent) {
     border-bottom-color: var(--glass-white-10);
 }
 
-.glass-btn--primary:hover {
+.btn--glass:hover {
     background: linear-gradient(148deg, var(--glass-white-40) 0%, var(--glass-white-10) 55%, var(--glass-white-04) 100%);
     transform: translateY(-3px) scale(1.03);
     border-color: var(--glass-white-60);
 }
 
-.glass-btn--primary:active {
+.btn--glass:active {
     transform: scale(.97);
     background: linear-gradient(148deg, var(--glass-white-10) 0%, var(--glass-white-02) 100%);
 }
 
-/* Secondary */
-
-.glass-btn--secondary {
-    letter-spacing: .04em;
-    color: var(--glass-white-90);
-    background: var(--glass-white-10);
-    backdrop-filter: var(--glass-filter-sm);
-    -webkit-backdrop-filter: var(--glass-filter-sm);
-    border: 1px solid var(--glass-white-30);
-}
-
-.glass-btn--secondary::before {
-    background: linear-gradient(180deg, var(--glass-white-30) 0%, transparent 100%);
-    inset: 0 0 auto 0;
-    height: 44%;
-}
-
-.glass-btn--secondary:hover {
-    background: var(--glass-white-20);
-    transform: translateY(-2px);
-}
-
-.glass-btn--secondary:active {
-    transform: scale(.96)
-}
-
 /* Ghost */
 
-.glass-btn--ghost {
+.btn--ghost {
     color: var(--glass-white-80);
     background: transparent;
     backdrop-filter: var(--glass-filter-xs);
@@ -181,24 +155,24 @@ function handleClick(e: MouseEvent) {
     border: 1px solid var(--glass-white-40);
 }
 
-.glass-btn--ghost::before {
+.btn--ghost::before {
     display: none
 }
 
-.glass-btn--ghost:hover {
+.btn--ghost:hover {
     background: var(--glass-white-08);
     color: #fff;
     transform: translateY(-2px);
     border-color: var(--glass-white-50);
 }
 
-.glass-btn--ghost:active {
+.btn--ghost:active {
     transform: scale(.96)
 }
 
 /* White */
 
-.glass-btn--white {
+.btn--white {
     color: #1a1a2e;
     background: var(--glass-white-90);
     backdrop-filter: var(--glass-filter-xs);
@@ -206,83 +180,82 @@ function handleClick(e: MouseEvent) {
     border: 1px solid var(--glass-white-90);
 }
 
-.glass-btn--white::before {
+.btn--white::before {
     background: linear-gradient(180deg, var(--glass-white-60) 0%, transparent 100%);
     inset: 0 0 auto 0;
     height: 50%;
 }
 
-.glass-btn--white:hover {
+.btn--white:hover {
     background: var(--glass-white-100);
-    color: #fff;
     transform: translateY(-3px) scale(1.03);
 }
 
-.glass-btn--white:active {
+.btn--white:active {
     transform: scale(.97);
     background: var(--glass-white-80);
 }
 
 /* Transparent */
 
-.glass-btn--transparent {
+.btn--transparent {
     color: var(--glass-white-80);
     background: transparent;
     border: none;
 }
 
-.glass-btn--transparent::before {
+.btn--transparent::before {
     display: none
 }
 
-.glass-btn--transparent:hover {
+.btn--transparent:hover {
     color: #fff;
     transform: translateY(-2px);
 }
 
-.glass-btn--transparent:active {
+.btn--transparent:active {
     transform: scale(.96)
 }
 
 /* Sizes */
 
-.glass-btn--xs {
-    --glass-btn-gap: 4px;
+.btn--xs {
+    --btn-gap: 4px;
     padding: .3rem .8rem;
     font-size: .72rem;
     border-radius: .45rem
 }
 
-.glass-btn--sm {
-    --glass-btn-gap: 6px;
+.btn--sm {
+    --btn-gap: 6px;
     padding: .5rem 1.15rem;
     font-size: .8rem;
     border-radius: .6rem
 }
 
-.glass-btn--md {
-    --glass-btn-gap: 7px;
+.btn--md {
+    --btn-gap: 7px;
     padding: .68rem 1.5rem;
     font-size: .875rem;
     border-radius: .72rem
 }
 
-.glass-btn--lg {
-    --glass-btn-gap: 9px;
+.btn--lg {
+    --btn-gap: 9px;
     padding: .875rem 2.1rem;
     font-size: 1rem;
     border-radius: .875rem
 }
 
-.glass-btn--xl {
-    --glass-btn-gap: 11px;
+.btn--xl {
+    --btn-gap: 11px;
     padding: 1.05rem 2.8rem;
     font-size: 1.1rem;
     border-radius: 1rem
 }
 
-.glass-btn--2xl {
-    --glass-btn-gap: 13px;
+.btn--2xl {
+    --btn-gap: 13px;
     padding: 1.25rem 3.6rem;
     font-size: 1.25rem;
     border-radius: 1.1rem
@@ -290,14 +263,14 @@ function handleClick(e: MouseEvent) {
 
 /* Pill */
 
-.glass-btn--pill {
+.btn--pill {
     border-radius: 9999px !important
 }
 
 /* Disabled */
 
-.glass-btn:disabled,
-.glass-btn[aria-disabled="true"] {
+.btn:disabled,
+.btn[aria-disabled="true"] {
     cursor: not-allowed;
     opacity: .35;
     pointer-events: none;
@@ -305,7 +278,7 @@ function handleClick(e: MouseEvent) {
 
 /* Icon-only */
 
-.glass-btn--icon-only {
+.btn--icon-only {
     padding: 0;
     letter-spacing: 0;
     font-weight: normal;
@@ -315,41 +288,41 @@ function handleClick(e: MouseEvent) {
     border: 1px solid var(--glass-white-30);
 }
 
-.glass-btn--icon-only::before {
+.btn--icon-only::before {
     background: linear-gradient(180deg, var(--glass-white-30) 0%, transparent 100%);
     inset: 0 0 auto 0;
     height: 45%;
 }
 
-.glass-btn--icon-only:hover {
+.btn--icon-only:hover {
     background: var(--glass-white-20);
     transform: translateY(-2px) scale(1.09);
     border-color: var(--glass-white-30);
 }
 
-.glass-btn--icon-only:active {
+.btn--icon-only:active {
     transform: scale(.92)
 }
 
-.glass-btn--icon-only.glass-btn--sm {
+.btn--icon-only.btn--sm {
     width: 40px;
     height: 40px;
     border-radius: .7rem
 }
 
-.glass-btn--icon-only.glass-btn--md {
+.btn--icon-only.btn--md {
     width: 52px;
     height: 52px;
     border-radius: .875rem
 }
 
-.glass-btn--icon-only.glass-btn--lg {
+.btn--icon-only.btn--lg {
     width: 60px;
     height: 60px;
     border-radius: 1rem
 }
 
-.glass-btn--icon-only.glass-btn--pill {
+.btn--icon-only.btn--pill {
     border-radius: 50% !important
 }
 </style>

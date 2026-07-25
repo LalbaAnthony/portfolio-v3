@@ -44,6 +44,7 @@
     --glass-white-60: rgb(var(--glass-white) / 60%);
     --glass-white-80: rgb(var(--glass-white) / 80%);
     --glass-white-90: rgb(var(--glass-white) / 90%);
+    --glass-white-100: rgb(var(--glass-white) / 100%);
 
     --glass-teal: 20 184 166;
     --glass-teal-40: rgb(var(--glass-teal) / 40%);

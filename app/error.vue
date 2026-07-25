@@ -15,7 +15,7 @@
             </p>
           </div>
           <div class="mt-10 space-y-4">
-            <Button class="w-full" variant="primary" size="lg" @click="goToHome()">{{ t('routing.home') }}</Button>
+            <Button class="w-full" variant="glass" size="lg" @click="goToHome()">{{ t('routing.home') }}</Button>
             <Button class="w-full" variant="ghost" size="lg" @click="goBack()">{{ t('routing.back') }}</Button>
           </div>
         </div>

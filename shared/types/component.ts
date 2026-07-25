@@ -1,5 +1,5 @@
 
-export const COMPONENT_VARIANTS = ['primary', 'secondary', 'ghost', 'white', 'transparent'] as const
+export const COMPONENT_VARIANTS = ['glass', 'ghost', 'white', 'transparent'] as const
 export type ComponentVariant = typeof COMPONENT_VARIANTS[number]
 
 export const COMPONENT_SIZES = ['xs', 'sm', 'md', 'lg', '2xl'] as const
