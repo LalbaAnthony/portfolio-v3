@@ -1,16 +1,14 @@
 import type { Project, ProjectFilters } from '~~/shared/types/project'
 import type { Order, Pagination } from '~~/shared/types/service'
 import { applyPagination, applySearch, applySorting, isValideSearch } from '~~/shared/utils/service'
-import projectsData from '~~/server/data/projects.json'
-
-const projects = projectsData as Project[]
+import projectsData from '~~/server/data/projects'
 
 export class ProjectService {
   private applyFilters(result: Project[], options?: ProjectFilters): Project[] {
     const { search, featured, technologies } = options || {}
 
     if (search && isValideSearch(search)) {
-      result = applySearch(result, search, p => [p.title, p.description.en, p.description.fr, p.abstract.en, p.abstract.fr])
+      result = applySearch(result, search, p => [p.title, p.description.en, p.description.fr, p.abstract.en, p.abstract.fr, ...p.technologies])
     }
 
     if (featured) {
@@ -28,14 +26,14 @@ export class ProjectService {
   }
 
   public count(options?: ProjectFilters): number {
-    let result = [...projects]
+    let result = [...projectsData]
     result = this.applyFilters(result, options)
 
     return result.length
   }
 
   public getAll(options?: ProjectFilters, order: Order[] = [], pagination?: Pagination | null): Project[] {
-    let result = [...projects]
+    let result = [...projectsData]
     result = this.applyFilters(result, options)
     result = applySorting(result, order)
     result = applyPagination(result, pagination)
@@ -44,13 +42,13 @@ export class ProjectService {
   }
 
   public getOne(slug: string): Project | undefined {
-    return projects.find(project => project.slug === slug)
+    return projectsData.find(project => project.slug === slug)
   }
 
   public getTechnologies(): string[] {
     const counts = new Map<string, number>()
 
-    for (const tech of projects.flatMap(p => p.technologies)) {
+    for (const tech of projectsData.flatMap(p => p.technologies)) {
       counts.set(tech, (counts.get(tech) ?? 0) + 1)
     }
 

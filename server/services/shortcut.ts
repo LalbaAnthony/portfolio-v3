@@ -1,9 +1,7 @@
-import shortcutsData from '~~/server/data/shortcuts.json'
+import shortcutsData from '~~/server/data/shortcuts'
 import type { Shortcut } from '#shared/types/shortcut'
 import { SHORTCUT_QUERY_TOKEN } from '#shared/types/shortcut'
 import { safeDecode } from '#shared/utils/text'
-
-const shortcuts = shortcutsData as Shortcut[]
 
 export class ShortcutService {
   private escapeRegExp(value: string): string {
@@ -21,11 +19,11 @@ export class ShortcutService {
   }
 
   private resolveStatic(path: string): Shortcut | undefined {
-    return shortcuts.find(s => this.isStatic(s) && s.fromPath === path)
+    return shortcutsData.find(s => this.isStatic(s) && s.fromPath === path)
   }
 
   private resolveDynamicAndQuery(path: string): { shortcut: Shortcut, query: string } | undefined {
-    for (const shortcut of shortcuts) {
+    for (const shortcut of shortcutsData) {
       if (this.isStatic(shortcut)) continue
 
       const match = path.match(this.buildMatcher(shortcut.fromPath))

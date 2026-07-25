@@ -1,4 +1,4 @@
-[
+const projectsData: Project[] = [
   {
     "slug": "nova-dashboard",
     "title": "Nova Dashboard",
@@ -351,3 +351,5 @@
     "repository": "https://github.com/LalbaAnthony/pricepilot"
   }
 ]
+
+export default projectsData

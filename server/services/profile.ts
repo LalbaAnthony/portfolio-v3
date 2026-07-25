@@ -1,15 +1,13 @@
 import type { Profile, ProfileSocial } from '~~/shared/types/profile'
-import projectsData from '~~/server/data/profile.json'
-
-const profile = projectsData as Profile
+import profileData from '~~/server/data/profile'
 
 export class ProfileService {
   public get(): Profile | undefined {
-    return profile
+    return profileData
   }
 
   public getSocials(): ProfileSocial[] {
-    return [...profile.socials]
+    return [...(profileData.socials ?? [])]
   }
 }
 

@@ -1,20 +1,22 @@
-{
+const profileData: Profile = {
     "firstName": "Anthony",
     "lastName": "Lalba",
-    "jobTitle": "Full Stack Developer",
+    "jobTitle": {
+        "en": "Full Stack Developer",
+        "fr": "Développeur Full Stack"
+    },
     "location": "Toulouse, France",
-    "birthday": "2003-04-19",
+    "birthday": "2003-03-19",
     "email": "anthony.lalba@proton.me",
     "socials": [
         {
-            "slug": "github",
             "label": "GitHub",
             "url": "https://github.com/LalbaAnthony/"
         },
         {
-            "slug": "linkedin",
             "label": "LinkedIn",
             "url": "https://www.linkedin.com/in/anthony-lalba-abb686230/"
         }
     ]
 }
+export default profileData

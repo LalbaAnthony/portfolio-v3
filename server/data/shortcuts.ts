@@ -1,4 +1,4 @@
-[
+const shortcutsData: Shortcut[] = [
   {
     "label": "GitLab (AgoraVita) Repos Search",
     "fromPath": "gls/%q",
@@ -35,3 +35,6 @@
     "toUrl": "https://developer.mozilla.org/search?q=%q"
   }
 ]
+
+export default shortcutsData
+
