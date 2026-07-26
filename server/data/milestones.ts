@@ -3,7 +3,7 @@ import type { MilestoneAny } from "~~/shared/types/milestone"
 const milestonesData: MilestoneAny[] = [
     {
         type: "experience",
-        startDate: "2022-01-01",
+        startDate: "2022-07-10",
         description: {
             en: "Front-end: VueJS, Quasar, Nuxt.js, Tailwind. Back-end: PHP, Laravel, WordPress Headless, SQL, REST API. Project-based work, incident response and feature requests.",
             fr: "Outils front end: VueJS, Quasar, Nuxt.js, Tailwind. Outils back end: PHP, Laravel, WordPress Headless, SQL, API REST. Travail en projets, réponses aux incidents et aux demandes d'assistance et d'évolution."
@@ -17,7 +17,7 @@ const milestonesData: MilestoneAny[] = [
     {
         type: "experience",
         startDate: "2022-05-01",
-        endDate: "2022-07-31",
+        endDate: "2022-07-01",
         description: {
             en: "Internship in the Web department: discovery of Quasar, VueJS and Tailwind, project-based work.",
             fr: "Stage dans le pôle Web d'Agoravita, découverte de Quasar, VueJS et Tailwind, travail en projets."
