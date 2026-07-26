@@ -2,7 +2,7 @@
 export const COMPONENT_VARIANTS = ['glass', 'ghost', 'white', 'transparent'] as const
 export type ComponentVariant = typeof COMPONENT_VARIANTS[number]
 
-export const COMPONENT_SIZES = ['xs', 'sm', 'md', 'lg', '2xl'] as const
+export const COMPONENT_SIZES = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'] as const
 export type ComponentSize = typeof COMPONENT_SIZES[number]
 
 export const COMPONENT_POSITIONS = ['left', 'center', 'right'] as const

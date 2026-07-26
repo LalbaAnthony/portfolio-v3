@@ -10,8 +10,8 @@
         }
     ]" :disabled="disabled" :aria-disabled="disabled || undefined" :aria-label="ariaLabel" @click="handleClick">
         <span class="btn__content">
-            <Icon v-if="loading" name="eos-icons:loading" class="animate-spin" />
-            <Icon v-else-if="icon" :name="icon" />
+            <Icon v-if="loading" name="eos-icons:loading" class="animate-spin" :size="iconSize" />
+            <Icon v-else-if="icon" :name="icon" :size="iconSize" />
             <slot />
         </span>
     </component>
@@ -50,6 +50,17 @@ const props = withDefaults(defineProps<{
 })
 
 const emit = defineEmits<{ click: [e: MouseEvent] }>()
+
+const iconSizeMap: Record<ComponentSize, string> = {
+    'xs': '14px',
+    'sm': '18px',
+    'md': '22px',
+    'lg': '24px',
+    'xl': '26px',
+    '2xl': '28px',
+}
+
+const iconSize = computed(() => iconSizeMap[props.size])
 
 const componentType = computed(() => {
     return props.as === 'link' ? NuxtLink : 'button'
@@ -320,6 +331,12 @@ function handleClick(e: MouseEvent) {
     width: 60px;
     height: 60px;
     border-radius: 1rem
+}
+
+.btn--icon-only.btn--xl {
+    width: 68px;
+    height: 68px;
+    border-radius: 1.1rem
 }
 
 .btn--icon-only.btn--pill {
