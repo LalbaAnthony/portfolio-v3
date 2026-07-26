@@ -11,7 +11,7 @@ export default defineEventHandler((event) => {
   const limit = parseQueryNumber(query.limit)
   const page = parseQueryNumber(query.page)
 
-  const order = parseOrder(query.order as string | string[] | undefined)
+  const order = parseOrder(query.order as string | string[] | undefined, [['year', 'DESC']])
 
   const count = projectService.count({ search, featured, technologies })
   const pagination = paginate(page, limit, count)

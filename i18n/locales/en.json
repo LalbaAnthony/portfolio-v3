@@ -30,6 +30,17 @@
         "description": "A selection of my most recent and relevant projects",
         "all": "See all projects"
       },
+      "skills": {
+        "title": "My stack",
+        "description": "Technologies and tools I work with on a daily basis"
+      },
+      "timeline": {
+        "title": "Experience & education",
+        "description": "My professional journey and academic background",
+        "experience": "Experience",
+        "diploma": "Education",
+        "present": "Present"
+      },
       "head": {
         "title": "Portfolio",
         "description": "A collection of my work, experience, and projects"

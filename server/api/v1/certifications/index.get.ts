@@ -9,7 +9,7 @@ export default defineEventHandler((event) => {
   const limit = parseQueryNumber(query.limit)
   const page = parseQueryNumber(query.page)
 
-  const order = parseOrder(query.order as string | string[] | undefined)
+  const order = parseOrder(query.order as string | string[] | undefined, [['date', 'DESC']])
 
   const count = certificationService.count({ search })
   const pagination = paginate(page, limit, count)

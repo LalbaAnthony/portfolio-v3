@@ -1,4 +1,5 @@
 import useApi from '~/composables/useApi'
+import type { Profile } from '~~/shared/types/profile'
 
 export const useProfile = async () => {
     const { data, status, error } = await useAsyncData(

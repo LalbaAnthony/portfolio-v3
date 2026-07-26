@@ -1,11 +1,11 @@
 import useApi from '~/composables/useApi'
 import type { Ref } from 'vue'
-import type { Pagination, Order } from '~~/shared/types/service'
+import type { Pagination } from '~~/shared/types/service'
+import type { Project } from '~~/shared/types/project'
 
-export const useProjects = async (params?: { page?: Ref<number>, technologies?: Ref<string[]>, order?: Ref<Order | null>, }) => {
+export const useProjects = async (params?: { page?: Ref<number>, technologies?: Ref<string[]> }) => {
     const page = params?.page ?? ref(1)
     const technologies = params?.technologies ?? ref<string[]>([])
-    const order = params?.order ?? ref<Order | null>(null)
 
     const { data, status, error } = await useAsyncData(
         `projects-${page.value}-${technologies.value.join(',')}`,
@@ -17,7 +17,6 @@ export const useProjects = async (params?: { page?: Ref<number>, technologies?: 
                         params: {
                             page: page.value,
                             technologies: technologies.value,
-                            order: order.value ? JSON.stringify([order.value]) : undefined
                         }
                     }
                 )
@@ -28,7 +27,7 @@ export const useProjects = async (params?: { page?: Ref<number>, technologies?: 
         },
         {
             getCachedData: (key, nuxtApp, ctx) => ctx.cause === 'initial' ? (nuxtApp.payload.data[key] ?? nuxtApp.static.data[key]) : undefined,
-            watch: [page, technologies, order],
+            watch: [page, technologies],
         }
     )
 

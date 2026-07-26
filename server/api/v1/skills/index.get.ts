@@ -9,7 +9,7 @@ export default defineEventHandler((event) => {
   const limit = parseQueryNumber(query.limit)
   const page = parseQueryNumber(query.page)
 
-  const order = parseOrder(query.order as string | string[] | undefined)
+  const order = parseOrder(query.order as string | string[] | undefined, [['rating', 'DESC']])
 
   const count = skillService.count({ search })
   const pagination = paginate(page, limit, count)

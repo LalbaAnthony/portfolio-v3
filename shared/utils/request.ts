@@ -21,15 +21,15 @@ export function parseQueryNumber(value: unknown, defaultValue: number | null = n
     return defaultValue
 }
 
-export function parseQueryArray(value: unknown): string[] | null {
+export function parseQueryArray(value: unknown, defaultValue: string[] | null = null): string[] | null {
     if (Array.isArray(value)) return value as string[]
     if (typeof value === 'string') return [value]
-    return null
+    return defaultValue
 }
 
 // Take an order parameter like "title:ASC" or ["title:ASC", "date:DESC"] and convert it to an array of [field, direction] tuples
-export function parseOrder(value: unknown): Order[] {
+export function parseOrder(value: unknown, defaultValue: Order[] | null = []): Order[] {
     return (parseQueryArray(value) ?? [])
         .map(o => o.split(':') as [string, string])
-        .filter((o): o is Order => o.length === 2 && (o[1] === 'ASC' || o[1] === 'DESC'))
+        .filter((o): o is Order => o.length === 2 && (o[1] === 'ASC' || o[1] === 'DESC')) ?? defaultValue
 }

@@ -1,6 +1,9 @@
 <template>
     <section class="mb-12 text-center pt-8">
-        <div class="flex flex-col items-center justify-center gap-2 mb-8">
+        <div class="flex flex-col items-center justify-center gap-2 mb-4">
+            <div class="profile-photo mb-4">
+                <img src="/photos/profile_no-bg.png" :alt="`${props.profile?.firstName} ${props.profile?.lastName}`" class="profile-photo__img" />
+            </div>
             <h1 class="text-5xl">
                 {{ props.profile?.firstName }} <span class="font-extrabold">{{ props.profile?.lastName }}</span>
             </h1>
@@ -19,12 +22,32 @@
 </template>
 
 <script setup lang="ts">
-import Button from '~/components/atoms/Button.vue';
+import Button from '~/components/atoms/Button.vue'
 
 const props = defineProps<{
     profile: Profile | null;
 }>()
 
 const { t } = useI18n()
-
 </script>
+
+<style scoped>
+.profile-photo {
+    position: relative;
+    width: 9rem;
+    height: 9rem;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, var(--glass-white-20) 0%, var(--glass-white-06) 100%);
+    backdrop-filter: var(--glass-filter-md);
+    -webkit-backdrop-filter: var(--glass-filter-md);
+    border: 1px solid var(--glass-white-30);
+    overflow: hidden;
+}
+
+.profile-photo__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+</style>

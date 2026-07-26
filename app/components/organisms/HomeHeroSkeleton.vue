@@ -1,6 +1,7 @@
 <template>
     <section class="mb-12 text-center pt-8">
         <div class="flex flex-col items-center justify-center gap-2 mb-8">
+            <Skeleton width="9rem" height="9rem" rounded="full" class="mb-4" />
             <Skeleton height="3rem" width="20rem" />
             <Skeleton height="1.875rem" width="14rem" />
         </div>
