@@ -1,11 +1,11 @@
 <template>
     <div>
         <h3 class="flex items-center gap-2 font-semibold text-sm uppercase tracking-widest text-white/40 mb-6">
-            <Icon :name="icon" size="18px" />
-            {{ label }}
+            <Icon :name="props.icon" size="18px" />
+            {{ props.label }}
         </h3>
         <div class="timeline">
-            <div v-for="(item, index) in items" :key="index" class="timeline__item">
+            <div v-for="(item, index) in props.items" :key="index" class="timeline__item">
                 <div class="timeline__dot" />
                 <p class="text-xs text-white/40 mb-1 tabular-nums">{{ item.dateRange }}</p>
                 <h4 class="font-semibold text-sm leading-snug mb-0.5">{{ item.title }}</h4>
@@ -24,7 +24,7 @@ export interface TimelineItem {
     description?: string | null
 }
 
-defineProps<{
+const props = defineProps<{
     icon: string
     label: string
     items: TimelineItem[]

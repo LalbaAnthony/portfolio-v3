@@ -7,16 +7,9 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-                <Timeline
-                    icon="mdi:briefcase-outline"
-                    :label="t('pages.home.timeline.experience')"
-                    :items="experienceItems"
-                />
-                <Timeline
-                    icon="mdi:school-outline"
-                    :label="t('pages.home.timeline.diploma')"
-                    :items="diplomaItems"
-                />
+                <Timeline icon="mdi:briefcase-outline" :label="t('pages.home.timeline.experience')"
+                    :items="experienceItems" />
+                <Timeline icon="mdi:school-outline" :label="t('pages.home.timeline.diploma')" :items="diplomaItems" />
             </div>
         </div>
     </section>
@@ -25,6 +18,7 @@
 <script setup lang="ts">
 import type { MilestoneExperience, MilestoneDiploma, MilestoneAny } from '~~/shared/types/milestone'
 import type { TimelineItem } from '~/components/molecules/Timeline.vue'
+import Timeline from '~/components/molecules/Timeline.vue'
 
 const props = defineProps<{
     experiences: MilestoneExperience[] | null

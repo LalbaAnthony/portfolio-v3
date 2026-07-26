@@ -1,5 +1,5 @@
 <template>
-    <span :class="['pill', `pill--${variant}`, `pill--${size}`]">
+    <span :class="['pill', `pill--${props.variant}`, `pill--${props.size}`]">
         <slot />
     </span>
 </template>
@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import type { ComponentVariant, ComponentSize } from '#shared/types/component'
 
-withDefaults(defineProps<{
+const props = withDefaults(defineProps<{
     variant?: ComponentVariant
     size?: ComponentSize
 }>(), {

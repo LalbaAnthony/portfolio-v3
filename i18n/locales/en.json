@@ -31,8 +31,11 @@
         "all": "See all projects"
       },
       "skills": {
-        "title": "My stack",
-        "description": "Technologies and tools I work with on a daily basis"
+        "title": "My skills",
+        "description": "Technologies and tools I work with on a daily basis",
+        "card": {
+          "rating": "Rating: {value} / {max}"
+        }
       },
       "timeline": {
         "title": "Experience & education",

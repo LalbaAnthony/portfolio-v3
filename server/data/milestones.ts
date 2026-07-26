@@ -2,7 +2,7 @@ import type { MilestoneAny } from "~~/shared/types/milestone"
 
 const milestonesData: MilestoneAny[] = [
     {
-        type: 'experience',
+        type: "experience",
         startDate: "2022-01-01",
         endDate: "2023-12-31",
         description: {
@@ -16,7 +16,7 @@ const milestonesData: MilestoneAny[] = [
         }
     },
     {
-        type: 'experience',
+        type: "experience",
         startDate: "2022-05-01",
         endDate: "2022-07-31",
         description: {
@@ -30,7 +30,7 @@ const milestonesData: MilestoneAny[] = [
         }
     },
     {
-        type: 'experience',
+        type: "experience",
         startDate: "2017-01-01",
         endDate: "2017-12-31",
         description: {
@@ -44,7 +44,7 @@ const milestonesData: MilestoneAny[] = [
         }
     },
     {
-        type: 'diploma',
+        type: "diploma",
         label: {
             en: "Master's Expert in Web Development",
             fr: "Mastère Expert en développement web"
@@ -53,7 +53,7 @@ const milestonesData: MilestoneAny[] = [
         startDate: "2024-09-01",
     },
     {
-        type: 'diploma',
+        type: "diploma",
         label: {
             en: "Bachelor Information Systems (DSN specialization)",
             fr: "Bachelor systèmes d'information — spécialité DSN"
@@ -63,7 +63,7 @@ const milestonesData: MilestoneAny[] = [
         endDate: "2024-06-30",
     },
     {
-        type: 'diploma',
+        type: "diploma",
         label: {
             en: "BTS SIO — Software Solutions & Business Applications",
             fr: "BTS SIO — Solutions logicielles et applications métier"
@@ -73,7 +73,7 @@ const milestonesData: MilestoneAny[] = [
         endDate: "2023-06-30",
     },
     {
-        type: 'diploma',
+        type: "diploma",
         label: {
             en: "Baccalauréat — Mathematics, Computer Science & Engineering",
             fr: "Baccalauréat — Mathématiques, numérique & sciences informatiques et sciences de l'ingénieur"

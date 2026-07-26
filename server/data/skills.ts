@@ -2,254 +2,254 @@ import type { Skill } from "~~/shared/types/skill"
 
 const skillsData: Skill[] = [
     {
-        name: 'Node.js',
+        name: "Node.js",
         rating: 9,
         reason: {
-            en: '',
-            fr: ''
+            en: "",
+            fr: "Je l'utilise pour créer des applications web côté serveur et des API RESTful. Node.js est rapide, efficace et dispose d'un large écosystème de modules.",
         },
-        iconUrl: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg',
-        siteUrl: 'https://nodejs.org',
+        iconUrl: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg",
+        siteUrl: "https://nodejs.org",
     },
     {
-        name: 'npm',
+        name: "npm",
         rating: 8,
         reason: {
-            en: '',
-            fr: ''
+            en: "",
+            fr: ""
         },
-        iconUrl: 'https://www.vectorlogo.zone/logos/npmjs/npmjs-ar21.svg',
-        siteUrl: 'https://www.npmjs.com/',
+        iconUrl: "https://www.vectorlogo.zone/logos/npmjs/npmjs-ar21.svg",
+        siteUrl: "https://www.npmjs.com/",
     },
     {
-        name: 'JavaScript',
+        name: "JavaScript",
         rating: 9,
         reason: {
-            en: '',
-            fr: ''
+            en: "",
+            fr: ""
         },
-        iconUrl: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg',
-        siteUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+        iconUrl: "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg",
+        siteUrl: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
     },
     {
-        name: 'TypeScript',
+        name: "TypeScript",
         rating: 8,
         reason: {
-            en: '',
-            fr: ''
+            en: "",
+            fr: ""
         },
-        iconUrl: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg',
-        siteUrl: 'https://www.typescriptlang.org/',
+        iconUrl: "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg",
+        siteUrl: "https://www.typescriptlang.org/",
     },
     {
-        name: 'Vue.js',
+        name: "Vue.js",
         rating: 9,
         reason: {
-            en: '',
-            fr: ''
+            en: "",
+            fr: ""
         },
-        iconUrl: 'https://www.vectorlogo.zone/logos/vuejs/vuejs-icon.svg',
-        siteUrl: 'https://vuejs.org/',
+        iconUrl: "https://www.vectorlogo.zone/logos/vuejs/vuejs-icon.svg",
+        siteUrl: "https://vuejs.org/",
     },
     {
-        name: 'Nuxt.js',
+        name: "Nuxt.js",
         rating: 8,
         reason: {
-            en: '',
-            fr: ''
+            en: "",
+            fr: ""
         },
-        iconUrl: 'https://www.vectorlogo.zone/logos/nuxtjs/nuxtjs-icon.svg',
-        siteUrl: 'https://nuxt.com/',
+        iconUrl: "https://www.vectorlogo.zone/logos/nuxtjs/nuxtjs-icon.svg",
+        siteUrl: "https://nuxt.com/",
     },
     {
-        name: 'Quasar',
+        name: "Quasar",
         rating: 8,
         reason: {
-            en: '',
-            fr: ''
+            en: "",
+            fr: ""
         },
-        iconUrl: 'https://images.icon-icons.com/2107/PNG/512/file_type_quasar_icon_130213.png',
-        siteUrl: 'https://quasar.dev/',
+        iconUrl: "https://images.icon-icons.com/2107/PNG/512/file_type_quasar_icon_130213.png",
+        siteUrl: "https://quasar.dev/",
     },
     {
-        name: 'Next.js',
+        name: "Next.js",
         rating: 4,
         reason: {
-            en: '',
-            fr: ''
+            en: "",
+            fr: ""
         },
-        iconUrl: 'https://www.vectorlogo.zone/logos/nextjs/nextjs-icon.svg',
-        siteUrl: 'https://nextjs.org/',
+        iconUrl: "https://www.vectorlogo.zone/logos/nextjs/nextjs-icon.svg",
+        siteUrl: "https://nextjs.org/",
     },
     {
-        name: 'Express.js',
+        name: "Express.js",
         rating: 8,
         reason: {
-            en: '',
-            fr: ''
+            en: "",
+            fr: ""
         },
-        iconUrl: 'https://www.vectorlogo.zone/logos/expressjs/expressjs-icon.svg',
-        siteUrl: 'https://expressjs.com/',
+        iconUrl: "https://www.vectorlogo.zone/logos/expressjs/expressjs-icon.svg",
+        siteUrl: "https://expressjs.com/",
     },
     {
-        name: 'Vite',
+        name: "Vite",
         rating: 7,
         reason: {
-            en: '',
-            fr: ''
+            en: "",
+            fr: ""
         },
-        iconUrl: 'https://www.vectorlogo.zone/logos/vitejsdev/vitejsdev-icon.svg',
-        siteUrl: 'https://vite.dev/',
+        iconUrl: "https://www.vectorlogo.zone/logos/vitejsdev/vitejsdev-icon.svg",
+        siteUrl: "https://vite.dev/",
     },
     {
-        name: 'CSS',
+        name: "CSS",
         rating: 7,
         reason: {
-            en: '',
-            fr: ''
+            en: "",
+            fr: ""
         },
-        iconUrl: 'https://www.vectorlogo.zone/logos/w3_css/w3_css-icon.svg',
-        siteUrl: 'https://www.w3schools.com/css/',
+        iconUrl: "https://www.vectorlogo.zone/logos/w3_css/w3_css-icon.svg",
+        siteUrl: "https://www.w3schools.com/css/",
     },
     {
-        name: 'Tailwind CSS',
+        name: "Tailwind CSS",
         rating: 9,
         reason: {
-            en: '',
-            fr: ''
+            en: "",
+            fr: ""
         },
-        iconUrl: 'https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg',
-        siteUrl: 'https://tailwindcss.com/',
+        iconUrl: "https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg",
+        siteUrl: "https://tailwindcss.com/",
     },
     {
-        name: 'OVH',
+        name: "OVH",
         rating: 6,
         reason: {
-            en: '',
-            fr: ''
+            en: "",
+            fr: ""
         },
-        iconUrl: 'https://images.icon-icons.com/2407/PNG/512/ovh_icon_146131.png',
-        siteUrl: 'https://www.ovhcloud.com/',
+        iconUrl: "https://images.icon-icons.com/2407/PNG/512/ovh_icon_146131.png",
+        siteUrl: "https://www.ovhcloud.com/",
     },
     {
-        name: 'Git',
+        name: "Git",
         rating: 6,
         reason: {
-            en: '',
-            fr: ''
+            en: "",
+            fr: ""
         },
-        iconUrl: 'https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg',
-        siteUrl: 'https://git-scm.com/',
+        iconUrl: "https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg",
+        siteUrl: "https://git-scm.com/",
     },
     {
-        name: 'GitLab',
+        name: "GitLab",
         rating: 7,
         reason: {
-            en: '',
-            fr: ''
+            en: "",
+            fr: ""
         },
-        iconUrl: 'https://www.vectorlogo.zone/logos/gitlab/gitlab-icon.svg',
-        siteUrl: 'https://about.gitlab.com/',
+        iconUrl: "https://www.vectorlogo.zone/logos/gitlab/gitlab-icon.svg",
+        siteUrl: "https://about.gitlab.com/",
     },
     {
-        name: 'Docker',
+        name: "Docker",
         rating: 7,
         reason: {
-            en: '',
-            fr: ''
+            en: "",
+            fr: ""
         },
-        iconUrl: 'https://www.vectorlogo.zone/logos/docker/docker-icon.svg',
-        siteUrl: 'https://www.docker.com/',
+        iconUrl: "https://www.vectorlogo.zone/logos/docker/docker-icon.svg",
+        siteUrl: "https://www.docker.com/",
     },
     {
-        name: 'Linux',
+        name: "Linux",
         rating: 7,
         reason: {
-            en: '',
-            fr: ''
+            en: "",
+            fr: ""
         },
-        iconUrl: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg',
-        siteUrl: 'https://www.linux.org/',
+        iconUrl: "https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg",
+        siteUrl: "https://www.linux.org/",
     },
     {
-        name: 'Bash',
+        name: "Bash",
         rating: 6,
         reason: {
-            en: '',
-            fr: ''
+            en: "",
+            fr: ""
         },
-        iconUrl: 'https://www.vectorlogo.zone/logos/gnu_bash/gnu_bash-icon.svg',
-        siteUrl: 'https://www.gnu.org/software/bash/',
+        iconUrl: "https://www.vectorlogo.zone/logos/gnu_bash/gnu_bash-icon.svg",
+        siteUrl: "https://www.gnu.org/software/bash/",
     },
     {
-        name: 'Apache',
+        name: "Apache",
         rating: 8,
         reason: {
-            en: '',
-            fr: ''
+            en: "",
+            fr: ""
         },
-        iconUrl: 'https://www.vectorlogo.zone/logos/apache/apache-ar21.svg',
-        siteUrl: 'https://httpd.apache.org/',
+        iconUrl: "https://www.vectorlogo.zone/logos/apache/apache-ar21.svg",
+        siteUrl: "https://httpd.apache.org/",
     },
     {
-        name: 'PHP',
+        name: "PHP",
         rating: 9,
         reason: {
-            en: '',
-            fr: ''
+            en: "",
+            fr: ""
         },
-        iconUrl: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg',
-        siteUrl: 'https://www.php.net',
+        iconUrl: "https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg",
+        siteUrl: "https://www.php.net",
     },
     {
-        name: 'Laravel',
+        name: "Laravel",
         rating: 7,
         reason: {
-            en: '',
-            fr: ''
+            en: "",
+            fr: ""
         },
-        iconUrl: 'https://www.vectorlogo.zone/logos/laravel/laravel-icon.svg',
-        siteUrl: 'https://laravel.com/',
+        iconUrl: "https://www.vectorlogo.zone/logos/laravel/laravel-icon.svg",
+        siteUrl: "https://laravel.com/",
     },
     {
-        name: 'WordPress',
+        name: "WordPress",
         rating: 8,
         reason: {
-            en: '',
-            fr: ''
+            en: "",
+            fr: ""
         },
-        iconUrl: 'https://www.vectorlogo.zone/logos/wordpress/wordpress-icon.svg',
-        siteUrl: 'https://wordpress.com/',
+        iconUrl: "https://www.vectorlogo.zone/logos/wordpress/wordpress-icon.svg",
+        siteUrl: "https://wordpress.com/",
     },
     {
-        name: 'MySQL',
+        name: "MySQL",
         rating: 7,
         reason: {
-            en: '',
-            fr: ''
+            en: "",
+            fr: ""
         },
-        iconUrl: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg',
-        siteUrl: 'https://www.mysql.com/',
+        iconUrl: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg",
+        siteUrl: "https://www.mysql.com/",
     },
     {
-        name: 'SQLite',
+        name: "SQLite",
         rating: 6,
         reason: {
-            en: '',
-            fr: ''
+            en: "",
+            fr: ""
         },
-        iconUrl: 'https://www.vectorlogo.zone/logos/sqlite/sqlite-ar21.svg',
-        siteUrl: 'https://sqlite.org/',
+        iconUrl: "https://www.vectorlogo.zone/logos/sqlite/sqlite-ar21.svg",
+        siteUrl: "https://sqlite.org/",
     },
     {
-        name: 'Python',
+        name: "Python",
         rating: 5,
         reason: {
-            en: '',
-            fr: ''
+            en: "",
+            fr: ""
         },
-        iconUrl: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg',
-        siteUrl: 'https://www.python.org',
+        iconUrl: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg",
+        siteUrl: "https://www.python.org",
     },
 ]
 export default skillsData
