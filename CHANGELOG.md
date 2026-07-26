@@ -2,6 +2,29 @@
 
 All notable changes to this project are documented in this file. This file is generated automatically from the commit history by [semantic-release](https://github.com/semantic-release/semantic-release).
 
+# [1.3.0](https://github.com/LalbaAnthony/portfolio-v3/compare/v1.2.0...v1.3.0) (2026-07-26)
+
+
+### Bug Fixes
+
+* dates on timeline ([8ddea0c](https://github.com/LalbaAnthony/portfolio-v3/commit/8ddea0ca697cef9e9a90395b45691c064356518d))
+* style hero ([a8ca6bb](https://github.com/LalbaAnthony/portfolio-v3/commit/a8ca6bb3f6cdd05a4ca6c2de9fec03e2e50112c5))
+* style on buttons ([21385f4](https://github.com/LalbaAnthony/portfolio-v3/commit/21385f4f927cd3a13198aae4e89f3ab9abcdd3e1))
+* wrong style on button ([9d4dc82](https://github.com/LalbaAnthony/portfolio-v3/commit/9d4dc82ed10c8da60f3b792f6cc32e45ebfff809))
+
+
+### Features
+
+* a lot of new services on back ([1368f0f](https://github.com/LalbaAnthony/portfolio-v3/commit/1368f0f4768c6df6ed72bb480804914f2be3ca4a))
+* add compoents on home ([f4bb919](https://github.com/LalbaAnthony/portfolio-v3/commit/f4bb91933623dd0d91498fe86a8d6766df71a440))
+* add compoents on home ([9351d9b](https://github.com/LalbaAnthony/portfolio-v3/commit/9351d9b679ba476b6732fe114bb5c547d3a0b344))
+* add skeletons ([5a4e634](https://github.com/LalbaAnthony/portfolio-v3/commit/5a4e63497d95505d68a09eb620f09a014bdec82a))
+* date format ([a8b441f](https://github.com/LalbaAnthony/portfolio-v3/commit/a8b441f79fac8082bea697b7fbb7e0a1f088b8e5))
+* enhance pills ([538b58a](https://github.com/LalbaAnthony/portfolio-v3/commit/538b58a9f0d4e5c6f569256cac3176d24764371e))
+* menu burger ([8964975](https://github.com/LalbaAnthony/portfolio-v3/commit/8964975dcf63e89c3ea1e844b01c5930c20f588f))
+* timeline style ([d27da72](https://github.com/LalbaAnthony/portfolio-v3/commit/d27da72d6f1fc96e670ab3a62183b81f44402bc0))
+* timeline style ([14e240f](https://github.com/LalbaAnthony/portfolio-v3/commit/14e240fa014a902a9f3ce3b37e852007c2307328))
+
 # [1.2.0](https://github.com/LalbaAnthony/portfolio-v3/compare/v1.1.0...v1.2.0) (2026-07-25)
 
 
