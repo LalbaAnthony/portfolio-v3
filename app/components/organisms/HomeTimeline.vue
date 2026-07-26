@@ -26,13 +26,16 @@ const props = defineProps<{
     diplomas: MilestoneDiploma[] | null
 }>()
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
+
+function formatDate(dateStr: string): string {
+    return new Date(dateStr).toLocaleDateString(locale.value, { year: 'numeric', month: 'short' })
+}
 
 function formatDateRange(item: MilestoneAny): string {
-    console.log('formatDateRange', item)
-    const start = formatDate(item.startDate, 'month-year')
-    const end = item.endDate ? formatDate(item.endDate, 'month-year') : t('pages.home.timeline.present')
-    return `${start} - ${end}`
+    const start = formatDate(item.startDate)
+    const end = item.endDate ? formatDate(item.endDate) : t('pages.home.timeline.present')
+    return `${start} – ${end}`
 }
 
 const experienceItems = computed<TimelineItem[]>(() =>
