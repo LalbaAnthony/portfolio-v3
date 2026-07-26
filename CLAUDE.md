@@ -2,7 +2,7 @@
 
 ## Overview
 
-Personal portfolio website (v3). Nuxt 4 full-stack app: Vue frontend + Nitro API serving content from static JSON files — no database.
+Personal portfolio website (v3). Nuxt 4 full-stack app: Vue frontend + Nitro API serving content from static TypeScript data files — no database.
 
 ## Tech stack
 
@@ -16,13 +16,19 @@ Personal portfolio website (v3). Nuxt 4 full-stack app: Vue frontend + Nitro API
 - `app/` — Nuxt app: `pages/`, `layouts/`, `components/` (atomic design: `atoms/`, `molecules/`, `organisms/`), `composables/`, `utils/`, `assets/css/main.css`
 - `server/` — Nitro backend:
   - `api/` — file-based routes, versioned under `api/v1/` (plus unversioned `api/health.get.ts`)
-  - `services/` — data access layer (filter/sort/search over JSON)
-  - `data/` — `profile.json`, `projects.json`, `shortcuts.json` — the content "database"
-  - `middleware/shortcuts.ts` — 301-redirects any path matching a key in `shortcuts.json`
+    - `v1/certifications/` — `index.get.ts`, `[type].get.ts`
+    - `v1/milestones/` — `index.get.ts`
+    - `v1/profile/` — `index.get.ts`, `socials/index.get.ts`
+    - `v1/projects/` — `index.get.ts`, `[slug].get.ts`, `technologies/index.get.ts`
+    - `v1/skills/` — `index.get.ts`
+  - `services/` — data access layer (filter/sort/search): `certifications.ts`, `milestones.ts`, `profile.ts`, `projects.ts`, `shortcuts.ts`, `skills.ts`
+  - `data/` — TypeScript data files (the content "database"): `certifications.ts`, `milestones.ts`, `profile.ts`, `projects.ts`, `shortcuts.ts`, `skills.ts`
+  - `middleware/shortcuts.ts` — 301-redirects any path matching a key in shortcuts data
 - `shared/` — `types/` and `utils/` auto-imported on both client and server (Nuxt 4 shared dir)
 - `i18n/locales/` — `en.json`, `fr.json`
 - `public/` — static assets (fonts, favicon)
-- `.github/workflows/release.flow.yml` — semantic-release on push to `main`
+- `docs/dev/` — developer documentation (e.g. `git.md`)
+- `.github/workflows/` — `release.flow.yml` (semantic-release on push to `main`), `tests.flow.yml` + `tests.inc.yml` (CI on PRs)
 
 ## Commands
 
@@ -39,6 +45,9 @@ npm run docker:prod
 npm run docker:prod:down
 npm run docker:logs
 
+# Take down all profiles at once
+npm run docker:down
+
 # Bare-metal
 npm install          # postinstall runs `nuxt prepare`
 npm run dev
@@ -50,12 +59,12 @@ npm run generate
 npm run lint
 ```
 
-No test or typecheck script is configured.
+No `test` or `typecheck` script is configured in `package.json`.
 
 ## Architecture
 
-- Content flow: `server/data/*.json` → `server/services/*` (search/filter/sort via `shared/utils/service.ts`) → `server/api/v1/*` handlers returning `{ data: ... }`.
-- Client fetches through the `useApi()` composable ([app/composables/useApi.ts](app/composables/useApi.ts)): builds `/api/v{version}` URLs (default v1), retries with delay, returns `ApiResponse<T>` (`{ status, ok, data, error? }`). Data composables live in `app/composables/data/`.
+- Content flow: `server/data/*.ts` → `server/services/*` (search/filter/sort via `shared/utils/service.ts`) → `server/api/v1/*` handlers returning `{ data: ... }`.
+- Client fetches through the `useApi()` composable ([app/composables/useApi.ts](app/composables/useApi.ts)): builds `/api/v{version}` URLs (default v1), retries with delay, returns `ApiResponse<T>` (`{ status, ok, data?, error? }`). Data composables live in `app/composables/data/` (`useProfile.ts`, `useProjects.ts`).
 - Query parsing helpers in `shared/utils/request.ts`; shared types in `shared/types/`.
 - i18n: locales `en` (default) and `fr`, `strategy: 'prefix'` — every route is locale-prefixed; browser-language detection with cookie `i18n_locale`, redirect on root.
 - Icons are client-bundled at build time (see `icon.clientBundle` in `nuxt.config.ts`) to avoid the icon API conflicting with `/api` routes.
@@ -69,7 +78,10 @@ No test or typecheck script is configured.
 
 ## Testing
 
-No test framework is set up. `npm run lint` is the only check.
+No unit test framework is set up. CI (`tests.inc.yml`) runs on every PR:
+- `npm audit --audit-level=critical` — dependency security audit
+- `npm run lint` — ESLint
+- `npm run build` — TypeScript build check (no-emit equivalent via full build)
 
 ## Environment
 
@@ -79,7 +91,7 @@ From `.env.example` (consumed by `docker-compose.yml`):
 - `NUXT_PUBLIC_URL` — public site URL; compose also passes it as `NUXT_SITE_URL`
 - `NUXT_PUBLIC_NOINDEX` — set `true` to disable indexing (defaults to `true` in the dev container)
 
-No external services; content is local JSON.
+No external services; content is local TypeScript data files.
 
 ## Gotchas
 
