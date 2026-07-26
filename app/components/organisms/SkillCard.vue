@@ -7,8 +7,10 @@
                 class="w-8 h-8 object-contain" @error="iconError = true" />
             <Icon v-else name="mdi:code-tags" size="32px" class="text-white/40" />
         </div>
-        <span class="text-xs font-medium text-center text-white/80 leading-tight">{{ props.skill.name }}</span>
-        <ProgressBar :value="props.skill.rating" :max="10" :aria-label="t('pages.home.skills.card.rating', { value: props.skill.rating, max: 10 })" class="w-full" />
+        <span class="text-md font-medium text-center text-white/80 leading-tight">{{ props.skill.name }}</span>
+        <ProgressBar :value="props.skill.rating" :max="10"
+            :aria-label="t('pages.home.skills.card.rating', { value: props.skill.rating, max: 10 })" class="w-full" />
+        <p v-if="props.skill.reason" class="text-xs text-center text-white/50 leading-tight">{{ tString(props.skill.reason) }}</p>
     </div>
 </template>
 

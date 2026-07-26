@@ -5,8 +5,8 @@ const skillsData: Skill[] = [
         name: "Node.js",
         rating: 9,
         reason: {
-            en: "",
-            fr: "Je l'utilise pour créer des applications web côté serveur et des API RESTful. Node.js est rapide, efficace et dispose d'un large écosystème de modules.",
+            en: "I use it daily on the server side: RESTful API, ...",
+            fr: "Je l'utilise au quotidien côté serveur : API RESTful, ...",
         },
         iconUrl: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg",
         siteUrl: "https://nodejs.org",
@@ -88,7 +88,6 @@ const skillsData: Skill[] = [
             en: "",
             fr: ""
         },
-        iconUrl: "https://www.vectorlogo.zone/logos/expressjs/expressjs-icon.svg",
         siteUrl: "https://expressjs.com/",
     },
     {

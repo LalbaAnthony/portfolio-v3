@@ -15,7 +15,7 @@ RUN npm ci --omit=dev --ignore-scripts
 COPY . .
 
 # @nuxtjs/robots + @nuxtjs/sitemap (nuxt-site-config) resolve the site URL and
-# indexability at BUILD time — they ignore these vars at runtime. Changing
+# indexability at BUILD time - they ignore these vars at runtime. Changing
 # NUXT_PUBLIC_URL / NUXT_PUBLIC_NOINDEX in .env therefore requires an image
 # rebuild (docker compose --profile prod up -d --build).
 ARG NUXT_PUBLIC_URL=http://localhost:3000

@@ -4,7 +4,6 @@ const milestonesData: MilestoneAny[] = [
     {
         type: "experience",
         startDate: "2022-01-01",
-        endDate: "2023-12-31",
         description: {
             en: "Front-end: VueJS, Quasar, Nuxt.js, Tailwind. Back-end: PHP, Laravel, WordPress Headless, SQL, REST API. Project-based work, incident response and feature requests.",
             fr: "Outils front end: VueJS, Quasar, Nuxt.js, Tailwind. Outils back end: PHP, Laravel, WordPress Headless, SQL, API REST. Travail en projets, réponses aux incidents et aux demandes d'assistance et d'évolution."
@@ -34,7 +33,7 @@ const milestonesData: MilestoneAny[] = [
         startDate: "2017-01-01",
         endDate: "2017-12-31",
         description: {
-            en: "Observation internship at a managed services and software development company — sparked my interest in development.",
+            en: "Observation internship at a managed services and software development company, sparked my interest in development.",
             fr: "Stage d'observation dans une société d'infogérance et de programmation, qui m'a donné goût au développement."
         },
         company: "ATS Ticketing",
@@ -56,7 +55,7 @@ const milestonesData: MilestoneAny[] = [
         type: "diploma",
         label: {
             en: "Bachelor Information Systems (DSN specialization)",
-            fr: "Bachelor systèmes d'information — spécialité DSN"
+            fr: "Bachelor systèmes d'information, spécialité DSN"
         },
         place: "Limayrac",
         startDate: "2023-09-01",
@@ -65,8 +64,8 @@ const milestonesData: MilestoneAny[] = [
     {
         type: "diploma",
         label: {
-            en: "BTS SIO — Software Solutions & Business Applications",
-            fr: "BTS SIO — Solutions logicielles et applications métier"
+            en: "BTS SIO - Software Solutions & Business Applications",
+            fr: "BTS SIO - Solutions logicielles et applications métier"
         },
         place: "Limayrac",
         startDate: "2021-09-01",
@@ -75,8 +74,8 @@ const milestonesData: MilestoneAny[] = [
     {
         type: "diploma",
         label: {
-            en: "Baccalauréat — Mathematics, Computer Science & Engineering",
-            fr: "Baccalauréat — Mathématiques, numérique & sciences informatiques et sciences de l'ingénieur"
+            en: "Baccalauréat - Mathematics, Computer Science & Engineering",
+            fr: "Baccalauréat - Mathématiques, numérique & sciences informatiques et sciences de l'ingénieur"
         },
         place: "Pré de Cordy",
         startDate: "2018-09-01",

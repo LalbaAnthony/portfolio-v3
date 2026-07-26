@@ -17,6 +17,7 @@
 
 <script setup lang="ts">
 import type { MilestoneExperience, MilestoneDiploma, MilestoneAny } from '~~/shared/types/milestone'
+import { formatDate } from '~~/shared/utils/date'
 import type { TimelineItem } from '~/components/molecules/Timeline.vue'
 import Timeline from '~/components/molecules/Timeline.vue'
 
@@ -25,16 +26,13 @@ const props = defineProps<{
     diplomas: MilestoneDiploma[] | null
 }>()
 
-const { t, locale } = useI18n()
-
-function formatDate(dateStr: string): string {
-    return new Date(dateStr).toLocaleDateString(locale.value, { year: 'numeric', month: 'short' })
-}
+const { t } = useI18n()
 
 function formatDateRange(item: MilestoneAny): string {
-    const start = formatDate(item.startDate)
-    const end = item.endDate ? formatDate(item.endDate) : t('pages.home.timeline.present')
-    return `${start} – ${end}`
+    console.log('formatDateRange', item)
+    const start = formatDate(item.startDate, 'month-year')
+    const end = item.endDate ? formatDate(item.endDate, 'month-year') : t('pages.home.timeline.present')
+    return `${start} - ${end}`
 }
 
 const experienceItems = computed<TimelineItem[]>(() =>
