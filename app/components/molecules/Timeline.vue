@@ -6,7 +6,7 @@
         </h3>
         <div class="timeline">
             <div v-for="(item, index) in props.items" :key="index" class="timeline__item">
-                <div class="timeline__dot" />
+                <div class="timeline__dot" :class="{ 'timeline__dot--active': !item.endDate }" />
                 <p class="text-xs text-white/40 mb-1 tabular-nums">{{ item.dateRange }}</p>
                 <h4 class="font-semibold text-sm leading-snug mb-0.5">{{ item.title }}</h4>
                 <p class="text-xs text-white/50 mb-2">{{ item.subtitle }}</p>
@@ -22,6 +22,7 @@ export interface TimelineItem {
     title: string
     subtitle: string
     description?: string | null
+    endDate?: string | null
 }
 
 const props = defineProps<{
@@ -47,19 +48,24 @@ const props = defineProps<{
 }
 
 .timeline__item:last-child {
-    border-left-color: transparent;
     padding-bottom: 0;
 }
 
 .timeline__dot {
     position: absolute;
-    left: 0;
+    left: -0.5px;
     top: 0.35rem;
-    width: 0.5rem;
-    height: 0.5rem;
+    width: 0.75rem;
+    height: 0.75rem;
     border-radius: 9999px;
-    background: var(--glass-white-40);
+    background: var(--color-dark);
+    box-shadow: inset 0 0 0 100px var(--glass-white-40);
     border: 1px solid var(--glass-white-20);
     transform: translateX(-50%);
+}
+
+.timeline__dot--active {
+    box-shadow: inset 0 0 0 100px var(--glass-teal-40);
+    border-color: var(--glass-teal-40);
 }
 </style>

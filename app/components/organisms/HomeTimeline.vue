@@ -17,7 +17,6 @@
 
 <script setup lang="ts">
 import type { MilestoneExperience, MilestoneDiploma, MilestoneAny } from '~~/shared/types/milestone'
-import { formatDate } from '~~/shared/utils/date'
 import type { TimelineItem } from '~/components/molecules/Timeline.vue'
 import Timeline from '~/components/molecules/Timeline.vue'
 
@@ -44,6 +43,8 @@ const experienceItems = computed<TimelineItem[]>(() =>
         title: tString(item.position) ?? '',
         subtitle: item.company,
         description: tString(item.description),
+        startDate: item.startDate,
+        endDate: item.endDate,
     }))
 )
 
@@ -53,6 +54,8 @@ const diplomaItems = computed<TimelineItem[]>(() =>
         title: tString(item.label) ?? '',
         subtitle: item.place,
         description: tString(item.description),
+        startDate: item.startDate,
+        endDate: item.endDate,
     }))
 )
 </script>
