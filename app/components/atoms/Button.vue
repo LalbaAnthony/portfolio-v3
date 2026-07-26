@@ -293,10 +293,6 @@ function handleClick(e: MouseEvent) {
     padding: 0;
     letter-spacing: 0;
     font-weight: normal;
-    background: var(--glass-white-10);
-    backdrop-filter: var(--glass-filter-sm);
-    -webkit-backdrop-filter: var(--glass-filter-sm);
-    border: 1px solid var(--glass-white-30);
 }
 
 .btn--icon-only::before {

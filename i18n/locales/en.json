@@ -5,7 +5,9 @@
   "header": {
     "title": "{fullname}'s portfolio",
     "projects": "Projects",
-    "github": "Github"
+    "github": "Github",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "routing": {
     "home": "Go Home",
