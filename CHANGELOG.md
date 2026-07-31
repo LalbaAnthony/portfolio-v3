@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented in this file. This file is generated automatically from the commit history by [semantic-release](https://github.com/semantic-release/semantic-release).
 
+# [1.5.0](https://github.com/LalbaAnthony/portfolio-v3/compare/v1.4.0...v1.5.0) (2026-07-31)
+
+
+### Features
+
+* update projects ([0d48cef](https://github.com/LalbaAnthony/portfolio-v3/commit/0d48cefe7e3c9f036ad68ab3950920356bfb61f3))
+
 # [1.4.0](https://github.com/LalbaAnthony/portfolio-v3/compare/v1.3.0...v1.4.0) (2026-07-31)
 
 
