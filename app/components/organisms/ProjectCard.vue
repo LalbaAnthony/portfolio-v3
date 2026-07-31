@@ -4,7 +4,7 @@
             <div class="flex-1">
                 <h3 class="font-semibold text-lg">{{ props.project.title }}</h3>
             </div>
-            <div v-if="props.project.technologies.length" class="flex gap-1.5 ml-3">
+            <div v-if="props.project.technologies?.length" class="flex gap-1.5 ml-3">
                 <Pill v-for="tech in props.project.technologies.slice(0, 2)" :key="tech">
                     {{ tech }}
                 </Pill>
