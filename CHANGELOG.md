@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented in this file. This file is generated automatically from the commit history by [semantic-release](https://github.com/semantic-release/semantic-release).
 
+# [1.4.0](https://github.com/LalbaAnthony/portfolio-v3/compare/v1.3.0...v1.4.0) (2026-07-31)
+
+
+### Features
+
+* update favicon ([b9aa069](https://github.com/LalbaAnthony/portfolio-v3/commit/b9aa0698f97217666e5cd2e6165f1b1f6baef9c8))
+
 # [1.3.0](https://github.com/LalbaAnthony/portfolio-v3/compare/v1.2.0...v1.3.0) (2026-07-26)
 
 
