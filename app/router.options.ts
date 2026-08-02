@@ -7,6 +7,7 @@ export default <RouterConfig>{
         }
 
         if (to.hash) {
+            const delay = from && from.path !== to.path ? 400 : 0
             return new Promise((resolve) => {
                 setTimeout(() => {
                     const element = document.querySelector(to.hash)
@@ -16,7 +17,7 @@ export default <RouterConfig>{
                     } else {
                         resolve({ el: to.hash, behavior: 'smooth' })
                     }
-                }, 0)
+                }, delay)
             })
         }
 

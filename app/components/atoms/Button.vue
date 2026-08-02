@@ -23,7 +23,7 @@
 <script setup lang="ts">
 import { computed, useAttrs } from 'vue'
 import type { ComponentVariant , ComponentSize  } from '#shared/types/component'
-import { NuxtLink } from '#components'
+import { NuxtLinkLocale } from '#components'
 
 type As = 'button' | 'link'
 type Type = 'button' | 'submit' | 'reset'
@@ -68,7 +68,7 @@ const iconSizeMap: Record<ComponentSize, string> = {
 const iconSize = computed(() => iconSizeMap[props.size])
 
 const componentType = computed(() => {
-    return props.as === 'link' ? NuxtLink : 'button'
+    return props.as === 'link' ? NuxtLinkLocale : 'button'
 })
 
 const componentAttrs = computed(() => {
