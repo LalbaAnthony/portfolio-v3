@@ -1,7 +1,7 @@
 <template>
     <section class="py-16">
         <div class="mx-auto max-w-6xl px-4 md:px-8">
-            <div class="mb-8 flex items-end justify-between">
+            <div v-reveal class="mb-8 flex items-end justify-between">
                 <div>
                     <h2 class="title-section mb-2">
                         {{ t('pages.home.projects.title') }}
@@ -17,9 +17,11 @@
                 </NuxtLink>
             </div>
 
-            <Grid :layouts="{ default: 1, sm: 2, md: 3 }">
-                <ProjectCard v-for="project in props.projects" :key="project.slug" :project="project" />
-            </Grid>
+            <div v-reveal="{ preset: 'rise', children: '.glass-container', stagger: 0.1 }">
+                <Grid :layouts="{ default: 1, sm: 2, md: 3 }">
+                    <ProjectCard v-for="project in props.projects" :key="project.slug" :project="project" />
+                </Grid>
+            </div>
 
             <div class="mt-8 flex justify-center">
                 <NuxtLink to="/projects"
@@ -33,13 +35,12 @@
 </template>
 
 <script setup lang="ts">
-import Grid from '~/components/molecules/Grid.vue';
-import ProjectCard from './ProjectCard.vue';
+import Grid from '~/components/molecules/Grid.vue'
+import ProjectCard from './ProjectCard.vue'
 
 const props = defineProps<{
     projects: Project[] | null;
 }>()
 
 const { t } = useI18n()
-
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <NuxtLink class="skill-card glass-container p-4 flex flex-col items-center gap-3"
+    <NuxtLink v-tilt="{ max: 9, lift: 4 }" class="skill-card glass-container p-4 flex flex-col items-center gap-3"
         :class="{ 'skill-card--link': props.skill.siteUrl }" :to="props.skill.siteUrl || undefined"
         :external="!!props.skill.siteUrl" :target="props.skill.siteUrl ? '_blank' : undefined"
         :rel="props.skill.siteUrl ? 'noopener noreferrer' : undefined">
@@ -29,8 +29,9 @@ const iconError = ref(false)
 </script>
 
 <style scoped>
+/* The lift/tilt is driven by v-tilt (GSAP); CSS only handles the border. */
 .skill-card {
-    transition: transform .25s cubic-bezier(.23, 1, .32, 1), border-color .25s ease;
+    transition: border-color .25s ease;
 }
 
 .skill-card--link {
@@ -38,7 +39,6 @@ const iconError = ref(false)
 }
 
 .skill-card--link:hover {
-    transform: translateY(-4px);
     border-color: var(--glass-white-50);
 }
 </style>

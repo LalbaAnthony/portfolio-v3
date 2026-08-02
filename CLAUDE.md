@@ -8,12 +8,13 @@ Personal portfolio website (v3). Nuxt 4 full-stack app: Vue frontend + Nitro API
 
 - Node 24, npm (lockfileVersion 3)
 - Nuxt ^4.4.8, Vue 3, TypeScript, Tailwind CSS 4 (via `@tailwindcss/vite`)
-- Nuxt modules: `@nuxt/icon`, `@nuxt/eslint`, `@nuxtjs/i18n`, `@nuxtjs/robots`, `@nuxtjs/sitemap`
+- Nuxt modules: `@nuxt/icon`, `@nuxt/eslint`, `@nuxtjs/i18n`, `@nuxtjs/robots`, `@nuxtjs/sitemap`, `@nuxt/image`
+- GSAP ^3.15 (+ ScrollTrigger) for animation — lazily imported, never bundled in the initial chunk
 - Docker Compose (profiles `dev` / `prod`), semantic-release for versioning
 
 ## Structure
 
-- `app/` — Nuxt app: `pages/`, `layouts/`, `components/` (atomic design: `atoms/`, `molecules/`, `organisms/`), `composables/`, `utils/`, `assets/css/main.css`
+- `app/` — Nuxt app: `pages/`, `layouts/`, `components/` (atomic design: `atoms/`, `molecules/`, `organisms/`), `composables/`, `utils/`, `plugins/`, `assets/css/main.css`
 - `server/` — Nitro backend:
   - `api/` — file-based routes, versioned under `api/v1/` (plus unversioned `api/health.get.ts`)
     - `v1/certifications/` — `index.get.ts`, `[type].get.ts`
@@ -27,7 +28,7 @@ Personal portfolio website (v3). Nuxt 4 full-stack app: Vue frontend + Nitro API
 - `shared/` — `types/` and `utils/` auto-imported on both client and server (Nuxt 4 shared dir)
 - `i18n/locales/` — `en.json`, `fr.json`
 - `public/` — static assets (fonts, favicon)
-- `docs/dev/` — developer documentation (e.g. `git.md`)
+- `docs/dev/` — developer documentation (`git.md`, `motion.md`)
 - `.github/workflows/` — `release.flow.yml` (semantic-release on push to `main`), `tests.flow.yml` + `tests.inc.yml` (CI on PRs)
 
 ## Commands
@@ -68,6 +69,10 @@ No `test` or `typecheck` script is configured in `package.json`.
 - Query parsing helpers in `shared/utils/request.ts`; shared types in `shared/types/`.
 - i18n: locales `en` (default) and `fr`, `strategy: 'prefix'` — every route is locale-prefixed; browser-language detection with cookie `i18n_locale`, redirect on root.
 - Icons are client-bundled at build time (see `icon.clientBundle` in `nuxt.config.ts`) to avoid the icon API conflicting with `/api` routes.
+- **Motion** — GSAP animation, three layers (full reference: [docs/dev/motion.md](docs/dev/motion.md)):
+  - [app/composables/useGsap.ts](app/composables/useGsap.ts) — lazy singleton GSAP + ScrollTrigger loader, plus the shared `MOTION` tokens, `REVEAL_PRESETS` and `REVEAL_CLEAR_PROPS`. Resolves to `null` on the server, under `prefers-reduced-motion: reduce`, and if the chunk fails to load; callers treat `null` as "render static".
+  - [app/plugins/motion.ts](app/plugins/motion.ts) — registers the global `v-reveal` (scroll/mount entrance, optional staggered `children`) and `v-tilt` (pointer 3D hover) directives. Handles ~90% of animation with no per-component code. Universal, not `.client`: Vue must resolve the directives during SSR, where `getSSRProps` stamps the hidden initial state.
+  - [app/composables/useReveal.ts](app/composables/useReveal.ts) — `onGsap()` escape hatch for bespoke sequences (timelines, scrubbed parallax, counters). Tasks run inside a `gsap.context()` reverted on unmount, so tweens and ScrollTriggers clean themselves up; a task may return a teardown function.
 
 ## Conventions
 
@@ -102,3 +107,8 @@ No external services; content is local TypeScript data files.
 - Compose watch rebuilds the dev image on `package.json`/`package-lock.json` changes; `nuxt.config.ts` and `tsconfig.json` trigger sync+restart only.
 - CI (`release.flow.yml`) runs plain `npm ci` on Node 24 — keep `package-lock.json` in sync with `package.json` or releases fail.
 - Prod container healthcheck hits `/api/health`; keep that endpoint working.
+- **Never use GSAP's `clearProps: 'all'`.** It wipes the element's entire inline `style` attribute, including bindings Vue owns — this silently broke the skill bars, whose fill width is a `:style="{ width }"` binding (they all snapped to 100% once the tween finished). Use `REVEAL_CLEAR_PROPS` from `useGsap.ts`, or an explicit property list.
+- **`v-reveal` targets are hidden until GSAP takes over.** The directive stamps `data-reveal` during SSR, hidden by a CSS rule in `main.css`, and removes it once GSAP has written the inline start state. Three fallbacks keep content from ever being stuck invisible: the CSS rule is wrapped in `prefers-reduced-motion: no-preference`, a failed GSAP import strips every `data-reveal`, and a `<noscript>` style in `nuxt.config.ts` restores opacity without JS. Do not add `!important` to that rule — GSAP's inline styles must be able to win.
+- **The aurora overlay (`.glass-page__overlay`) is fixed and exactly viewport-sized.** Scaling it is the only thing that creates room to move, so any drift must stay within `(scale - 1) / 2` or its top edge descends into view and shows a dark band across the top of the screen. The invariant and its budget are written out above the constants in `app/layouts/default.vue`.
+- Two GSAP tweens on the same element **and the same property** fight. Compose with different properties instead — e.g. the hero photo floats on `y` while its section parallaxes on the section wrapper, and the aurora scrubs `yPercent` while the pointer drives `x`/`y` in px.
+- An element driven by `v-tilt` must not also declare a CSS `:hover { transform }` — GSAP owns the transform while tilting and will overwrite it. Border/colour hover styles are fine.

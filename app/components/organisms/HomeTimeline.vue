@@ -1,7 +1,7 @@
 <template>
     <section class="py-16">
         <div class="mx-auto max-w-6xl px-4 md:px-8">
-            <div class="mb-10">
+            <div v-reveal class="mb-10">
                 <h2 class="title-section mb-2">{{ t('pages.home.timeline.title') }}</h2>
                 <p class="text-white/60">{{ t('pages.home.timeline.description') }}</p>
             </div>

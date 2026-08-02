@@ -5,15 +5,18 @@
       <div class="flex min-h-screen items-center justify-center">
         <div class="w-full max-w-[90%] sm:max-w-md space-y-8 text-center">
           <div>
-            <h1 class="text-9xl text-white-300 century-gothic-bold">{{ error.statusCode }}</h1>
-            <h2 class="text-3xl text-white mt-8 century-gothic-bold">
+            <h1 ref="codeRef" class="text-9xl text-white-300 century-gothic-bold tabular-nums">{{ error.statusCode }}
+            </h1>
+            <h2 v-reveal="{ preset: 'blur', immediate: true, delay: 0.45 }"
+              class="text-3xl text-white mt-8 century-gothic-bold">
               {{ title }}
             </h2>
-            <p class="mt-4 text-md text-gray-600">
+            <p v-reveal="{ immediate: true, delay: 0.6 }" class="mt-4 text-md text-gray-600">
               {{ description }}
             </p>
           </div>
-          <div class="mt-10 space-y-4">
+          <div v-reveal="{ preset: 'pop', children: '.btn', stagger: 0.1, immediate: true, delay: 0.75 }"
+            class="mt-10 space-y-4">
             <Button class="w-full" variant="glass" size="lg" @click="goToHome()">{{ t('routing.home') }}</Button>
             <Button class="w-full" variant="ghost" size="lg" @click="goBack()">{{ t('routing.back') }}</Button>
           </div>
@@ -26,6 +29,8 @@
 <script setup lang="ts">
 import Button from '~/components/atoms/Button.vue'
 import { goBack, goToHome } from '~/utils/routing'
+import { useReveal } from '~/composables/useReveal'
+import { MOTION } from '~/composables/useGsap'
 
 const props = defineProps<{
   error: {
@@ -35,6 +40,26 @@ const props = defineProps<{
 }>()
 
 const { t } = useI18n()
+
+const codeRef = ref<HTMLElement | null>(null)
+
+const { onGsap } = useReveal()
+
+onGsap((gsap) => {
+  const target = { value: 0 }
+
+  gsap.timeline()
+    .from(codeRef.value, { scale: 0.7, opacity: 0, duration: MOTION.duration.slow, ease: MOTION.ease.pop })
+    // The status code counts up to itself.
+    .to(target, {
+      value: props.error.statusCode,
+      duration: 0.9,
+      ease: MOTION.ease.soft,
+      onUpdate: () => {
+        if (codeRef.value) codeRef.value.textContent = String(Math.round(target.value))
+      },
+    }, 0)
+})
 
 const isNuxtMessage = computed(() => {
   return props.error.message && (

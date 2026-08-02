@@ -5,18 +5,22 @@
             ...(project ? [{ name: tString(project.title), url: `/projects/${project.slug}` }] : [])
         ]" />
 
-        <h1 class="title-page pt-2 pb-4">{{ project ? tString(project.title) : '' }}</h1>
+        <h1 v-reveal="{ preset: 'mask', immediate: true }" class="title-page pt-2 pb-4">
+            {{ project ? tString(project.title) : '' }}
+        </h1>
 
         <NoContent v-if="error" :message="t('pages.project.error')" />
         <ProjectDetailSkeleton v-else-if="loading" />
         <template v-else-if="project">
-            <h1></h1>
-            <p>{{ tString(project.description) ?? '' }}</p>
-            <p>{{ project.year }} — {{ project.technologies.join(', ') }}</p>
-            <a v-if="project.productionUrl" :href="project.productionUrl" target="_blank" rel="noopener">{{
-                t('pages.project.visit') }}</a>
-            <a v-if="project.repositoryUrl" :href="project.repositoryUrl" target="_blank" rel="noopener">{{
-                t('pages.project.repositoryUrl') }}</a>
+            <div v-reveal="{ children: ':scope > *', stagger: 0.09, immediate: true, delay: 0.15 }"
+                class="flex flex-col items-start gap-2">
+                <p>{{ tString(project.description) ?? '' }}</p>
+                <p>{{ project.year }} — {{ project.technologies.join(', ') }}</p>
+                <a v-if="project.productionUrl" :href="project.productionUrl" target="_blank" rel="noopener">{{
+                    t('pages.project.visit') }}</a>
+                <a v-if="project.repositoryUrl" :href="project.repositoryUrl" target="_blank" rel="noopener">{{
+                    t('pages.project.repositoryUrl') }}</a>
+            </div>
         </template>
     </div>
 </template>
