@@ -1,17 +1,17 @@
 <template>
     <div class="glass-container p-6">
-        <div class="flex items-center mb-1">
+        <div class="flex items-center mb-3 gap-2">
             <div class="flex-1">
                 <h3 class="font-semibold text-lg">{{ tString(props.project.title) }}</h3>
             </div>
-            <div v-if="props.project.technologies?.length" class="flex gap-1.5 ml-3">
-                <Pill v-for="tech in props.project.technologies.slice(0, 2)" :key="tech">
-                    {{ tech }}
-                </Pill>
-            </div>
+            <p class="text-xs text-white/50">{{ props.project.year }}</p>
         </div>
-
-        <p class="text-xs text-white/50 mb-3">{{ props.project.year }}</p>
+        
+        <div v-if="props.project.technologies?.length" class="flex gap-1.5 mb-3">
+            <Pill v-for="tech in props.project.technologies.slice(0, 2)" :key="tech">
+                {{ tech }}
+            </Pill>
+        </div>
 
         <p class="text-sm text-white/70 mb-4 line-clamp-1">
             {{ tString(props.project.abstract) }}

@@ -8,8 +8,8 @@ const projectsData: Project[] = [
       fr: "Site vitrine borreze.fr",
     },
     abstract: {
-      en: "",
-      fr: ""
+      en: "Showcase website for the commune of Borreze.",
+      fr: "Site vitrine pour la commune de Borreze.",
     },
     description: {
       en: "",
@@ -84,8 +84,8 @@ const projectsData: Project[] = [
       fr: "backbone-php",
     },
     abstract: {
-      en: "",
-      fr: ""
+      en: "A pure PHP framework without any dependencies.",
+      fr: "Un framework PHP pur sans aucune dépendance.",
     },
     description: {
       en: "",
@@ -236,8 +236,8 @@ const projectsData: Project[] = [
       fr: "filezilla-companion",
     },
     abstract: {
-      en: "",
-      fr: ""
+      en: "FileZilla Companion is a Python wrapper for FileZilla that provides additional features and functionalities.",
+      fr: "FileZilla Companion est un wrapper Python pour FileZilla qui offre des fonctionnalités supplémentaires.",
     },
     description: {
       en: "",

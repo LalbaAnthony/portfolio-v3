@@ -1,5 +1,4 @@
 <template>
-
   <div class="glass-page__overlay" aria-hidden="true" />
   <div class="glass-page__inner">
     <main>

@@ -1,11 +1,11 @@
 <template>
     <div class="safe-area">
-        <h1 class="title-page pt-2 pb-4">{{ project ? tString(project.title) : '' }}</h1>
-
         <Breadcrumb :items="[
             { name: t('pages.projects.title'), url: '/projects' },
             ...(project ? [{ name: tString(project.title), url: `/projects/${project.slug}` }] : [])
         ]" />
+
+        <h1 class="title-page pt-2 pb-4">{{ project ? tString(project.title) : '' }}</h1>
 
         <NoContent v-if="error" :message="t('pages.project.error')" />
         <ProjectDetailSkeleton v-else-if="loading" />
@@ -34,7 +34,7 @@ const route = useRoute()
 const { project, loading, error } = await useProject(route.params.slug as string)
 
 if (!project.value) {
-    throw createError({ statusCode: 404 })
+    throw createError({ statusCode: 404, statusMessage: t('pages.project.empty') })
 }
 
 if (project.value) {

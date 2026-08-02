@@ -1,10 +1,12 @@
 <template>
     <div class="safe-area">
-        <h1 class="title-page pt-2 pb-4">{{ t('pages.projects.title') }}</h1>
-
         <Breadcrumb :items="[
             { name: t('pages.projects.title'), url: '/projects' },
         ]" />
+
+        <h1 class="title-page pt-2 pb-4">{{ t('pages.projects.title') }}</h1>
+
+        <p class="text-white/60 mb-6">{{ t('pages.projects.description') }}</p>
 
         <ItemsSelectorSkeleton v-if="technologiesLoading && !technologiesError" class="mb-6" />
         <ItemsSelector v-else-if="technologies" :items="technologies" v-model="technologiesSelected" class="mb-6" />
@@ -13,7 +15,8 @@
         <Grid v-else-if="projectsLoading" :layouts="{ default: 1, md: 2, lg: 3 }">
             <ProjectCardSkeleton v-for="i in 12" :key="i" />
         </Grid>
-        <NoContent v-else-if="!projects?.length" :message="t('pages.projects.empty')" />
+        <NoContent v-else-if="!projects?.length"
+            :message="technologies ? t('pages.projects.vacant') : t('pages.projects.empty')" />
         <template v-else>
             <Grid :layouts="{ default: 1, md: 2, lg: 3 }">
                 <ProjectCard v-for="project in projects" :key="project.slug" :project="project" />

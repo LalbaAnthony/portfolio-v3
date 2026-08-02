@@ -55,14 +55,18 @@
     },
     "projects": {
       "title": "Projects",
+      "description": "A list of my projects",
       "empty": "No projects",
+      "vacant": "I haven't tried this combo yet",
       "error": "Failed to load projects",
-      "visit": "Visit",
-      "back": "Back to projects",
       "head": {
         "title": "Projects",
         "description": "A list of my projects"
       }
+    },
+    "project": {
+      "empty": "No project found",
+      "error": "Failed to load project"
     },
     "error": {
       "400": {
