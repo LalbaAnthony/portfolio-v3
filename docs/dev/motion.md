@@ -79,9 +79,6 @@ site keeps one personality.
 - **Never use `clearProps: 'all'`.** It wipes the element's entire inline `style`
   attribute, including bindings Vue owns — a `:style="{ width }"` is destroyed and the
   element snaps to its default size. Use `REVEAL_CLEAR_PROPS` (or an explicit list).
-- Two tweens on the same element **and same property** fight. Compose with different
-  properties instead — e.g. the hero photo floats on `y` while its section parallaxes on the
-  section wrapper, and the aurora scrubs `yPercent` while the pointer drives `x`/`y` in px.
 - After changing page height from JS (filters, infinite scroll), call
   `refreshScrollTriggers()` or trigger positions go stale.
 - Splitting text (`splitChars`) rewrites the element's children. It sets `aria-label` and

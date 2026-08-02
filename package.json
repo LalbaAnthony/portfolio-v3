@@ -5,7 +5,6 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "dev:remote": "nuxt dev --host 0.0.0.0",
     "lint": "eslint .",
     "test": "echo \"No test specified\" && exit 0",
     "generate": "nuxt generate",

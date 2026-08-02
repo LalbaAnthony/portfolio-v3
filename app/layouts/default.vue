@@ -42,7 +42,7 @@
             </Transition>
         </header>
 
-        <div ref="auroraRef" class="glass-page__overlay" aria-hidden="true" />
+        <div class="glass-page__overlay" aria-hidden="true" />
         <div class="glass-page__inner">
             <main>
                 <slot />
@@ -74,26 +74,6 @@ const route = useRoute()
 const menuOpen = ref(false)
 
 const headerRef = ref<HTMLElement | null>(null)
-const auroraRef = ref<HTMLElement | null>(null)
-
-/*
- * Aurora parallax budget.
- *
- * The overlay is a fixed, exactly-viewport-sized element, so scaling it up is the only
- * thing that creates room to move: it gains (AURORA_SCALE - 1) / 2 of headroom on each
- * edge. Drift it further than that and its top edge descends into view, exposing the
- * flat page background as a dark band across the top of the screen.
- *
- * Invariant, in fractions of viewport height:
- *   AURORA_SCROLL_DRIFT / 100 + AURORA_POINTER_DRIFT / viewportHeight
- *     <= (AURORA_SCALE - 1) / 2
- *
- * Current values leave ample margin even on a short viewport (700px):
- *   headroom 10% = 70px  vs  drift 4% = 28px + 18px pointer = 46px.
- */
-const AURORA_SCALE = 1.2
-const AURORA_SCROLL_DRIFT = 4
-const AURORA_POINTER_DRIFT = 18
 
 const { onGsap } = useReveal()
 
@@ -105,30 +85,6 @@ onGsap((gsap) => {
         duration: MOTION.duration.slow,
         ease: MOTION.ease.soft,
     })
-
-    // The ambient gradients drift slowly as the page scrolls…
-    gsap.to(auroraRef.value, {
-        yPercent: AURORA_SCROLL_DRIFT,
-        scale: AURORA_SCALE,
-        ease: 'none',
-        scrollTrigger: { start: 0, end: 'max', scrub: 1 },
-    })
-
-    // …and lean gently toward the pointer. Deliberately in px (`x`/`y`) so it composes
-    // with the scroll tween above instead of overwriting its `yPercent`.
-    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return
-
-    const driftX = gsap.quickTo(auroraRef.value, 'x', { duration: 1.6, ease: MOTION.ease.out })
-    const driftY = gsap.quickTo(auroraRef.value, 'y', { duration: 1.6, ease: MOTION.ease.out })
-
-    const onPointerMove = (event: PointerEvent) => {
-        driftX((event.clientX / window.innerWidth - 0.5) * AURORA_POINTER_DRIFT * 2)
-        driftY((event.clientY / window.innerHeight - 0.5) * AURORA_POINTER_DRIFT * 2)
-    }
-
-    window.addEventListener('pointermove', onPointerMove, { passive: true })
-    // Registered inside gsap.context() → reverted with the component.
-    return () => window.removeEventListener('pointermove', onPointerMove)
 })
 
 const [
