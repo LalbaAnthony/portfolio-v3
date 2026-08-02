@@ -1,6 +1,6 @@
 <template>
     <div ref="containerRef" class="dropdown">
-        <Button :variant="variant" :size="size" :pill="pill" :disabled="disabled" :icon="icon"
+        <Button :variant="variant" :size="size" :pill="pill" :disabled="disabled" :icon="selectedIcon"
             trailing-icon="mdi:chevron-down" :class="['w-full dropdown__trigger', { 'dropdown__trigger--open': open }]"
             :aria-haspopup="'listbox'" :aria-expanded="open" @click="toggle">
             {{ selectedLabel }}
@@ -11,6 +11,7 @@
                 <button v-for="option in options" :key="option.value" role="option" class="dropdown__option"
                     :class="{ 'dropdown__option--active': modelValue === option.value }"
                     :aria-selected="modelValue === option.value" type="button" @click="select(option.value)">
+                    <Icon v-if="option.icon" :name="option.icon" size="18px" />
                     {{ option.label }}
                 </button>
             </div>
@@ -26,6 +27,7 @@ import Button from '~/components/atoms/Button.vue'
 interface DropdownOption {
     label: string
     value: string | number
+    icon?: string
 }
 
 const props = withDefaults(defineProps<{
@@ -54,6 +56,11 @@ const containerRef = ref<HTMLElement | null>(null)
 const selectedLabel = computed(() => {
     const found = props.options.find(o => o.value === props.modelValue)
     return found ? found.label : props.placeholder
+})
+
+const selectedIcon = computed(() => {
+    const found = props.options.find(o => o.value === props.modelValue)
+    return found?.icon ?? props.icon
 })
 
 function toggle() {
@@ -104,7 +111,9 @@ onUnmounted(() => document.removeEventListener('mousedown', onClickOutside))
 }
 
 .dropdown__option {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
     width: 100%;
     padding: .45rem .85rem;
     text-align: left;

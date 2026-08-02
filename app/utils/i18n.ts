@@ -14,7 +14,11 @@ export function switchLocale(code: Language) {
     navigateTo(switchLocalePath(code))
 }
 
-export function localesOptions(): { label: string; value: string }[] {
+export function localesOptions(): { label: string; value: string; icon?: string }[] {
     const { locales } = useI18n()
-    return locales.value.map(l => ({ label: l.name ?? l.code, value: l.code }))
+    return locales.value.map(l => ({
+        label: l.name ?? l.code,
+        value: l.code,
+        icon: LANGUAGE_OBJECTS.find(o => o.value === l.code)?.flag,
+    }))
 }
