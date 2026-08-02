@@ -35,6 +35,11 @@ export default defineNuxtConfig({
       ]
     }
   },
+  image: {
+    provider: 'ipx',
+    quality: 80,
+    format: ['webp'],
+  },
   i18n: {
     defaultLocale: 'en',
     locales: [
