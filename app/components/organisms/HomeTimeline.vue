@@ -9,6 +9,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                 <Timeline icon="mdi:briefcase-outline" :label="t('pages.home.timeline.experience')"
                     :items="experienceItems" />
+                <hr class="md:hidden border-white/20" />
                 <Timeline icon="mdi:school-outline" :label="t('pages.home.timeline.diploma')" :items="diplomaItems" />
             </div>
         </div>
