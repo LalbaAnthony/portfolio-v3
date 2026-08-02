@@ -12,7 +12,7 @@ export default <RouterConfig>{
                 setTimeout(() => {
                     const element = document.querySelector(to.hash)
                     if (element) {
-                        element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+                        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
                         resolve(false)
                     } else {
                         resolve({ el: to.hash, behavior: 'smooth' })

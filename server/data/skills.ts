@@ -88,6 +88,7 @@ const skillsData: Skill[] = [
             en: "",
             fr: ""
         },
+        iconUrl: "https://www.vectorlogo.zone/logos/expressjs/expressjs-icon.svg",
         siteUrl: "https://expressjs.com/",
     },
     {

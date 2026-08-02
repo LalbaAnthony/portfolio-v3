@@ -19,7 +19,7 @@
     "card": {
       "details": "More details",
       "repository": "View repository",
-      "see": "See project"
+      "production": "See project in prod"
     }
   },
   "pages": {

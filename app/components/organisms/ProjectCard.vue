@@ -18,9 +18,13 @@
         </p>
 
         <div class="flex flex-wrap gap-3 items-center">
-            <Button v-if="props.project.repositoryUrl" as="link" :href="props.project.repositoryUrl" variant="white"
+            <Button v-if="props.project.productionUrl" as="link" :href="props.project.productionUrl" variant="white"
                 size="sm" icon="ic:round-remove-red-eye" class="flex-1">
-                {{ t('project.card.see') }}
+                {{ t('project.card.production') }}
+            </Button>
+            <Button v-else-if="props.project.repositoryUrl" as="link" :href="props.project.repositoryUrl" variant="white"
+                size="sm" icon="mdi:github" class="flex-1">
+                {{ t('project.card.repository') }}
             </Button>
             <Button as="link" :href="`/projects/${props.project.slug}`" variant="ghost" size="sm">
                 {{ t('project.card.details') }}

@@ -18,7 +18,7 @@
 
         <div class="flex flex-wrap gap-4 justify-center mt-8">
             <Button size="lg" icon="ic:baseline-download">{{ t('pages.home.hero.resume') }}</Button>
-            <Button size="lg" variant="ghost">{{ t('pages.home.hero.more') }}</Button>
+            <Button as="link" to="/#experiences" size="lg" variant="ghost">{{ t('pages.home.hero.more') }}</Button>
         </div>
     </section>
 </template>

@@ -2,6 +2,22 @@ import type { Project } from "~~/shared/types/project"
 
 const projectsData: Project[] = [
   {
+    slug: "borreze",
+    title: "Site vitrine Borrèze",
+    abstract: {
+      en: "",
+      fr: ""
+    },
+    description: {
+      en: "",
+      fr: ""
+    },
+    technologies: ["Nuxt.js", "TypeScript", "TailwindCSS", "Docker"],
+    featured: true,
+    year: 2026,
+    productionUrl: "https://borreze.fr/"
+  },
+  {
     slug: "antho-configs-bash",
     title: "antho-configs-bash",
     abstract: {
@@ -61,7 +77,7 @@ const projectsData: Project[] = [
       fr: ""
     },
     technologies: ["PHP"],
-    featured: false,
+    featured: true,
     year: 2026,
     repositoryUrl: "https://github.com/LalbaAnthony/backbone-php"
   },
@@ -189,7 +205,7 @@ const projectsData: Project[] = [
       fr: ""
     },
     technologies: ["Python"],
-    featured: false,
+    featured: true,
     year: 2026,
     repositoryUrl: "https://github.com/LalbaAnthony/filezilla-companion"
   },
