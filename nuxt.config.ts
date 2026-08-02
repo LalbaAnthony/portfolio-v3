@@ -21,6 +21,10 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
+      // Without JS the v-reveal directive never runs, so undo its hidden initial state.
+      noscript: [
+        { innerHTML: '<style>[data-reveal]{opacity:1 !important}</style>', tagPosition: 'head' },
+      ],
       link: [
         { rel: 'preload', href: '/fonts/sf-pro-display_regular.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous' },
         { rel: 'preload', href: '/fonts/sf-pro-display_semibold.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous' },
@@ -34,8 +38,8 @@ export default defineNuxtConfig({
   i18n: {
     defaultLocale: 'en',
     locales: [
-      { code: 'en', language: 'en-US', name: 'English', file: 'en.json' },
-      { code: 'fr', language: 'fr-FR', name: 'Français', file: 'fr.json' },
+      { code: 'en', language: 'en-US', name: 'English', file: 'en.json', icon: 'circle-flags:gb' },
+      { code: 'fr', language: 'fr-FR', name: 'Français', file: 'fr.json', icon: 'circle-flags:fr' },
     ],
     strategy: 'prefix',
     detectBrowserLanguage: {

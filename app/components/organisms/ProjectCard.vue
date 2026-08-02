@@ -1,5 +1,5 @@
 <template>
-    <div class="glass-container p-6">
+    <div v-tilt="{ max: 6, lift: 8 }" class="project-card glass-container p-6">
         <div class="flex items-center mb-3 gap-2">
             <div class="flex-1">
                 <h3 class="font-semibold text-lg">{{ tString(props.project.title) }}</h3>
@@ -44,3 +44,13 @@ const props = defineProps<{
 
 const { t } = useI18n()
 </script>
+
+<style scoped>
+.project-card {
+    transition: border-color .25s ease;
+}
+
+.project-card:hover {
+    border-color: var(--glass-white-50);
+}
+</style>

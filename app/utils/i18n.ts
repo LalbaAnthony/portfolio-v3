@@ -19,6 +19,6 @@ export function localesOptions(): { label: string; value: string; icon?: string 
     return locales.value.map(l => ({
         label: l.name ?? l.code,
         value: l.code,
-        icon: LANGUAGE_OBJECTS.find(o => o.value === l.code)?.flag,
+        icon: l.icon as string | undefined,
     }))
 }

@@ -121,6 +121,22 @@ hr {
 }
 
 /* ======================================================= */
+/* Motion styles */
+/* ======================================================= */
+
+/*
+ * Initial state for `v-reveal` targets, stamped during SSR by the directive's
+ * getSSRProps. The directive removes the attribute as soon as GSAP has written the
+ * inline "from" state, so content is never left hidden — see app/plugins/motion.ts.
+ * No !important: GSAP's inline styles must be able to win.
+ */
+@media (prefers-reduced-motion: no-preference) {
+    [data-reveal] {
+        opacity: 0;
+    }
+}
+
+/* ======================================================= */
 /* Page transition styles */
 /* ======================================================= */
 

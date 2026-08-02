@@ -1,7 +1,7 @@
 <template>
-    <section ref="sectionRef" class="py-16">
+    <section class="py-16">
         <div class="mx-auto max-w-6xl px-4 md:px-8">
-            <div ref="headerRef" class="mb-10">
+            <div v-reveal class="mb-10">
                 <h2 class="title-section mb-2">{{ t('pages.home.timeline.title') }}</h2>
                 <p class="text-white/60">{{ t('pages.home.timeline.description') }}</p>
             </div>
@@ -17,7 +17,6 @@
 </template>
 
 <script setup lang="ts">
-import { useReveal } from '~/composables/useReveal'
 import type { MilestoneExperience, MilestoneDiploma, MilestoneAny } from '~~/shared/types/milestone'
 import type { TimelineItem } from '~/components/molecules/Timeline.vue'
 import Timeline from '~/components/molecules/Timeline.vue'
@@ -28,12 +27,6 @@ const props = defineProps<{
 }>()
 
 const { t, locale } = useI18n()
-
-const sectionRef = ref<HTMLElement | null>(null)
-const headerRef = ref<HTMLElement | null>(null)
-
-const { revealSection } = useReveal()
-revealSection(sectionRef, headerRef, { selector: '.timeline__item', stagger: 0.08 })
 
 function formatDate(dateStr: string): string {
     return new Date(dateStr).toLocaleDateString(locale.value, { year: 'numeric', month: 'short' })
