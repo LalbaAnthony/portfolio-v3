@@ -1,17 +1,17 @@
 <template>
     <div class="safe-area">
         <HomeHeroSkeleton v-if="profileLoading" />
-        <HomeHero v-else-if="profile" :profile="profile" id="home-hero" />
+        <HomeHero v-else-if="profile" :profile="profile" id="hero" />
 
         <HomeProjectsSkeleton v-if="projectsLoading" />
-        <HomeProjects v-else-if="projects.length" :projects="projects" id="home-projects" />
+        <HomeProjects v-else-if="projects.length" :projects="projects" id="projects" />
 
         <HomeSkillsSkeleton v-if="skillsLoading" />
-        <HomeSkills v-else-if="skills.length" :skills="skills" id="home-skills" />
+        <HomeSkills v-else-if="skills.length" :skills="skills" id="skills" />
 
         <HomeTimelineSkeleton v-if="milestonesLoading" />
         <HomeTimeline v-else-if="experiences.length || diplomas.length" :experiences="experiences" :diplomas="diplomas"
-            id="home-experiences" />
+            id="experiences" />
     </div>
 </template>
 

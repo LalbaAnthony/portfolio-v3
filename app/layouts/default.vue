@@ -1,19 +1,21 @@
 <template>
     <div>
-        <header class="glass-container p-2 sticky top-2 z-30 m-1 md:m-2 lg:m-4">
+        <header class="glass-container p-2 sticky top-2 z-30 m-1 md:m-2 lg:m-4 xl:m-6">
             <div class="flex items-center justify-between">
                 <NuxtLink to="/" class="pl-4 flex items-center text-lg">#</NuxtLink>
 
                 <nav class="hidden md:flex max-w-xl items-center justify-end gap-2 md:gap-4">
-                    <Dropdown :options="localesOptions" :model-value="locale" variant="ghost"
-                        @update:model-value="switchLocale($event as Language)" />
-
+                    <Button as="link" to="#skills" variant="transparent">
+                        {{ t('header.skills') }}
+                    </Button>
                     <Button as="link" to="/projects" variant="transparent">
                         {{ t('header.projects') }}
                     </Button>
                     <Button as="link" :to="githubUrl(profile?.socials ?? [])" variant="ghost" icon="mdi:github">
                         {{ t('header.github') }}
                     </Button>
+                    <Dropdown :options="localesOptions" :model-value="locale" variant="ghost"
+                        @update:model-value="switchLocale($event as Language)" />
                 </nav>
 
                 <div class="md:hidden">
@@ -25,6 +27,9 @@
 
             <Transition name="menu">
                 <nav v-if="menuOpen" class="md:hidden flex flex-col gap-2 pt-2 pb-1 px-2">
+                    <Button as="link" to="#skills" variant="transparent">
+                        {{ t('header.skills') }}
+                    </Button>
                     <Button as="link" to="/projects" variant="transparent">
                         {{ t('header.projects') }}
                     </Button>
