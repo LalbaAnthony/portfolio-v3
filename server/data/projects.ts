@@ -3,7 +3,10 @@ import type { Project } from "~~/shared/types/project"
 const projectsData: Project[] = [
   {
     slug: "borreze",
-    title: "Site vitrine Borrèze",
+    title: {
+      en: "borreze.fr website",
+      fr: "Site vitrine borreze.fr",
+    },
     abstract: {
       en: "",
       fr: ""
@@ -19,7 +22,10 @@ const projectsData: Project[] = [
   },
   {
     slug: "antho-configs-bash",
-    title: "antho-configs-bash",
+    title: {
+      en: "antho-configs-bash",
+      fr: "antho-configs-bash",
+    },
     abstract: {
       en: "",
       fr: ""
@@ -35,7 +41,10 @@ const projectsData: Project[] = [
   },
   {
     slug: "antho-configs-powershell",
-    title: "antho-configs-powershell",
+    title: {
+      en: "antho-configs-powershell",
+      fr: "antho-configs-powershell",
+    },
     abstract: {
       en: "",
       fr: ""
@@ -51,7 +60,10 @@ const projectsData: Project[] = [
   },
   {
     slug: "antho-docs",
-    title: "antho-docs",
+    title: {
+      en: "antho-docs",
+      fr: "antho-docs",
+    },
     abstract: {
       en: "",
       fr: ""
@@ -67,7 +79,10 @@ const projectsData: Project[] = [
   },
   {
     slug: "backbone-php",
-    title: "backbone-php",
+    title: {
+      en: "backbone-php",
+      fr: "backbone-php",
+    },
     abstract: {
       en: "",
       fr: ""
@@ -83,7 +98,10 @@ const projectsData: Project[] = [
   },
   {
     slug: "base-wordpress-docker",
-    title: "base-wordpress-docker",
+    title: {
+      en: "base-wordpress-docker",
+      fr: "base-wordpress-docker",
+    },
     abstract: {
       en: "",
       fr: ""
@@ -99,7 +117,10 @@ const projectsData: Project[] = [
   },
   {
     slug: "bouncing-dvd",
-    title: "bouncing-dvd",
+    title: {
+      en: "bouncing-dvd",
+      fr: "bouncing-dvd",
+    },
     abstract: {
       en: "",
       fr: ""
@@ -115,7 +136,10 @@ const projectsData: Project[] = [
   },
   {
     slug: "bravo-vous-etes-sur-internet",
-    title: "bravo-vous-etes-sur-internet",
+    title: {
+      en: "bravo-vous-etes-sur-internet",
+      fr: "bravo-vous-etes-sur-internet",
+    },
     abstract: {
       en: "",
       fr: ""
@@ -131,7 +155,10 @@ const projectsData: Project[] = [
   },
   {
     slug: "bsi-new-vet",
-    title: "bsi-new-vet",
+    title: {
+      en: "bsi-new-vet",
+      fr: "bsi-new-vet",
+    },
     abstract: {
       en: "",
       fr: ""
@@ -147,7 +174,10 @@ const projectsData: Project[] = [
   },
   {
     slug: "compte-est-bon",
-    title: "compte-est-bon",
+    title: {
+      en: "compte-est-bon",
+      fr: "compte-est-bon",
+    },
     abstract: {
       en: "",
       fr: ""
@@ -163,7 +193,10 @@ const projectsData: Project[] = [
   },
   {
     slug: "dead-air",
-    title: "dead-air",
+    title: {
+      en: "dead-air",
+      fr: "dead-air",
+    },
     abstract: {
       en: "",
       fr: ""
@@ -179,7 +212,10 @@ const projectsData: Project[] = [
   },
   {
     slug: "dual-fs",
-    title: "dual-fs",
+    title: {
+      en: "dual-fs",
+      fr: "dual-fs",
+    },
     abstract: {
       en: "",
       fr: ""
@@ -195,7 +231,10 @@ const projectsData: Project[] = [
   },
   {
     slug: "filezilla-companion",
-    title: "filezilla-companion",
+    title: {
+      en: "filezilla-companion",
+      fr: "filezilla-companion",
+    },
     abstract: {
       en: "",
       fr: ""
@@ -211,7 +250,10 @@ const projectsData: Project[] = [
   },
   {
     slug: "filezilla-merger",
-    title: "filezilla-merger",
+    title: {
+      en: "filezilla-merger",
+      fr: "filezilla-merger",
+    },
     abstract: {
       en: "",
       fr: ""
@@ -227,7 +269,10 @@ const projectsData: Project[] = [
   },
   {
     slug: "gpt-exporter",
-    title: "gpt-exporter",
+    title: {
+      en: "gpt-exporter",
+      fr: "gpt-exporter",
+    },
     abstract: {
       en: "",
       fr: ""
@@ -243,7 +288,10 @@ const projectsData: Project[] = [
   },
   {
     slug: "humanizrr",
-    title: "humanizrr",
+    title: {
+      en: "humanizrr",
+      fr: "humanizrr",
+    },
     abstract: {
       en: "",
       fr: ""
@@ -259,7 +307,10 @@ const projectsData: Project[] = [
   },
   {
     slug: "linkedin-stats-v1",
-    title: "linkedin-stats-v1",
+    title: {
+      en: "linkedin-stats-v1",
+      fr: "linkedin-stats-v1",
+    },
     abstract: {
       en: "",
       fr: ""
@@ -275,7 +326,10 @@ const projectsData: Project[] = [
   },
   {
     slug: "memo-minder",
-    title: "memo-minder",
+    title: {
+      en: "memo-minder",
+      fr: "memo-minder",
+    },
     abstract: {
       en: "",
       fr: ""
@@ -291,7 +345,10 @@ const projectsData: Project[] = [
   },
   {
     slug: "opendyslexic-extension",
-    title: "opendyslexic-extension",
+    title: {
+      en: "opendyslexic-extension",
+      fr: "opendyslexic-extension",
+    },
     abstract: {
       en: "",
       fr: ""
@@ -307,7 +364,10 @@ const projectsData: Project[] = [
   },
   {
     slug: "portfolio-v3",
-    title: "portfolio-v3",
+    title: {
+      en: "portfolio-v3",
+      fr: "portfolio-v3",
+    },
     abstract: {
       en: "",
       fr: ""

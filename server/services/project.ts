@@ -8,7 +8,7 @@ export class ProjectService {
     const { search, featured, technologies } = options || {}
 
     if (search && isValideSearch(search)) {
-      result = applySearch(result, search, p => [p.title, p.description.en, p.description.fr, p.abstract.en, p.abstract.fr, ...p.technologies])
+      result = applySearch(result, search, p => [...Object.values(p.title), ...Object.values(p.abstract), ...Object.values(p.description), ...p.technologies])
     }
 
     if (featured) {

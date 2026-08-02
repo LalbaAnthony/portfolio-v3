@@ -8,7 +8,7 @@ export class SkillService {
     const { search } = options || {}
 
     if (search && isValideSearch(search)) {
-      result = applySearch(result, search, p => Object.values(p.name))
+      result = applySearch(result, search, p => [...Object.values(p.name)])
     }
 
     return result

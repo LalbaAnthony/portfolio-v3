@@ -8,7 +8,7 @@ export class CertificationService {
     const { search } = options || {}
 
     if (search && isValideSearch(search)) {
-      result = applySearch(result, search, p => Object.values(p.label))
+      result = applySearch(result, search, p => [...Object.values(p.label)])
     }
 
     return result

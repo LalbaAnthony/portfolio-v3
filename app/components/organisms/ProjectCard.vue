@@ -2,7 +2,7 @@
     <div class="glass-container p-6">
         <div class="flex items-center mb-1">
             <div class="flex-1">
-                <h3 class="font-semibold text-lg">{{ props.project.title }}</h3>
+                <h3 class="font-semibold text-lg">{{ tString(props.project.title) }}</h3>
             </div>
             <div v-if="props.project.technologies?.length" class="flex gap-1.5 ml-3">
                 <Pill v-for="tech in props.project.technologies.slice(0, 2)" :key="tech">
@@ -18,15 +18,15 @@
         </p>
 
         <div class="flex flex-wrap gap-3 items-center">
-            <Button v-if="props.project.productionUrl" as="link" :href="props.project.productionUrl" variant="white"
+            <Button v-if="props.project.productionUrl" as="link" :to="props.project.productionUrl" variant="white"
                 size="sm" icon="ic:round-remove-red-eye" class="flex-1">
                 {{ t('project.card.production') }}
             </Button>
-            <Button v-else-if="props.project.repositoryUrl" as="link" :href="props.project.repositoryUrl" variant="white"
+            <Button v-else-if="props.project.repositoryUrl" as="link" :to="props.project.repositoryUrl" variant="white"
                 size="sm" icon="mdi:github" class="flex-1">
                 {{ t('project.card.repository') }}
             </Button>
-            <Button as="link" :href="`/projects/${props.project.slug}`" variant="ghost" size="sm">
+            <Button as="link" :to="`/projects/${props.project.slug}`" variant="ghost" size="sm">
                 {{ t('project.card.details') }}
             </Button>
         </div>
