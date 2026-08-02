@@ -8,3 +8,13 @@ export function tString(string: I18nStrings | string | null | undefined): string
     if (typeof string === 'string') return string
     return null
 }
+
+export function switchLocale(code: Language) {
+    const switchLocalePath = useSwitchLocalePath()
+    navigateTo(switchLocalePath(code))
+}
+
+export function localesOptions(): { label: string; value: string }[] {
+    const { locales } = useI18n()
+    return locales.value.map(l => ({ label: l.name ?? l.code, value: l.code }))
+}

@@ -1,7 +1,7 @@
 <template>
     <div ref="containerRef" class="dropdown">
         <Button :variant="variant" :size="size" :pill="pill" :disabled="disabled" :icon="icon"
-            trailing-icon="mdi:chevron-down" :class="['dropdown__trigger', { 'dropdown__trigger--open': open }]"
+            trailing-icon="mdi:chevron-down" :class="['w-full dropdown__trigger', { 'dropdown__trigger--open': open }]"
             :aria-haspopup="'listbox'" :aria-expanded="open" @click="toggle">
             {{ selectedLabel }}
         </Button>

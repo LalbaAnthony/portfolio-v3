@@ -5,16 +5,16 @@
                 <NuxtLink to="/" class="pl-4 flex items-center text-lg">#</NuxtLink>
 
                 <nav class="hidden md:flex max-w-xl items-center justify-end gap-2 md:gap-4">
-                    <Button as="link" to="#skills" variant="transparent">
+                    <Button as="link" to="/#skills" variant="transparent">
                         {{ t('header.skills') }}
                     </Button>
                     <Button as="link" to="/projects" variant="transparent">
                         {{ t('header.projects') }}
                     </Button>
-                    <Button as="link" :to="githubUrl(profile?.socials ?? [])" variant="ghost" icon="mdi:github">
+                    <Button as="link" :to="githubUrl(profile?.socials ?? [])" variant="white" icon="mdi:github">
                         {{ t('header.github') }}
                     </Button>
-                    <Dropdown :options="localesOptions" :model-value="locale" variant="ghost"
+                    <Dropdown :options="localesOptions()" :model-value="locale" variant="ghost"
                         @update:model-value="switchLocale($event as Language)" />
                 </nav>
 
@@ -27,16 +27,16 @@
 
             <Transition name="menu">
                 <nav v-if="menuOpen" class="md:hidden flex flex-col gap-2 pt-2 pb-1 px-2">
-                    <Button as="link" to="#skills" variant="transparent">
+                    <Button as="link" to="/#skills" variant="transparent">
                         {{ t('header.skills') }}
                     </Button>
                     <Button as="link" to="/projects" variant="transparent">
                         {{ t('header.projects') }}
                     </Button>
-                    <Button as="link" :to="githubUrl(profile?.socials ?? [])" variant="ghost" icon="mdi:github">
+                    <Button as="link" :to="githubUrl(profile?.socials ?? [])" variant="white" icon="mdi:github">
                         {{ t('header.github') }}
                     </Button>
-                    <Dropdown :options="localesOptions" :model-value="locale" variant="ghost"
+                    <Dropdown :options="localesOptions()" :model-value="locale" variant="ghost"
                         @update:model-value="switchLocale($event as Language)" />
                 </nav>
             </Transition>
@@ -63,10 +63,10 @@
 import Button from '~/components/atoms/Button.vue'
 import Dropdown from '~/components/molecules/Dropdown.vue'
 import type { Language } from '#shared/types/i18n'
-import { useProfile } from '~/composables/data/useProfile';
+import { useProfile } from '~/composables/data/useProfile'
+import { localesOptions, switchLocale } from '~/utils/i18n'
 
-const { t, locale, locales } = useI18n()
-const switchLocalePath = useSwitchLocalePath()
+const { t, locale } = useI18n()
 const route = useRoute()
 
 const menuOpen = ref(false)
@@ -80,12 +80,6 @@ const [
 watch(() => route.fullPath, () => {
     menuOpen.value = false
 })
-
-function switchLocale(code: Language) {
-    navigateTo(switchLocalePath(code))
-}
-
-const localesOptions = computed(() => locales.value.map(l => ({ label: l.name ?? l.code, value: l.code })))
 
 </script>
 
