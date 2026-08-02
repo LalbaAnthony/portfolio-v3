@@ -1,1 +1,97 @@
-{}
+{
+    "common": {
+        "reset": "Réinitialiser",
+        "retry": "Réessayer",
+        "error": "Une erreur est survenue"
+    },
+    "header": {
+        "projects": "Projets",
+        "github": "Github",
+        "openMenu": "Ouvrir le menu",
+        "closeMenu": "Fermer le menu"
+    },
+    "routing": {
+        "home": "Retour à l'accueil",
+        "back": "Retour"
+    },
+    "project": {
+        "card": {
+            "details": "Plus de détails",
+            "repository": "Voir le dépôt",
+            "production": "Voir le projet en production"
+        }
+    },
+    "pages": {
+        "home": {
+            "hero": {
+                "description": "Bienvenue sur mon portfolio !",
+                "resume": "Télécharger mon CV",
+                "more": "En savoir plus"
+            },
+            "projects": {
+                "title": "Projets mis en avant",
+                "description": "Une sélection de mes projets les plus récents et pertinents",
+                "all": "Voir tous les projets"
+            },
+            "skills": {
+                "title": "Mes compétences",
+                "description": "Technologies et outils que j'utilise au quotidien",
+                "card": {
+                    "rating": "Note : {value} / {max}"
+                }
+            },
+            "timeline": {
+                "title": "Expérience & formation",
+                "description": "Mon parcours professionnel et académique",
+                "experience": "Expérience",
+                "diploma": "Formation",
+                "present": "Aujourd'hui"
+            },
+            "head": {
+                "title": "Portfolio",
+                "description": "Un recueil de mes réalisations, expériences et projets"
+            }
+        },
+        "projects": {
+            "title": "Projets",
+            "description": "La liste de mes projets",
+            "empty": "Aucun projet",
+            "vacant": "Je n'ai pas encore essayé cette combinaison",
+            "error": "Impossible de charger les projets",
+            "head": {
+                "title": "Projets",
+                "description": "La liste de mes projets"
+            }
+        },
+        "project": {
+            "empty": "Aucun projet trouvé",
+            "error": "Impossible de charger le projet"
+        },
+        "error": {
+            "400": {
+                "title": "Requête invalide",
+                "description": "La syntaxe de votre requête ou de l'URL est invalide, ou les données fournies sont incorrectes"
+            },
+            "401": {
+                "title": "Non autorisé",
+                "description": "Vous devez être connecté pour accéder à cette ressource"
+            },
+            "403": {
+                "title": "Accès interdit",
+                "description": "Vous n'avez pas la permission d'accéder à cette page"
+            },
+            "404": {
+                "title": "Page introuvable",
+                "description": "La ressource que vous recherchez n'existe pas ou a été déplacée"
+            },
+            "500": {
+                "title": "Erreur interne du serveur",
+                "description": "Une erreur interne s'est produite. Veuillez réessayer plus tard"
+            },
+            "unknown": {
+                "title": "Erreur inconnue",
+                "description": "Une erreur inconnue s'est produite. Si cette erreur persiste, veuillez contacter le propriétaire du site"
+            }
+        }
+    }
+}
