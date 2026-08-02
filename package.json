@@ -12,6 +12,7 @@
     "postinstall": "nuxt prepare",
     "docker:dev": "docker compose --profile dev up --watch",
     "docker:dev:down": "docker compose --profile dev down",
+    "docker:dev:reset": "docker compose --profile dev down --volumes --rmi all && docker compose --profile dev up --watch --build",
     "docker:prod": "docker compose --profile prod up -d --build",
     "docker:prod:down": "docker compose --profile prod down",
     "docker:down": "docker compose --profile dev --profile prod down",
@@ -20,6 +21,7 @@
   "dependencies": {
     "@nuxt/eslint": "^1.16.0",
     "@nuxt/icon": "^2.2.3",
+    "@nuxt/image": "^2.1.0",
     "@nuxtjs/i18n": "^10.4.0",
     "@nuxtjs/robots": "^6.0.9",
     "@nuxtjs/sitemap": "^8.1.0",

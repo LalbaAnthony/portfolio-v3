@@ -1,5 +1,5 @@
 <template>
-    <div class="glass-container p-6 cursor-pointer" @click="navigateTo(`/projects/${props.project.slug}`)">
+    <div class="glass-container p-6">
         <div class="flex items-center mb-1">
             <div class="flex-1">
                 <h3 class="font-semibold text-lg">{{ props.project.title }}</h3>
@@ -18,8 +18,8 @@
         </p>
 
         <div class="flex flex-wrap gap-3 items-center">
-            <Button v-if="props.project.repositoryUrl" variant="white" size="sm" icon="ic:round-remove-red-eye"
-                class="flex-1" @click.stop="openInNewTab(props.project.repositoryUrl)">
+            <Button v-if="props.project.repositoryUrl" as="link" :href="props.project.repositoryUrl" variant="white"
+                size="sm" icon="ic:round-remove-red-eye" class="flex-1">
                 {{ t('project.card.see') }}
             </Button>
             <Button as="link" :href="`/projects/${props.project.slug}`" variant="ghost" size="sm">

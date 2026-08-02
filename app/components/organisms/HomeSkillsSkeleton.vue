@@ -6,21 +6,15 @@
                 <Skeleton height="1rem" width="18rem" />
             </div>
 
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-                <div
-                    v-for="i in 10"
-                    :key="i"
-                    class="glass-container p-4 flex flex-col items-center gap-3"
-                >
-                    <Skeleton width="2rem" height="2rem" rounded="md" />
-                    <Skeleton height="0.75rem" width="4rem" rounded="full" />
-                    <Skeleton height="3px" rounded="full" class="w-full" />
-                </div>
-            </div>
+            <Grid :layouts="{ default: 1, sm: 2, md: 3, lg: 4, '2xl': 5 }">
+                <SkillCardSkeleton v-for="i in 10" :key="i" />
+            </Grid>
         </div>
     </section>
 </template>
 
 <script setup lang="ts">
 import Skeleton from '~/components/atoms/Skeleton.vue'
+import Grid from '~/components/molecules/Grid.vue'
+import SkillCardSkeleton from '~/components/organisms/SkillCardSkeleton.vue'
 </script>

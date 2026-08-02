@@ -1,6 +1,8 @@
 {
   "common": {
-    "reset": "Reset"
+    "reset": "Reset",
+    "retry": "Retry",
+    "error": "Something went wrong"
   },
   "header": {
     "title": "{fullname}'s portfolio",

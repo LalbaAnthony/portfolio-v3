@@ -2,70 +2,6 @@ import type { Project } from "~~/shared/types/project"
 
 const projectsData: Project[] = [
   {
-    slug: "70s-vibe",
-    title: "70s-vibe",
-    abstract: {
-      en: "",
-      fr: ""
-    },
-    description: {
-      en: "",
-      fr: ""
-    },
-    technologies: [],
-    featured: false,
-    year: 2026,
-    repositoryUrl: "https://github.com/LalbaAnthony/70s-vibe"
-  },
-  {
-    slug: "agora-docker-atlas",
-    title: "agora-docker-atlas",
-    abstract: {
-      en: "",
-      fr: ""
-    },
-    description: {
-      en: "",
-      fr: ""
-    },
-    technologies: [],
-    featured: false,
-    year: 2025,
-    repositoryUrl: "https://github.com/LalbaAnthony/agora-docker-atlas"
-  },
-  {
-    slug: "agora-docker-presentation",
-    title: "agora-docker-presentation",
-    abstract: {
-      en: "",
-      fr: ""
-    },
-    description: {
-      en: "",
-      fr: ""
-    },
-    technologies: [],
-    featured: false,
-    year: 2025,
-    repositoryUrl: "https://github.com/LalbaAnthony/agora-docker-presentation"
-  },
-  {
-    slug: "agora-php-error-crawler",
-    title: "agora-php-error-crawler",
-    abstract: {
-      en: "",
-      fr: ""
-    },
-    description: {
-      en: "",
-      fr: ""
-    },
-    technologies: [],
-    featured: false,
-    year: 2026,
-    repositoryUrl: "https://github.com/LalbaAnthony/agora-php-error-crawler"
-  },
-  {
     slug: "antho-configs-bash",
     title: "antho-configs-bash",
     abstract: {
@@ -76,7 +12,7 @@ const projectsData: Project[] = [
       en: "",
       fr: ""
     },
-    technologies: [],
+    technologies: ["Bash"],
     featured: false,
     year: 2026,
     repositoryUrl: "https://github.com/LalbaAnthony/antho-configs-bash"
@@ -92,7 +28,7 @@ const projectsData: Project[] = [
       en: "",
       fr: ""
     },
-    technologies: [],
+    technologies: ["Powershell"],
     featured: false,
     year: 2026,
     repositoryUrl: "https://github.com/LalbaAnthony/antho-configs-powershell"
@@ -108,26 +44,10 @@ const projectsData: Project[] = [
       en: "",
       fr: ""
     },
-    technologies: [],
+    technologies: ["Markdown"],
     featured: false,
     year: 2026,
     repositoryUrl: "https://github.com/LalbaAnthony/antho-docs"
-  },
-  {
-    slug: "antho-prompts",
-    title: "antho-prompts",
-    abstract: {
-      en: "",
-      fr: ""
-    },
-    description: {
-      en: "",
-      fr: ""
-    },
-    technologies: [],
-    featured: false,
-    year: 2026,
-    repositoryUrl: "https://github.com/LalbaAnthony/antho-prompts"
   },
   {
     slug: "backbone-php",
@@ -140,7 +60,7 @@ const projectsData: Project[] = [
       en: "",
       fr: ""
     },
-    technologies: [],
+    technologies: ["PHP"],
     featured: false,
     year: 2026,
     repositoryUrl: "https://github.com/LalbaAnthony/backbone-php"
@@ -156,7 +76,7 @@ const projectsData: Project[] = [
       en: "",
       fr: ""
     },
-    technologies: [],
+    technologies: ["PHP", "Docker", "WordPress"],
     featured: false,
     year: 2025,
     repositoryUrl: "https://github.com/LalbaAnthony/base-wordpress-docker"
@@ -172,7 +92,7 @@ const projectsData: Project[] = [
       en: "",
       fr: ""
     },
-    technologies: [],
+    technologies: ["JavaScript", "HTML", "CSS"],
     featured: false,
     year: 2024,
     repositoryUrl: "https://github.com/LalbaAnthony/bouncing-dvd"
@@ -188,42 +108,10 @@ const projectsData: Project[] = [
       en: "",
       fr: ""
     },
-    technologies: [],
+    technologies: ["HTML", "CSS"],
     featured: false,
     year: 2025,
     repositoryUrl: "https://github.com/LalbaAnthony/bravo-vous-etes-sur-internet"
-  },
-  {
-    slug: "bsi-cs-rpg",
-    title: "bsi-cs-rpg",
-    abstract: {
-      en: "",
-      fr: ""
-    },
-    description: {
-      en: "",
-      fr: ""
-    },
-    technologies: [],
-    featured: false,
-    year: 2026,
-    repositoryUrl: "https://github.com/LalbaAnthony/bsi-cs-rpg"
-  },
-  {
-    slug: "bsi-gestion-ildeilc",
-    title: "bsi-gestion-ildeilc",
-    abstract: {
-      en: "",
-      fr: ""
-    },
-    description: {
-      en: "",
-      fr: ""
-    },
-    technologies: [],
-    featured: false,
-    year: 2026,
-    repositoryUrl: "https://github.com/LalbaAnthony/bsi-gestion-ildeilc"
   },
   {
     slug: "bsi-new-vet",
@@ -236,7 +124,7 @@ const projectsData: Project[] = [
       en: "",
       fr: ""
     },
-    technologies: [],
+    technologies: ["PHP", "Vue.js", "TailwindCSS"],
     featured: false,
     year: 2026,
     repositoryUrl: "https://github.com/LalbaAnthony/bsi-new-vet"
@@ -252,7 +140,7 @@ const projectsData: Project[] = [
       en: "",
       fr: ""
     },
-    technologies: [],
+    technologies: ["JavaScript", "HTML", "CSS"],
     featured: false,
     year: 2024,
     repositoryUrl: "https://github.com/LalbaAnthony/compte-est-bon"
@@ -268,7 +156,7 @@ const projectsData: Project[] = [
       en: "",
       fr: ""
     },
-    technologies: [],
+    technologies: ["Node.js"],
     featured: false,
     year: 2026,
     repositoryUrl: "https://github.com/LalbaAnthony/dead-air"
@@ -284,7 +172,7 @@ const projectsData: Project[] = [
       en: "",
       fr: ""
     },
-    technologies: [],
+    technologies: ["Node.js"],
     featured: false,
     year: 2026,
     repositoryUrl: "https://github.com/LalbaAnthony/dual-fs"
@@ -300,7 +188,7 @@ const projectsData: Project[] = [
       en: "",
       fr: ""
     },
-    technologies: [],
+    technologies: ["Python"],
     featured: false,
     year: 2026,
     repositoryUrl: "https://github.com/LalbaAnthony/filezilla-companion"
@@ -316,7 +204,7 @@ const projectsData: Project[] = [
       en: "",
       fr: ""
     },
-    technologies: [],
+    technologies: ["Python"],
     featured: false,
     year: 2025,
     repositoryUrl: "https://github.com/LalbaAnthony/filezilla-merger"
@@ -332,26 +220,10 @@ const projectsData: Project[] = [
       en: "",
       fr: ""
     },
-    technologies: [],
+    technologies: ["HTML", "CSS", "JavaScript"],
     featured: false,
     year: 2026,
     repositoryUrl: "https://github.com/LalbaAnthony/gpt-exporter"
-  },
-  {
-    slug: "http-brutforce-params",
-    title: "http-brutforce-params",
-    abstract: {
-      en: "",
-      fr: ""
-    },
-    description: {
-      en: "",
-      fr: ""
-    },
-    technologies: [],
-    featured: false,
-    year: 2026,
-    repositoryUrl: "https://github.com/LalbaAnthony/http-brutforce-params"
   },
   {
     slug: "humanizrr",
@@ -364,26 +236,10 @@ const projectsData: Project[] = [
       en: "",
       fr: ""
     },
-    technologies: [],
+    technologies: ["Node.js"],
     featured: false,
     year: 2026,
     repositoryUrl: "https://github.com/LalbaAnthony/humanizrr"
-  },
-  {
-    slug: "LalbaAnthony",
-    title: "LalbaAnthony",
-    abstract: {
-      en: "",
-      fr: ""
-    },
-    description: {
-      en: "",
-      fr: ""
-    },
-    technologies: [],
-    featured: false,
-    year: 2026,
-    repositoryUrl: "https://github.com/LalbaAnthony/LalbaAnthony"
   },
   {
     slug: "linkedin-stats-v1",
@@ -396,26 +252,10 @@ const projectsData: Project[] = [
       en: "",
       fr: ""
     },
-    technologies: [],
+    technologies: ["Python"],
     featured: false,
     year: 2026,
     repositoryUrl: "https://github.com/LalbaAnthony/linkedin-stats-v1"
-  },
-  {
-    slug: "lycee-first-website",
-    title: "lycee-first-website",
-    abstract: {
-      en: "",
-      fr: ""
-    },
-    description: {
-      en: "",
-      fr: ""
-    },
-    technologies: [],
-    featured: false,
-    year: 2025,
-    repositoryUrl: "https://github.com/LalbaAnthony/lycee-first-website"
   },
   {
     slug: "memo-minder",
@@ -428,7 +268,7 @@ const projectsData: Project[] = [
       en: "",
       fr: ""
     },
-    technologies: [],
+    technologies: ["Vue.js", "TailwindCSS", "Node.js", "Express.js", "SQLite"],
     featured: false,
     year: 2026,
     repositoryUrl: "https://github.com/LalbaAnthony/memo-minder"
@@ -450,22 +290,6 @@ const projectsData: Project[] = [
     repositoryUrl: "https://github.com/LalbaAnthony/opendyslexic-extension"
   },
   {
-    slug: "php-c_hash",
-    title: "php-c_hash",
-    abstract: {
-      en: "",
-      fr: ""
-    },
-    description: {
-      en: "",
-      fr: ""
-    },
-    technologies: [],
-    featured: false,
-    year: 2025,
-    repositoryUrl: "https://github.com/LalbaAnthony/php-c_hash"
-  },
-  {
     slug: "portfolio-v3",
     title: "portfolio-v3",
     abstract: {
@@ -476,7 +300,7 @@ const projectsData: Project[] = [
       en: "",
       fr: ""
     },
-    technologies: [],
+    technologies: ["Nuxt.js", "TypeScript", "TailwindCSS"],
     featured: false,
     year: 2026,
     repositoryUrl: "https://github.com/LalbaAnthony/portfolio-v3"

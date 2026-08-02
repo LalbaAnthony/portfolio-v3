@@ -39,6 +39,7 @@ const props = withDefaults(defineProps<{
     type?: Type
     as?: As
     to?: string
+    target?: string
 }>(), {
     variant: 'glass',
     size: 'md',
@@ -74,7 +75,7 @@ const componentAttrs = computed(() => {
             ...attrs,
             to: props.to,
             external: isExternal,
-            target: isExternal ? '_blank' : undefined
+            target: props.target ?? (isExternal ? '_blank' : undefined)
         }
     }
 

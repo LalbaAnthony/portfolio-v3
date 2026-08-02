@@ -17,7 +17,7 @@
                 </NuxtLink>
             </div>
 
-            <Grid :layouts="{ default: 1, sm: 2, md: 3 }">
+            <Grid>
                 <ProjectCard v-for="project in props.projects" :key="project.slug" :project="project" />
             </Grid>
 

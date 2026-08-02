@@ -6,7 +6,7 @@
                 <Skeleton height="1rem" width="18rem" />
             </div>
 
-            <Grid :layouts="{ default: 1, sm: 2, md: 3 }">
+            <Grid>
                 <ProjectCardSkeleton v-for="i in 3" :key="i" />
             </Grid>
         </div>
@@ -16,4 +16,5 @@
 <script setup lang="ts">
 import Skeleton from '~/components/atoms/Skeleton.vue'
 import Grid from '~/components/molecules/Grid.vue'
+import ProjectCardSkeleton from '~/components/organisms/ProjectCardSkeleton.vue'
 </script>

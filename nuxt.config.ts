@@ -17,13 +17,7 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  modules: [
-    '@nuxt/icon',
-    '@nuxt/eslint',
-    '@nuxtjs/i18n',
-    '@nuxtjs/robots',
-    '@nuxtjs/sitemap',
-  ],
+  modules: ['@nuxt/icon', '@nuxt/eslint', '@nuxtjs/i18n', '@nuxtjs/robots', '@nuxtjs/sitemap', '@nuxt/image'],
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {

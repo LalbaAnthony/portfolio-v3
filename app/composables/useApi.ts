@@ -1,5 +1,3 @@
-import { $fetch } from 'ofetch'
-
 /**
  * useApi - composable API utility with built-in error handling, retries, and auth support
  */

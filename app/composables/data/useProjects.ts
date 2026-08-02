@@ -2,40 +2,33 @@ import useApi from '~/composables/useApi'
 import type { Ref } from 'vue'
 import type { Pagination } from '~~/shared/types/service'
 import type { Project } from '~~/shared/types/project'
+import { useInfiniteList } from '~/composables/useInfiniteList'
 
-export const useProjects = async (params?: { page?: Ref<number>, technologies?: Ref<string[]> }) => {
-    const page = params?.page ?? ref(1)
+export const useProjectsInfinite = async (params?: { technologies?: Ref<string[]> }) => {
     const technologies = params?.technologies ?? ref<string[]>([])
 
-    const { data, status, error } = await useAsyncData(
-        `projects-${page.value}-${technologies.value.join(',')}`,
-        async () => {
-            try {
-                const res = await useApi().get<{ data: Project[], pagination: Pagination }>(
-                    `/projects`,
-                    {
-                        params: {
-                            page: page.value,
-                            technologies: technologies.value,
-                        }
+    const list = await useInfiniteList<Project>(
+        `projects-infinite-${technologies.value.join(',')}`,
+        async (page) => {
+            const res = await useApi().get<{ data: Project[], pagination: Pagination }>(
+                `/projects`,
+                {
+                    params: {
+                        page,
+                        technologies: technologies.value,
                     }
-                )
-                return res.data ?? null
-            } catch {
-                return null
-            }
+                }
+            )
+            // `null` on failure: page 1 behaves like every other fetcher here, while
+            // `useInfiniteList` turns it into a retryable `errorMore` for the appended pages.
+            return res.ok ? (res.data ?? null) : null
         },
-        {
-            getCachedData: (key, nuxtApp, ctx) => ctx.cause === 'initial' ? (nuxtApp.payload.data[key] ?? nuxtApp.static.data[key]) : undefined,
-            watch: [page, technologies],
-        }
+        { watch: [technologies] }
     )
 
     return {
-        projects: computed(() => data.value?.data ?? []),
-        pagination: computed(() => data.value?.pagination ?? null),
-        loading: computed(() => status.value === 'pending'),
-        error,
+        ...list,
+        projects: list.items,
     }
 }
 

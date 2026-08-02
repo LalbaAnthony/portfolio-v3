@@ -6,13 +6,9 @@
                 <p class="text-white/60">{{ t('pages.home.skills.description') }}</p>
             </div>
 
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-                <SkillCard
-                    v-for="skill in props.skills"
-                    :key="skill.name"
-                    :skill="skill"
-                />
-            </div>
+            <Grid :layouts="{ default: 1, sm: 2, md: 3, lg: 4, '2xl': 5 }">
+                <SkillCard v-for="skill in props.skills" :key="skill.name" :skill="skill" />
+            </Grid>
         </div>
     </section>
 </template>
@@ -20,6 +16,7 @@
 <script setup lang="ts">
 import type { Skill } from '~~/shared/types/skill'
 import SkillCard from '~/components/organisms/SkillCard.vue'
+import Grid from '~/components/molecules/Grid.vue'
 
 const props = defineProps<{
     skills: Skill[] | null

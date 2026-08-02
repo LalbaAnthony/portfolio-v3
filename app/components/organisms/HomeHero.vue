@@ -2,7 +2,9 @@
     <section class="mb-12 text-center pt-8">
         <div class="flex flex-col items-center justify-center gap-2 mb-4">
             <div class="profile-photo mb-4">
-                <img src="/photos/profile_no-bg.png" :alt="`${props.profile?.firstName} ${props.profile?.lastName}`" class="profile-photo__img" />
+                <img />
+                <NuxtImg src="/photos/profile_no-bg.png" :alt="`${props.profile?.firstName} ${props.profile?.lastName}`"
+                    class="profile-photo__img" placeholder loading="eager" />
             </div>
             <h1 class="text-5xl">
                 {{ props.profile?.firstName }} <span class="font-extrabold">{{ props.profile?.lastName }}</span>

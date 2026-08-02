@@ -1,7 +1,10 @@
 <template>
-    <div class="skill-card glass-container p-4 flex flex-col items-center gap-3"
+    <NuxtLink class="skill-card glass-container p-4 flex flex-col items-center gap-3"
         :class="{ 'skill-card--link': props.skill.siteUrl }"
-        @click="props.skill.siteUrl ? openInNewTab(props.skill.siteUrl) : undefined">
+        :to="props.skill.siteUrl || undefined"
+        :external="!!props.skill.siteUrl"
+        :target="props.skill.siteUrl ? '_blank' : undefined"
+        :rel="props.skill.siteUrl ? 'noopener noreferrer' : undefined">
         <div class="w-8 h-8 flex items-center justify-center shrink-0">
             <img v-if="props.skill.iconUrl && !iconError" :src="props.skill.iconUrl" :alt="props.skill.name"
                 class="w-8 h-8 object-contain" @error="iconError = true" />
