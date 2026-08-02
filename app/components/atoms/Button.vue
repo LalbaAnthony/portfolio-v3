@@ -13,6 +13,9 @@
             <Icon v-if="loading" name="eos-icons:loading" class="animate-spin" :size="iconSize" />
             <Icon v-else-if="icon" :name="icon" :size="iconSize" />
             <slot />
+            <span v-if="trailingIcon && !loading" class="btn__trailing-icon">
+                <Icon :name="trailingIcon" :size="iconSize" />
+            </span>
         </span>
     </component>
 </template>
@@ -36,6 +39,7 @@ const props = withDefaults(defineProps<{
     iconOnly?: boolean
     ariaLabel?: string
     icon?: string
+    trailingIcon?: string
     type?: Type
     as?: As
     to?: string
@@ -338,5 +342,13 @@ function handleClick(e: MouseEvent) {
 
 .btn--icon-only.btn--pill {
     border-radius: 50% !important
+}
+
+/* Trailing icon */
+
+.btn__trailing-icon {
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.2s ease;
 }
 </style>

@@ -5,12 +5,8 @@
                 <NuxtLink to="/" class="pl-4 flex items-center text-lg">#</NuxtLink>
 
                 <nav class="hidden md:flex max-w-xl items-center justify-end gap-2 md:gap-4">
-                    <select :value="locale"
-                        @change="switchLocale(($event.target as HTMLSelectElement).value as Language)">
-                        <option v-for="loc in locales" :key="loc.code" :value="loc.code">
-                            {{ loc.name }}
-                        </option>
-                    </select>
+                    <Dropdown :options="localesOptions" :model-value="locale" variant="ghost"
+                        @update:model-value="switchLocale($event as Language)" />
 
                     <Button as="link" to="/projects" variant="transparent">
                         {{ t('header.projects') }}
@@ -29,19 +25,14 @@
 
             <Transition name="menu">
                 <nav v-if="menuOpen" class="md:hidden flex flex-col gap-2 pt-2 pb-1 px-2">
-                    <select :value="locale"
-                        @change="switchLocale(($event.target as HTMLSelectElement).value as Language)">
-                        <option v-for="loc in locales" :key="loc.code" :value="loc.code">
-                            {{ loc.name }}
-                        </option>
-                    </select>
-
                     <Button as="link" to="/projects" variant="transparent">
                         {{ t('header.projects') }}
                     </Button>
                     <Button as="link" :to="githubUrl(profile?.socials ?? [])" variant="ghost" icon="mdi:github">
                         {{ t('header.github') }}
                     </Button>
+                    <Dropdown :options="localesOptions" :model-value="locale" variant="ghost"
+                        @update:model-value="switchLocale($event as Language)" />
                 </nav>
             </Transition>
         </header>
@@ -64,8 +55,9 @@
 </template>
 
 <script setup lang="ts">
-import Button from '~/components/atoms/Button.vue';
-import type { Language } from '#shared/types/i18n';
+import Button from '~/components/atoms/Button.vue'
+import Dropdown from '~/components/molecules/Dropdown.vue'
+import type { Language } from '#shared/types/i18n'
 import { useProfile } from '~/composables/data/useProfile';
 
 const { t, locale, locales } = useI18n()
@@ -87,6 +79,9 @@ watch(() => route.fullPath, () => {
 function switchLocale(code: Language) {
     navigateTo(switchLocalePath(code))
 }
+
+const localesOptions = computed(() => locales.value.map(l => ({ label: l.name ?? l.code, value: l.code })))
+
 </script>
 
 <style scoped>
