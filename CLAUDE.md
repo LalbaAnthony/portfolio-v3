@@ -81,6 +81,27 @@ No `test` or `typecheck` script is configured in `package.json`.
 - Root-relative imports use the `~~` alias (e.g. `~~/server/services/project`, `~~/shared/types/project`).
 - Nuxt auto-imports apply: composables, utils, and `shared/` members are used without explicit imports in many files.
 
+## i18n
+
+Locale files live in `i18n/locales/` (`en.json` authoritative, `fr.json` and any future locales derived from it).
+
+A dedicated subagent keeps them in sync. Invoke it with:
+
+```
+/agent translator
+```
+
+What it does, in order:
+1. **Prunes unused keys** — greps `app/**/*.{vue,ts}` for every `t('...')` / `$t('...')` call, then removes any leaf key from `en.json` (and all other locale files) that has no matching usage. Empty parent objects are also removed.
+2. **Syncs translations** — for every key in `en.json` missing from a non-English file, translates the English value and adds it. Interpolation placeholders (`{fullname}`, `{value}`, `{max}`, …) are preserved verbatim.
+
+Run it after:
+- Adding or removing i18n keys in `en.json`
+- Adding a new locale file (create an empty `i18n/locales/<code>.json` and run the agent)
+- Suspecting locale files have drifted out of sync
+
+The agent reports a per-file table (keys pruned / keys translated) and flags any dynamic `t(variable)` calls it could not resolve statically.
+
 ## Testing
 
 No unit test framework is set up. CI (`tests.inc.yml`) runs on every PR:
